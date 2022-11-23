@@ -154,7 +154,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7213562084912590954}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d44c8db5a2b00d74787084cbdbbbcd1e, type: 3}
   m_Name: 
@@ -162,9 +162,7 @@ MonoBehaviour:
   _img: {fileID: 7213562084912590958}
   _default: {fileID: -65551566, guid: bb8b3122d274d76479791d28253f6c53, type: 3}
   _pressed: {fileID: 737685939, guid: bb8b3122d274d76479791d28253f6c53, type: 3}
-  _compressClip: {fileID: 0}
-  _uncompressClip: {fileID: 0}
-  _audioSource: {fileID: 5835307390469321900}
+  _clickClip: {fileID: 8300000, guid: daed8096d9fef3941a5dbdd15bcd9805, type: 3}
 --- !u!82 &5835307390469321900
 AudioSource:
   m_ObjectHideFlags: 0

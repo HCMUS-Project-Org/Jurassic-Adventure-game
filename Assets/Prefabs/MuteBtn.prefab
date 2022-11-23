@@ -94,9 +94,7 @@ MonoBehaviour:
   _img: {fileID: 1279201211193597822}
   _default: {fileID: 2025868790, guid: c3355160692ac4f4fb8fbbafe3b29a7f, type: 3}
   _pressed: {fileID: -1794151674, guid: c3355160692ac4f4fb8fbbafe3b29a7f, type: 3}
-  _compressClip: {fileID: 0}
-  _uncompressClip: {fileID: 0}
-  _audioSource: {fileID: 1279201211193597819}
+  _clickClip: {fileID: 8300000, guid: daed8096d9fef3941a5dbdd15bcd9805, type: 3}
 --- !u!114 &1279201211193597816
 MonoBehaviour:
   m_ObjectHideFlags: 0

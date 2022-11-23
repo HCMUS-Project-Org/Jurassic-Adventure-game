@@ -1,0 +1,14 @@
+Pixel Art Platformer - Village Props
+
+2.1.0
+	- Extend ground tileset to full Blob tileset with tile variations.
+	- Props texture sheet re-arranged.
+	- Add more chest variation and chest open and close animation.
+	- Add props prefabs.
+
+2.0.0
+	- Add 39 new props.
+	- Add a darken version of the ground tileset.
+
+1.0.0
+	- First Release.

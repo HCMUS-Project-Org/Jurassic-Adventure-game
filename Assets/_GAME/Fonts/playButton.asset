@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: River Adventurer SDF
+  m_Name: playButton
   m_EditorClassIdentifier: 
-  hashCode: -673737641
+  hashCode: -748127502
   material: {fileID: 4232580838103314726}
-  materialHashCode: -1330103273
+  materialHashCode: 197538322
   m_Version: 1.1.0
   m_SourceFontFileGUID: 19430cbc8c722a14d96a340a629b526f
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 19430cbc8c722a14d96a340a629b526f, type: 3}
@@ -2458,7 +2458,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: River Adventurer SDF Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - UNDERLAY_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -2492,36 +2493,36 @@ Material:
     m_Ints: []
     m_Floats:
     - _Ambient: 0.5
-    - _Bevel: 0.5
-    - _BevelClamp: 0
-    - _BevelOffset: 0
-    - _BevelRoundness: 0
-    - _BevelWidth: 0
+    - _Bevel: 1
+    - _BevelClamp: 1
+    - _BevelOffset: 0.5
+    - _BevelRoundness: 1
+    - _BevelWidth: 0.5
     - _BumpFace: 0
-    - _BumpOutline: 0
+    - _BumpOutline: 0.62
     - _ColorMask: 15
     - _CullMode: 0
     - _Diffuse: 0.5
-    - _FaceDilate: 0
+    - _FaceDilate: 0.1
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
-    - _GlowInner: 0.05
+    - _GlowInner: 0
     - _GlowOffset: 0
-    - _GlowOuter: 0.05
-    - _GlowPower: 0.75
+    - _GlowOuter: 1
+    - _GlowPower: 1
     - _GradientScale: 6
-    - _LightAngle: 3.1416
+    - _LightAngle: 6.2831855
     - _MaskSoftnessX: 0
     - _MaskSoftnessY: 0
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.3
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
-    - _ScaleRatioB: 0.6770833
-    - _ScaleRatioC: 0.6770833
+    - _ScaleRatioB: 0.59375
+    - _ScaleRatioC: 0.296875
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -2534,9 +2535,9 @@ Material:
     - _StencilWriteMask: 255
     - _TextureHeight: 512
     - _TextureWidth: 512
-    - _UnderlayDilate: 0
-    - _UnderlayOffsetX: 0
-    - _UnderlayOffsetY: 0
+    - _UnderlayDilate: 1
+    - _UnderlayOffsetX: -0.42
+    - _UnderlayOffsetY: -1
     - _UnderlaySoftness: 0
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
@@ -2546,13 +2547,13 @@ Material:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
+    - _GlowColor: {r: 1, g: 0.050980393, b: 0, a: 1}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0.5660378, g: 0.25637394, b: 0, a: 1}
+    - _ReflectFaceColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+    - _ReflectOutlineColor: {r: 1, g: 0.12641507, b: 0.12641507, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+    - _UnderlayColor: {r: 0.5283019, g: 0.073502876, b: 0, a: 0.54901963}
   m_BuildTextureStacks: []
 --- !u!28 &7492487631291057582
 Texture2D:

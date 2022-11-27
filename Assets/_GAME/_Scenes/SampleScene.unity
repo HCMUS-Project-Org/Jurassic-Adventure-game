@@ -2099,14 +2099,6 @@ PrefabInstance:
       propertyPath: m_text
       value: Tutorial
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6570626800220164080, guid: f4b12e8ebdd35f0408267d89319f8c98, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7544,10 +7536,10 @@ RectTransform:
   m_Father: {fileID: 957547085}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: 15.877}
-  m_SizeDelta: {x: 1920, y: 1068}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1282791111
 MonoBehaviour:
@@ -10772,14 +10764,6 @@ PrefabInstance:
       propertyPath: m_text
       value: LibraRy
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6570626800220164080, guid: f4b12e8ebdd35f0408267d89319f8c98, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12455,10 +12439,6 @@ PrefabInstance:
     - target: {fileID: 1012582978, guid: f4b12e8ebdd35f0408267d89319f8c98, type: 3}
       propertyPath: m_text
       value: SeTtings
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_RootOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6570626800220164080, guid: f4b12e8ebdd35f0408267d89319f8c98, type: 3}
       propertyPath: m_Pivot.x

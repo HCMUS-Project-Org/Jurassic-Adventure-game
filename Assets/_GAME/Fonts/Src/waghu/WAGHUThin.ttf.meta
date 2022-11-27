@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f53930c1407160c4fa354d3e52402499
+guid: 0dbfbc0ae9bceb8458f79d41e17f4508
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,8 +9,12 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Dinomik
-  fallbackFontReferences: []
+  - WAGHU
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 776ed36794c10ce4a89d2ee934dcdfed, type: 3}
+  - {fileID: 12800000, guid: f257fe0051a99cc4d89ac2e29d9cf848, type: 3}
+  - {fileID: 12800000, guid: 34b770ecc6616bd49921d391f2d517a4, type: 3}
+  - {fileID: 12800000, guid: 4168d8d0d6e94724f9d526d4f4599d0c, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1e2cfbe423e0d0e4ca32ecb2bfe0d0d0
+guid: 34b770ecc6616bd49921d391f2d517a4
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,8 +9,10 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Viking
-  fallbackFontReferences: []
+  - WAGHU
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f257fe0051a99cc4d89ac2e29d9cf848, type: 3}
+  - {fileID: 12800000, guid: 4168d8d0d6e94724f9d526d4f4599d0c, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

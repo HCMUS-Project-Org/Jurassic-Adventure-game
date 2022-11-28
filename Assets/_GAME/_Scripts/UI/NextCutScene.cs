@@ -9,8 +9,10 @@ using TMPro;
 public class NextCutScene : MonoBehaviour, IPointerDownHandler
 {
     private int clickTime = 0;
-    [SerializeField] TMPro.TextMeshProUGUI sceneText;
     private string fullText;
+    [SerializeField] TMPro.TextMeshProUGUI sceneText;
+    [SerializeField] GameObject currentCutScene;
+    [SerializeField] GameObject nextCutScene;
 
     void Awake() 
     {
@@ -18,26 +20,34 @@ public class NextCutScene : MonoBehaviour, IPointerDownHandler
         fullText =  sceneText.GetComponent<TypeWriterEffect>().fullText;
     }
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        clickTime++;
-        Debug.Log("ClickyButton" + clickTime);
-        string s = sceneText.text;
-        if (clickTime == 1) {
-
-            // disable TypeWriterEffect script
-        sceneText.GetComponent<TypeWriterEffect>().enabled = false;
-        sceneText.text= "ddddddddddddddd";
-
-        Debug.Log("full:" + fullText);
-            Debug.Log("Disable " + sceneText.GetComponent<TypeWriterEffect>());
-            // s = sceneText.GetComponent().fullText;
-            // Debug.Log("TextObj" + s);
-
+    private void NextScene() {
+        // load next cutscene
+        if (nextCutScene)  {
+            currentCutScene.SetActive(false);
+            nextCutScene.SetActive(true);    
         }
-        Debug.Log("TextObj" + s);
-
     }
 
-   
+    public void OnPointerDown(PointerEventData eventData) {
+        clickTime++;
+        
+        if (clickTime == 1) {
+            // stop TypeWriterEffect script
+            sceneText.GetComponent<TypeWriterEffect>().StopTypeWriterCorountine();
+
+            if (fullText.Equals(sceneText.text)) {
+                NextScene();
+            }
+            else 
+            {
+                sceneText.text = fullText;
+                
+                // stop sound
+                GameObject.Find("Voice").GetComponent<AudioSource>().enabled = false;
+            }
+            
+        } else {
+            NextScene();
+        }
+    }
 }

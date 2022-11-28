@@ -28,7 +28,7 @@ using UnityEngine.UI;
         _img.sprite = _pressed;
 
         if (hasText)
-            _buttonText.position += 7 * Vector3.down;
+            _buttonText.position += 2 * Vector3.down;
 
         _audioSource.PlayOneShot(_clickClip);
     }
@@ -38,6 +38,6 @@ using UnityEngine.UI;
         _img.sprite = _default;
 
         if (hasText)
-            _buttonText.position += 7 * Vector3.up;
+            _buttonText.position += 2 * Vector3.up;
     }
 }

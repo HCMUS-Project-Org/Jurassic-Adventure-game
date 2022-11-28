@@ -7,12 +7,18 @@ public class TypeWriterEffect : MonoBehaviour {
 	public float duration = 13f;
 	public string fullText;
 	private string currentText = "";
+	private Coroutine gameCoroutine = null;
 
 	// Use this for initialization
 	void Start () {
-		StartCoroutine(ShowText());
+		gameCoroutine = StartCoroutine(ShowText());
 	}
 	
+	public void StopTypeWriterCorountine() {
+		if (gameCoroutine != null)
+				StopCoroutine (gameCoroutine);
+	}
+
 	IEnumerator ShowText(){
 		float delay = duration/fullText.Length;
 

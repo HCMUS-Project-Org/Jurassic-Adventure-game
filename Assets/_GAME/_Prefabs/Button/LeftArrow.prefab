@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7238786300544682578}
   - component: {fileID: -7685908000807748269}
   - component: {fileID: -6259040381605290672}
+  - component: {fileID: 324794645188902410}
   m_Layer: 0
   m_Name: LeftArrow
   m_TagString: Untagged
@@ -139,6 +140,7 @@ MonoBehaviour:
   _default: {fileID: -1915686493, guid: 43f4e0825ffbf184ab897eef534fcc0c, type: 3}
   _pressed: {fileID: 41676037, guid: 43f4e0825ffbf184ab897eef534fcc0c, type: 3}
   _clickClip: {fileID: 8300000, guid: daed8096d9fef3941a5dbdd15bcd9805, type: 3}
+  hasText: 0
 --- !u!82 &-6259040381605290672
 AudioSource:
   m_ObjectHideFlags: 0
@@ -235,3 +237,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!61 &324794645188902410
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238786300544682591}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 65.731, y: 65.731}
+  m_EdgeRadius: 0

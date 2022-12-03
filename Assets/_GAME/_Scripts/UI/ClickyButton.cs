@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(AudioSource))] public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] private Image       _img;
@@ -39,5 +40,15 @@ using UnityEngine.UI;
 
         if (hasText)
             _buttonText.position += 2 * Vector3.up;
+    }
+
+    public void OnMouseEnter()
+    {
+        MouseControl.instance.Clickable();
+    }
+
+    public void OnMouseExit()
+    {
+        MouseControl.instance.Default();
     }
 }

@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 5803666740069112959}
   - component: {fileID: 5803666740069112956}
   - component: {fileID: 5498448543659263331}
+  - component: {fileID: 2504688636133222187}
   m_Layer: 0
   m_Name: PlayBtn
   m_TagString: Untagged
@@ -288,6 +289,7 @@ MonoBehaviour:
   _default: {fileID: 857377293, guid: 6c7fed31668bd1b40a951f2647d4fd38, type: 3}
   _pressed: {fileID: -1371835035, guid: 6c7fed31668bd1b40a951f2647d4fd38, type: 3}
   _clickClip: {fileID: 8300000, guid: c7d58f9dae986ed4e8fbf3a7b430dcfb, type: 3}
+  hasText: 0
 --- !u!82 &5803666740069112956
 AudioSource:
   m_ObjectHideFlags: 0
@@ -398,3 +400,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingScreen: {fileID: 0}
   slider: {fileID: 0}
+--- !u!61 &2504688636133222187
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5803666740069112953}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

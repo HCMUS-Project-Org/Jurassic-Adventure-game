@@ -11945,8 +11945,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5551eb9b43fce204db50bb1aa4fd5cf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultCursor: {fileID: 2800000, guid: 438c361223281c6489ddd7239d038d08, type: 3}
-  clickableCursor: {fileID: 2800000, guid: 8a8227d9a47238a4b8be6f850c561ac1, type: 3}
+  defaultCursor: {fileID: 2800000, guid: 07886214d9a5bbc478a8ffdd33f09ac9, type: 3}
+  clickableCursor: {fileID: 2800000, guid: dda44191b6129b343929a41ae8e6e235, type: 3}
 --- !u!1001 &2003703783
 PrefabInstance:
   m_ObjectHideFlags: 0

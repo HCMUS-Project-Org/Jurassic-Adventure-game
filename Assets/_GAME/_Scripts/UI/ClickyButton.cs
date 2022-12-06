@@ -11,25 +11,34 @@ using UnityEngine.UI;
     [SerializeField] private Image       _img;
     [SerializeField] private Sprite      _default, _pressed;
     [SerializeField] private AudioClip   _clickClip;
-    private                  Transform   _buttonText;
+    private                  Transform   _buttonText ,_buttonImg;
     private                  AudioSource _audioSource;
+    
+    private float positionChange = 2f;
 
     public bool hasText;
+    public bool hasImg;
 
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
-
+ 
         if (hasText)
             _buttonText = GetComponentInChildren<TextMeshProUGUI>().transform;
+
+        if (hasImg)
+            _buttonImg = GetComponentInChildren<Image>().transform;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         _img.sprite = _pressed;
 
-        if (hasText)
-            _buttonText.position += 2 * Vector3.down;
+        if (hasText) 
+            _buttonText.position += positionChange * Vector3.down;
+
+        if (hasImg)
+            _buttonImg.position += positionChange * Vector3.down;
 
         _audioSource.PlayOneShot(_clickClip);
     }
@@ -38,17 +47,11 @@ using UnityEngine.UI;
     {
         _img.sprite = _default;
 
-        if (hasText)
-            _buttonText.position += 2 * Vector3.up;
-    }
+        if (hasText) 
+            _buttonText.position += positionChange * Vector3.up;
 
-    public void OnMouseEnter()
-    {
-        MouseControl.instance.Clickable();
-    }
-
-    public void OnMouseExit()
-    {
-        MouseControl.instance.Default();
+        if (hasImg)
+            _buttonImg.position += positionChange * Vector3.up;
+        
     }
 }

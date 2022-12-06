@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7731691199252397359}
   - component: {fileID: -7344450294491473420}
   - component: {fileID: 7353674411700455055}
+  - component: {fileID: 6333980514204380489}
   m_Layer: 0
   m_Name: CloseBtn
   m_TagString: Untagged
@@ -275,3 +276,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
+--- !u!114 &6333980514204380489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4513437684676780840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ee30b514cbf9b4fb33219e909f768f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls: []

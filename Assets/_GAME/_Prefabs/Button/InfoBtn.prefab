@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 6661399446236856801}
   - component: {fileID: 6661399446236856800}
   - component: {fileID: 6661399446236856803}
+  - component: {fileID: 4652948699533387872}
+  - component: {fileID: 2091544014}
   m_Layer: 0
   m_Name: InfoBtn
   m_TagString: Untagged
@@ -95,6 +97,7 @@ MonoBehaviour:
   _default: {fileID: -751944309, guid: 033d0d84488c5cb48b258fac6bf1d92b, type: 3}
   _pressed: {fileID: -1364133490, guid: 033d0d84488c5cb48b258fac6bf1d92b, type: 3}
   _clickClip: {fileID: 8300000, guid: daed8096d9fef3941a5dbdd15bcd9805, type: 3}
+  hasText: 0
 --- !u!114 &6661399446236856800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,3 +250,50 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!61 &4652948699533387872
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6661399446236856813}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 100, y: 100}
+  m_EdgeRadius: 0
+--- !u!114 &2091544014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6661399446236856813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ee30b514cbf9b4fb33219e909f768f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls: []

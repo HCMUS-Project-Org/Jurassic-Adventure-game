@@ -10853,6 +10853,7 @@ MonoBehaviour:
     m_Bits: 8
   jumpSprite: {fileID: 21300000, guid: 252ffec7c9fc54e48aba43b7deffdfb5, type: 3}
   moveSprite: {fileID: 21300000, guid: 19fc076393ea74c45b4e1cb81dc3097f, type: 3}
+  dashSprite: {fileID: 21300000, guid: a5027a8f4f73a364c9f916f57e2556c7, type: 3}
   _speed: 15
   jumpVelocity: 10
 --- !u!1 &1495395790

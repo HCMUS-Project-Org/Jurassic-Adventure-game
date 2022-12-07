@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private LayerMask platformLayerMask;
-    [SerializeField] private Sprite jumpSprite, moveSprite;
+    [SerializeField] private Sprite jumpSprite, moveSprite, dashSprite;
 
     public float _speed = 5;
     public float jumpVelocity = 1;
@@ -23,12 +23,25 @@ public class PlayerMovement : MonoBehaviour
 
 
     private void Update() {
-        if (Input.GetButtonDown("Jump") && IsGrounded()) 
-            _rigidbody2d.velocity = Vector2.up * jumpVelocity;
+        if (IsGrounded()) {
+            // jump
+            if (Input.GetButtonDown("Jump"))  {
+                _rigidbody2d.velocity = Vector2.up * jumpVelocity;
+            }
+            // dash
+            if (Input.GetKey(KeyCode.LeftShift)) {
+                GetComponent<SpriteRenderer>().sprite = dashSprite;
+            } 
+            //move
+            else {
+                GetComponent<SpriteRenderer>().sprite = moveSprite;
+            }
+        } 
+        else {
+            GetComponent<SpriteRenderer>().sprite = jumpSprite;
+        }
 
         HandleMovement();
-
-        ChangeSprite();
     }
 
 
@@ -38,6 +51,10 @@ public class PlayerMovement : MonoBehaviour
         moveRight = movement > 0 ? true : false;
 
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * _speed;
+
+        if ((moveRight && !facingRight) || (!moveRight && facingRight)) {
+            Flip();
+        }
     }
 
 
@@ -45,24 +62,7 @@ public class PlayerMovement : MonoBehaviour
     {
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(_boxCollider2d.bounds.center, _boxCollider2d.bounds.size, 0f, Vector2.down, .1f, platformLayerMask);
         
-        Debug.Log(raycastHit2D.collider);
-
         return raycastHit2D.collider != null;
-    }
-
-
-    private void ChangeSprite() {
-         // jump
-        if (IsGrounded()) {
-            GetComponent<SpriteRenderer>().sprite = moveSprite;
-        } else {
-            GetComponent<SpriteRenderer>().sprite = jumpSprite;
-        }
-
-        // flip the player
-        if ((moveRight && !facingRight) || (!moveRight && facingRight)) {
-            Flip();
-        }
     }
 
 

@@ -14,7 +14,8 @@ public class PlayerMovement : MonoBehaviour
     private bool facingRight = true;
     private bool moveRight = true;
     private bool isCrouch = false;
-    
+    private bool isCrouchDash = false;
+
     private Rigidbody2D _rigidbody2d;
     private BoxCollider2D _boxCollider2d;
 
@@ -38,6 +39,10 @@ public class PlayerMovement : MonoBehaviour
             }
             // crouch
             isCrouch = Input.GetKey(KeyCode.LeftShift);
+
+            // crouch dash
+            isCrouchDash = Input.GetKey(KeyCode.Q);
+                
         } 
         else {
             // GetComponent<SpriteRenderer>().sprite = jumpSprite;
@@ -49,37 +54,41 @@ public class PlayerMovement : MonoBehaviour
 
 
     private void HandleMovement() {
-        Debug.Log("isCrouch: " + isCrouch);
+        Debug.Log("isCrouchDash: " + isCrouchDash);
         movement = Input.GetAxis("Horizontal");
         
         if (!IsGrounded()) {
             animator.SetBool("IsJump", true);
             animator.SetBool("IsRun", false);
             animator.SetBool("IsCrouch", false);
+            animator.SetBool("IsCrouchDash", false);
+
         } else {
             animator.SetBool("IsJump", false);
 
             if (movement == 0f) {
                 animator.SetBool("IsRun", false);
                 animator.SetBool("IsCrouch", isCrouch);
+                animator.SetBool("IsCrouchDash", isCrouchDash);
+
             } else if (movement != 0f) {
                 if (isCrouch) {
                     animator.SetBool("IsRun", false);
+                    animator.SetBool("IsCrouchDash", false);
                     animator.SetBool("IsCrouch", true);
+
+                } else if (isCrouchDash) {
+                    animator.SetBool("IsRun", false);
+                    animator.SetBool("IsCrouch", false);
+                    animator.SetBool("IsCrouchDash", true);
+
                 } else {
                     animator.SetBool("IsRun", true);
                     animator.SetBool("IsCrouch", false);
+                    animator.SetBool("IsCrouchDash", false);
                 }
             }
         }
-            
-            // animator.SetBool("IsCrouch", isCrouch);
-        // }
-        // else if (movement != 0f && IsGrounded()){
-        //     animator.SetBool("IsRun", true);
-        //     animator.SetBool("IsJump", false);
-        // }
-        
 
         moveRight = movement > 0 ? true : false;
 

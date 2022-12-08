@@ -50,3 +50,6 @@ TagManager:
   - name: Surface
     uniqueID: 3011678425
     locked: 0
+  - name: Character
+    uniqueID: 951667095
+    locked: 0

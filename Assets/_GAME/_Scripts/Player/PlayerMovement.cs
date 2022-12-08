@@ -9,9 +9,11 @@ public class PlayerMovement : MonoBehaviour
 
     public float _speed = 5;
     public float jumpVelocity = 1;
+    private float movement = 0f;
 
     private bool facingRight = true;
     private bool moveRight = true;
+    private bool isCrouch = false;
     
     private Rigidbody2D _rigidbody2d;
     private BoxCollider2D _boxCollider2d;
@@ -34,16 +36,8 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("IsRun", false);
 
             }
-            // dash
-            if (Input.GetKey(KeyCode.LeftShift)) {
-                // GetComponent<SpriteRenderer>().sprite = dashSprite;
-                animator.SetBool("IsCrouch", true);
-            } 
-            //move
-            else {
-                
-                // GetComponent<SpriteRenderer>().sprite = moveSprite;
-            }
+            // crouch
+            isCrouch = Input.GetKey(KeyCode.LeftShift);
         } 
         else {
             // GetComponent<SpriteRenderer>().sprite = jumpSprite;
@@ -55,18 +49,36 @@ public class PlayerMovement : MonoBehaviour
 
 
     private void HandleMovement() {
-        var movement = Input.GetAxis("Horizontal");
+        Debug.Log("isCrouch: " + isCrouch);
+        movement = Input.GetAxis("Horizontal");
         
-        if (movement == 0f)
-            animator.SetBool("IsRun", false);
-        else if (movement != 0f && !IsGrounded()) {
-            animator.SetBool("IsRun", false);
+        if (!IsGrounded()) {
             animator.SetBool("IsJump", true);
-        }
-        else  {
-            animator.SetBool("IsRun", true);
+            animator.SetBool("IsRun", false);
+            animator.SetBool("IsCrouch", false);
+        } else {
             animator.SetBool("IsJump", false);
+
+            if (movement == 0f) {
+                animator.SetBool("IsRun", false);
+                animator.SetBool("IsCrouch", isCrouch);
+            } else if (movement != 0f) {
+                if (isCrouch) {
+                    animator.SetBool("IsRun", false);
+                    animator.SetBool("IsCrouch", true);
+                } else {
+                    animator.SetBool("IsRun", true);
+                    animator.SetBool("IsCrouch", false);
+                }
+            }
         }
+            
+            // animator.SetBool("IsCrouch", isCrouch);
+        // }
+        // else if (movement != 0f && IsGrounded()){
+        //     animator.SetBool("IsRun", true);
+        //     animator.SetBool("IsJump", false);
+        // }
         
 
         moveRight = movement > 0 ? true : false;
@@ -82,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(_boxCollider2d.bounds.center, _boxCollider2d.bounds.size, 0f, Vector2.down, .1f, platformLayerMask);
-        Debug.Log(raycastHit2D.collider);
+        // Debug.Log(raycastHit2D.collider);
         return raycastHit2D.collider != null;
     }
 

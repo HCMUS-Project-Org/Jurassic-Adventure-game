@@ -44,7 +44,11 @@ public class PlayerMovement : MonoBehaviour
 
         // melee
         if (Input.GetKeyDown(KeyCode.Mouse1))
-            animator.SetTrigger("IsMelee");                
+            animator.SetTrigger("Melee");   
+        
+        // skill
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            animator.SetTrigger("Skill");                
 
         HandleMovement();
     }

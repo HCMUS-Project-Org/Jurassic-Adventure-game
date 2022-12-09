@@ -28,33 +28,30 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update() {
         if (IsGrounded()) {
-            
-
             // jump
             if (Input.GetButtonDown("Jump"))  {
                 _rigidbody2d.velocity = Vector2.up * jumpVelocity;
                 animator.SetBool("IsJump", true);
                 animator.SetBool("IsRun", false);
-
             }
             // crouch
-            isCrouch = Input.GetKey(KeyCode.LeftShift);
+            isCrouch = Input.GetKey(KeyCode.LeftControl);
 
             // crouch dash
-            isCrouchDash = Input.GetKey(KeyCode.Q);
-                
+            isCrouchDash = Input.GetKey(KeyCode.LeftShift);
+
         } 
-        else {
-            // GetComponent<SpriteRenderer>().sprite = jumpSprite;
-            // animator.SetBool("IsJump", false);
-        }
+
+        // melee
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+            animator.SetTrigger("IsMelee");                
 
         HandleMovement();
     }
 
 
     private void HandleMovement() {
-        Debug.Log("isCrouchDash: " + isCrouchDash);
+        // Debug.Log("isCrouchDash: " + isCrouchDash);
         movement = Input.GetAxis("Horizontal");
         
         if (!IsGrounded()) {

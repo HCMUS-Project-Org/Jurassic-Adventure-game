@@ -1,26 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ChooseCharacter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] GameObject Ninja, Knight;
+    [SerializeField] GameObject KnightSelectedArrow, NinjaSelectedArrow;
+    private TMPro.TextMeshProUGUI characterName;
+
+    public static int Character = 0;
+
+    void Start() {
+        characterName = GameObject.Find("CharacterName").GetComponent<TextMeshProUGUI>();    
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    // hover board character
-    void OnMouseOver()
-    {
-        //If your mouse hovers over the GameObject with the script attached, output this message
-        Debug.Log("Mouse is over GameObject.");
-        transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+    public void PickCharacter(int characterIdx) {
+        // 1: knight // 2: ninja
+        if (characterIdx == 1) {
+            // knight
+            Knight.SetActive(true);
+            Ninja.SetActive(false);
+            NinjaSelectedArrow.SetActive(false);
+            KnightSelectedArrow.SetActive(true);
+            
+            characterName.text = "Knight";
+            Character = 1;
+        }
+        else if (characterIdx == 0) {
+            // ninja
+            Knight.SetActive(false);
+            Ninja.SetActive(true);
+            KnightSelectedArrow.SetActive(false);
+            NinjaSelectedArrow.SetActive(true);
+            
+            characterName.text = "Ninja";            
+            Character = 0;
+        }
     }
 }

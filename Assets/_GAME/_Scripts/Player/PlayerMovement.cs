@@ -4,8 +4,6 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private LayerMask platformLayerMask;
-    [SerializeField] private Animator animator;
-    // [SerializeField] private Sprite jumpSprite, moveSprite, dashSprite;
 
     public float _speed = 5;
     public float jumpVelocity = 1;
@@ -16,13 +14,15 @@ public class PlayerMovement : MonoBehaviour
     private bool isCrouch = false;
     private bool isCrouchDash = false;
 
-    private Rigidbody2D _rigidbody2d;
-    private BoxCollider2D _boxCollider2d;
+    private Rigidbody2D rigidbody2d;
+    private BoxCollider2D boxCollider2d;
+    private Animator animator;
 
 
-    private void Awake() {
-        _rigidbody2d= transform.GetComponent<Rigidbody2D>();
-        _boxCollider2d = transform.GetComponent<BoxCollider2D>();
+    private void Start() {
+        rigidbody2d= transform.GetComponent<Rigidbody2D>();
+        boxCollider2d = transform.GetComponent<BoxCollider2D>();
+        animator = GetComponent<PlayerController>().animator;
     }
 
 
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded()) {
             // jump
             if (Input.GetButtonDown("Jump"))  {
-                _rigidbody2d.velocity = Vector2.up * jumpVelocity;
+                rigidbody2d.velocity = Vector2.up * jumpVelocity;
                 animator.SetBool("IsJump", true);
                 animator.SetBool("IsRun", false);
             }
@@ -103,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        RaycastHit2D raycastHit2D = Physics2D.BoxCast(_boxCollider2d.bounds.center, _boxCollider2d.bounds.size, 0f, Vector2.down, .1f, platformLayerMask);
+        RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size, 0f, Vector2.down, .1f, platformLayerMask);
         // Debug.Log(raycastHit2D.collider);
         return raycastHit2D.collider != null;
     }

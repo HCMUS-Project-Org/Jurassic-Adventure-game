@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour
         timer = changeTime;
     }
 
-   void Update()
+    void Update()
     {
         timer -= Time.deltaTime;
         if (timer < 0)
@@ -45,5 +45,4 @@ public class EnemyController : MonoBehaviour
             player.health.ChangeHealth(-1);
         }
     }
-   
 }

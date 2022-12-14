@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
 
     public PlayerHealth health;
+    public Animator animator;
     private Rigidbody2D rigidbody2d;
-
 
     void Start()
     {

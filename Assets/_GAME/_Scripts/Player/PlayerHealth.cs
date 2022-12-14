@@ -9,12 +9,12 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        currentHealth = 90;
+        currentHealth = maxHealth;
     }
 
     public void ChangeHealth(int amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        // Debug.Log(currentHealth + "/" + maxHealth);
+        Debug.Log("Player health:" + currentHealth + "/" + maxHealth);
     }
 }

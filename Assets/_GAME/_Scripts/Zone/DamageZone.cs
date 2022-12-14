@@ -6,7 +6,7 @@ public class DamageZone : MonoBehaviour
 {
     [SerializeField] private int damage = 1;
 
-    void OnTriggerStay2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerController controller = collision.GetComponent<PlayerController>();
         

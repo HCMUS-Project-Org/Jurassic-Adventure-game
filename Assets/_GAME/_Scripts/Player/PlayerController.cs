@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update() {
-        Debug.Log(health.currentHealth + "/" + health.maxHealth);
+        // Debug.Log(health.currentHealth + "/" + health.maxHealth);
     }
     
 }

@@ -14,8 +14,7 @@ public class HealthCollectible : MonoBehaviour
             {
                 controller.health.ChangeHealth(1);
                 Destroy(gameObject);
-            }
-            
+            }        
         }
     }
 }

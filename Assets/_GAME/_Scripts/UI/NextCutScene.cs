@@ -13,6 +13,7 @@ public class NextCutScene : MonoBehaviour, IPointerDownHandler {
     [SerializeField] GameObject _nextCutScene;
 
     private int _clickTime = 0;
+    
     private string _fullText;
 
 

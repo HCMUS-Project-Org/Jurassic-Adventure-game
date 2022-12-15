@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MouseControl : MonoBehaviour {
 
-    public Texture2D defaultCursor, clickableCursor;
     public static MouseControl instance;
+    public        Texture2D defaultCursor, clickableCursor;
 
 
     private void Awake() {

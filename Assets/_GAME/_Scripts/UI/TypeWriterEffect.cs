@@ -4,10 +4,13 @@ using UnityEngine.UI;
 using TMPro;
 public class TypeWriterEffect : MonoBehaviour {
 
-	public float duration = 13f;
-	public string fullText;
-	private string currentText = "";
 	private Coroutine gameCoroutine = null;
+	
+	private string currentText = "";
+	
+	public string fullText;
+	
+	public float duration = 13f;
 
 
 	// Use this for initialization

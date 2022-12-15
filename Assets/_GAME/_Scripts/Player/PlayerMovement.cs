@@ -2,21 +2,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour {
-    
+
     [SerializeField] private LayerMask _platformLayerMask;
+    private                  Rigidbody2D _rigidbody2d;
+    private                  BoxCollider2D _boxCollider2d;
+    private                  Animator _animator;
+    
     [SerializeField] private float _speed = 5;
     [SerializeField] private float _jumpVelocity = 1;
-
-    private float _movement = 0f;
+    private                  float _movement = 0f;
 
     private bool _facingRight = true;
     private bool _moveRight = true;
     private bool _isCrouch = false;
     private bool _isCrouchDash = false;
-
-    private Rigidbody2D _rigidbody2d;
-    private BoxCollider2D _boxCollider2d;
-    private Animator _animator;
 
 
     private void Start() {

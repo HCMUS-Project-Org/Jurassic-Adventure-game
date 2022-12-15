@@ -8,8 +8,7 @@ public class ParallaxBG : MonoBehaviour {
 
     [SerializeField] private RawImage _img;
     [SerializeField] private Vector2  _offset;
-
-    private Vector2 _size;
+    private                  Vector2 _size;
 
 
     private void Start() {

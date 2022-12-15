@@ -5,13 +5,13 @@ using UnityEngine.UI;
 using TMPro;
 
 public class PlayerHealth : MonoBehaviour {
-    
-    public int maxHealth = 100;
-    public int currentHealth;
 
     private Animator _animator;
     private TMPro.TextMeshProUGUI _healthShow; 
 
+    public int maxHealth = 100;
+    public int currentHealth;
+    
 
     void Start() {
         _animator = GetComponent<PlayerController>().animator;

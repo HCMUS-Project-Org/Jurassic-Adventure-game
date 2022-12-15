@@ -7,9 +7,11 @@ public class GameController : MonoBehaviour {
     [SerializeField] private GameObject[] _enemies;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _levelCompleteUI, _levelFailedUI, _pauseMenuUI;
+    
     [SerializeField] private int _level;
     
     public static bool isGamePaused = false;
+
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {

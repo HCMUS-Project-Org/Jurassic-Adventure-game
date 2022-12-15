@@ -10,10 +10,9 @@ public class ChooseCharacter : MonoBehaviour {
         Knight
     }
 
-    [SerializeField] GameObject _ninja, _knight;
-    [SerializeField] GameObject _knightSelectedArrow, _ninjaSelectedArrow;
-    
-    private TMPro.TextMeshProUGUI _characterName;
+    [SerializeField] private GameObject _ninja, _knight;
+    [SerializeField] private GameObject _knightSelectedArrow, _ninjaSelectedArrow;
+    private                  TMPro.TextMeshProUGUI _characterName;
 
     public static int character = 0;
 

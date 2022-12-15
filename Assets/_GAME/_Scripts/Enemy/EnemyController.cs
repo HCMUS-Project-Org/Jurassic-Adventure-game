@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
-    
+
     [SerializeField] private float _speed = 3.0f;
     [SerializeField] private float _changeTime = 3.0f;
+    private                  float _timer;
     
-    Rigidbody2D _rigidbody2D;
+    private int _direction = 1;
 
-    float _timer;
-    int _direction = 1;
+    private Rigidbody2D _rigidbody2D;
 
 
     // Start is called before the first frame update

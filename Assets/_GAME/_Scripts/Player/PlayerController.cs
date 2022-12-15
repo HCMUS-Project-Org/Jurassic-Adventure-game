@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-    
+
     [SerializeField] private RuntimeAnimatorController _ninjaController, _knightController;
-    private Rigidbody2D _rigidbody2d;
+    private                  Rigidbody2D _rigidbody2d;
 
     public PlayerHealth health;
     public Animator animator;

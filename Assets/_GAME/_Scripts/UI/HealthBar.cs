@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour {
 
-    public static HealthBar instance { get; private set; }
-    public Image mask;
-    
     private float _originalSize;
+
+    public static HealthBar instance { get; private set; }
+    public        Image mask;
 
 
     void Awake() {

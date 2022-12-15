@@ -4,7 +4,12 @@ using UnityEngine;
 using TMPro;
 
 public class ChooseCharacter : MonoBehaviour {
-    
+
+    public enum Character {
+        Ninja,
+        Knight
+    }
+
     [SerializeField] GameObject _ninja, _knight;
     [SerializeField] GameObject _knightSelectedArrow, _ninjaSelectedArrow;
     
@@ -14,7 +19,7 @@ public class ChooseCharacter : MonoBehaviour {
 
 
     void Start() {
-        _characterName = GameObject.Find("CharacterName").GetComponent<TextMeshProUGUI>();    
+        _characterName = GameObject.Find("CharacterName").GetComponent<TextMeshProUGUI>();  
     }
 
 

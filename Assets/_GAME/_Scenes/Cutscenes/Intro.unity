@@ -871,11 +871,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 800985229}
     - target: {fileID: 6570626801415992598, guid: b01a8f594798d8643bfc682466d3c343, type: 3}
+      propertyPath: _sceneText
+      value: 
+      objectReference: {fileID: 800985229}
+    - target: {fileID: 6570626801415992598, guid: b01a8f594798d8643bfc682466d3c343, type: 3}
       propertyPath: nextCutScene
       value: 
       objectReference: {fileID: 1098379619}
     - target: {fileID: 6570626801415992598, guid: b01a8f594798d8643bfc682466d3c343, type: 3}
+      propertyPath: _nextCutScene
+      value: 
+      objectReference: {fileID: 1098379619}
+    - target: {fileID: 6570626801415992598, guid: b01a8f594798d8643bfc682466d3c343, type: 3}
       propertyPath: currentCutScene
+      value: 
+      objectReference: {fileID: 1589668993}
+    - target: {fileID: 6570626801415992598, guid: b01a8f594798d8643bfc682466d3c343, type: 3}
+      propertyPath: _currentCutScene
       value: 
       objectReference: {fileID: 1589668993}
     - target: {fileID: 7000317863746045670, guid: b01a8f594798d8643bfc682466d3c343, type: 3}
@@ -1502,7 +1514,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1422178030}
     - target: {fileID: 6570626801415992598, guid: b01a8f594798d8643bfc682466d3c343, type: 3}
+      propertyPath: _sceneText
+      value: 
+      objectReference: {fileID: 1422178030}
+    - target: {fileID: 6570626801415992598, guid: b01a8f594798d8643bfc682466d3c343, type: 3}
       propertyPath: currentCutScene
+      value: 
+      objectReference: {fileID: 1098379619}
+    - target: {fileID: 6570626801415992598, guid: b01a8f594798d8643bfc682466d3c343, type: 3}
+      propertyPath: _currentCutScene
       value: 
       objectReference: {fileID: 1098379619}
     - target: {fileID: 7000317863746045670, guid: b01a8f594798d8643bfc682466d3c343, type: 3}
@@ -3220,11 +3240,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1544343514}
     - target: {fileID: 6570626801415992598, guid: b01a8f594798d8643bfc682466d3c343, type: 3}
+      propertyPath: _sceneText
+      value: 
+      objectReference: {fileID: 1544343514}
+    - target: {fileID: 6570626801415992598, guid: b01a8f594798d8643bfc682466d3c343, type: 3}
       propertyPath: nextCutScene
       value: 
       objectReference: {fileID: 1589668993}
     - target: {fileID: 6570626801415992598, guid: b01a8f594798d8643bfc682466d3c343, type: 3}
+      propertyPath: _nextCutScene
+      value: 
+      objectReference: {fileID: 1589668993}
+    - target: {fileID: 6570626801415992598, guid: b01a8f594798d8643bfc682466d3c343, type: 3}
       propertyPath: currentCutScene
+      value: 
+      objectReference: {fileID: 957547084}
+    - target: {fileID: 6570626801415992598, guid: b01a8f594798d8643bfc682466d3c343, type: 3}
+      propertyPath: _currentCutScene
       value: 
       objectReference: {fileID: 957547084}
     - target: {fileID: 7000317863746045670, guid: b01a8f594798d8643bfc682466d3c343, type: 3}

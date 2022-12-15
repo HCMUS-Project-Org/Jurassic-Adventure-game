@@ -522,11 +522,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 052bc84f69108cf4981c17df5195f437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ninja: {fileID: 1987774666}
-  Knight: {fileID: 1436019470}
-  KnightSelectedArrow: {fileID: 932914478}
-  NinjaSelectedArrow: {fileID: 2037901372}
-  Character: 0
+  _ninja: {fileID: 1987774666}
+  _knight: {fileID: 1436019470}
+  _knightSelectedArrow: {fileID: 932914478}
+  _ninjaSelectedArrow: {fileID: 2037901372}
 --- !u!4 &456003546
 Transform:
   m_ObjectHideFlags: 0

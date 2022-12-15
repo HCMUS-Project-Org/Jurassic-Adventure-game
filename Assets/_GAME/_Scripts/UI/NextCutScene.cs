@@ -6,47 +6,48 @@ using UnityEngine.UI;
 using TMPro;
 
 [RequireComponent(typeof(AudioSource))]
-public class NextCutScene : MonoBehaviour, IPointerDownHandler
-{
-    private int clickTime = 0;
-    private string fullText;
-    [SerializeField] TMPro.TextMeshProUGUI sceneText;
-    [SerializeField] GameObject currentCutScene;
-    [SerializeField] GameObject nextCutScene;
+public class NextCutScene : MonoBehaviour, IPointerDownHandler {
 
-    void Awake() 
-    {
-        sceneText = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();    
-        fullText =  sceneText.GetComponent<TypeWriterEffect>().fullText;
+    [SerializeField] TMPro.TextMeshProUGUI _sceneText;
+    [SerializeField] GameObject _currentCutScene;
+    [SerializeField] GameObject _nextCutScene;
+
+    private int _clickTime = 0;
+    private string _fullText;
+
+
+    void Awake() {
+        _sceneText = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();    
+        _fullText =  _sceneText.GetComponent<TypeWriterEffect>().fullText;
     }
 
     private void NextScene() {
         // load next cutscene
-        if (nextCutScene)  {
-            currentCutScene.SetActive(false);
-            nextCutScene.SetActive(true);    
+        if (_nextCutScene) {
+            _currentCutScene.SetActive(false);
+            _nextCutScene.SetActive(true);    
         }
     }
 
     public void OnPointerDown(PointerEventData eventData) {
-        clickTime++;
+        _clickTime++;
         
-        if (clickTime == 1) {
+        if (_clickTime == 1) {
             // stop TypeWriterEffect script
-            sceneText.GetComponent<TypeWriterEffect>().StopTypeWriterCorountine();
+            _sceneText.GetComponent<TypeWriterEffect>().StopTypeWriterCorountine();
 
-            if (fullText.Equals(sceneText.text)) {
+            if (_fullText.Equals(_sceneText.text)) {
                 NextScene();
             }
-            else 
-            {
-                sceneText.text = fullText;
+            else {
+                _sceneText.text = _fullText;
                 
                 // stop sound
                 GameObject.Find("Voice").GetComponent<AudioSource>().enabled = false;
             }
             
-        } else {
+        } 
+        else {
             NextScene();
         }
     }

@@ -9,22 +9,27 @@ public class TypeWriterEffect : MonoBehaviour {
 	private string currentText = "";
 	private Coroutine gameCoroutine = null;
 
+
 	// Use this for initialization
 	void Start () {
 		gameCoroutine = StartCoroutine(ShowText());
 	}
-	
+
+
 	public void StopTypeWriterCorountine() {
 		if (gameCoroutine != null)
 				StopCoroutine (gameCoroutine);
 	}
 
-	IEnumerator ShowText(){
+
+	IEnumerator ShowText() {
 		float delay = duration/fullText.Length;
 
-		for(int i = 0; i < fullText.Length; i++){
+		for (int i = 0; i < fullText.Length; i++) {
 			currentText = fullText.Substring(0,i);
+
 			this.GetComponent<TextMeshProUGUI>().text = currentText;
+
 			yield return new WaitForSeconds(delay);
 		}
 	}

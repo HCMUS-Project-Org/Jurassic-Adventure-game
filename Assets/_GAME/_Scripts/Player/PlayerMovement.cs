@@ -1,28 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerMovement : MonoBehaviour
-{
-    [SerializeField] private LayerMask platformLayerMask;
+public class PlayerMovement : MonoBehaviour {
+    
+    [SerializeField] private LayerMask _platformLayerMask;
+    [SerializeField] private float _speed = 5;
+    [SerializeField] private float _jumpVelocity = 1;
 
-    public float _speed = 5;
-    public float jumpVelocity = 1;
-    private float movement = 0f;
+    private float _movement = 0f;
 
-    private bool facingRight = true;
-    private bool moveRight = true;
-    private bool isCrouch = false;
-    private bool isCrouchDash = false;
+    private bool _facingRight = true;
+    private bool _moveRight = true;
+    private bool _isCrouch = false;
+    private bool _isCrouchDash = false;
 
-    private Rigidbody2D rigidbody2d;
-    private BoxCollider2D boxCollider2d;
-    private Animator animator;
+    private Rigidbody2D _rigidbody2d;
+    private BoxCollider2D _boxCollider2d;
+    private Animator _animator;
 
 
     private void Start() {
-        rigidbody2d= transform.GetComponent<Rigidbody2D>();
-        boxCollider2d = transform.GetComponent<BoxCollider2D>();
-        animator = GetComponent<PlayerController>().animator;
+        _rigidbody2d= transform.GetComponent<Rigidbody2D>();
+        _boxCollider2d = transform.GetComponent<BoxCollider2D>();
+        _animator = GetComponent<PlayerController>().animator;
     }
 
 
@@ -30,87 +30,85 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded()) {
             // jump
             if (Input.GetButtonDown("Jump"))  {
-                rigidbody2d.velocity = Vector2.up * jumpVelocity;
-                animator.SetBool("IsJump", true);
-                animator.SetBool("IsRun", false);
+                _rigidbody2d.velocity = Vector2.up * _jumpVelocity;
+                _animator.SetBool("IsJump", true);
+                _animator.SetBool("IsRun", false);
             }
+            
             // crouch
-            isCrouch = Input.GetKey(KeyCode.LeftControl);
+            _isCrouch = Input.GetKey(KeyCode.LeftControl);
 
             // crouch dash
-            isCrouchDash = Input.GetKey(KeyCode.LeftShift);
-
+            _isCrouchDash = Input.GetKey(KeyCode.LeftShift);
         } 
 
         // melee
         if (Input.GetKeyDown(KeyCode.Mouse1))
-            animator.SetTrigger("Melee");   
+            _animator.SetTrigger("Melee");   
         
         // skill
         if (Input.GetKeyDown(KeyCode.Mouse0))
-            animator.SetTrigger("Skill");                
+            _animator.SetTrigger("Skill");                
 
         HandleMovement();
     }
 
 
     private void HandleMovement() {
-        // Debug.Log("isCrouchDash: " + isCrouchDash);
-        movement = Input.GetAxis("Horizontal");
+        _movement = Input.GetAxis("Horizontal");
         
         if (!IsGrounded()) {
-            animator.SetBool("IsJump", true);
-            animator.SetBool("IsRun", false);
-            animator.SetBool("IsCrouch", false);
-            animator.SetBool("IsCrouchDash", false);
+            _animator.SetBool("IsJump", true);
+            _animator.SetBool("IsRun", false);
+            _animator.SetBool("IsCrouch", false);
+            _animator.SetBool("IsCrouchDash", false);
+        } 
+        else {
+            _animator.SetBool("IsJump", false);
 
-        } else {
-            animator.SetBool("IsJump", false);
+            if (_movement == 0f) {
+                _animator.SetBool("IsRun", false);
+                _animator.SetBool("IsCrouch", _isCrouch);
+                _animator.SetBool("IsCrouchDash", _isCrouchDash);
 
-            if (movement == 0f) {
-                animator.SetBool("IsRun", false);
-                animator.SetBool("IsCrouch", isCrouch);
-                animator.SetBool("IsCrouchDash", isCrouchDash);
+            } else if (_movement != 0f) {
+                if (_isCrouch) {
+                    _animator.SetBool("IsRun", false);
+                    _animator.SetBool("IsCrouchDash", false);
+                    _animator.SetBool("IsCrouch", true);
 
-            } else if (movement != 0f) {
-                if (isCrouch) {
-                    animator.SetBool("IsRun", false);
-                    animator.SetBool("IsCrouchDash", false);
-                    animator.SetBool("IsCrouch", true);
-
-                } else if (isCrouchDash) {
-                    animator.SetBool("IsRun", false);
-                    animator.SetBool("IsCrouch", false);
-                    animator.SetBool("IsCrouchDash", true);
+                } else if (_isCrouchDash) {
+                    _animator.SetBool("IsRun", false);
+                    _animator.SetBool("IsCrouch", false);
+                    _animator.SetBool("IsCrouchDash", true);
 
                 } else {
-                    animator.SetBool("IsRun", true);
-                    animator.SetBool("IsCrouch", false);
-                    animator.SetBool("IsCrouchDash", false);
+                    _animator.SetBool("IsRun", true);
+                    _animator.SetBool("IsCrouch", false);
+                    _animator.SetBool("IsCrouchDash", false);
                 }
             }
         }
 
-        moveRight = movement > 0 ? true : false;
+        _moveRight = _movement > 0 ? true : false;
 
-        transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * _speed;
+        transform.position += new Vector3(_movement, 0, 0) * Time.deltaTime * _speed;
 
-        if ((moveRight && !facingRight) || (!moveRight && facingRight)) {
+        if ((_moveRight && !_facingRight) || (!_moveRight && _facingRight)) {
             Flip();
         }
     }
 
 
-    private bool IsGrounded()
-    {
-        RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size, 0f, Vector2.down, .1f, platformLayerMask);
+    private bool IsGrounded() {
+        RaycastHit2D raycastHit2D = Physics2D.BoxCast(_boxCollider2d.bounds.center, _boxCollider2d.bounds.size, 0f, Vector2.down, .1f, _platformLayerMask);
         // Debug.Log(raycastHit2D.collider);
         return raycastHit2D.collider != null;
     }
 
 
     private void Flip() {
-        facingRight = !facingRight;
+        _facingRight = !_facingRight;
         transform.Rotate(0f, 180f, 0f);
     }
 }

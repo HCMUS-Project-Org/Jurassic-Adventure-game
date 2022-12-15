@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent(typeof(AudioSource))] public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
-{
+[RequireComponent(typeof(AudioSource))] public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
+    
     [SerializeField] private Image       _img;
     [SerializeField] private Sprite      _default, _pressed;
     [SerializeField] private AudioClip   _clickClip;
@@ -19,8 +19,8 @@ using UnityEngine.UI;
     public bool hasText;
     public bool hasImg;
 
-    void Start()
-    {
+
+    void Start() {
         _audioSource = GetComponent<AudioSource>();
  
         if (hasText)
@@ -30,8 +30,8 @@ using UnityEngine.UI;
             _buttonImg = GetComponentInChildren<Image>().transform;
     }
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
+
+    public void OnPointerDown(PointerEventData eventData) {
         _img.sprite = _pressed;
 
         if (hasText) 
@@ -43,8 +43,8 @@ using UnityEngine.UI;
         _audioSource.PlayOneShot(_clickClip);
     }
 
-    public void OnPointerUp(PointerEventData eventData)
-    {
+
+    public void OnPointerUp(PointerEventData eventData) {
         _img.sprite = _default;
 
         if (hasText) 

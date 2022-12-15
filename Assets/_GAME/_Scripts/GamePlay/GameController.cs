@@ -11,14 +11,13 @@ public class GameController : MonoBehaviour {
     [SerializeField] private GameObject _pauseBtn;
     [SerializeField] private Sprite _pauseBtnImg, _resumeBtnImg;
     [SerializeField] private int _level;
-    
+
     public static bool isGamePaused = false;
     public static bool isOpenShop = false;
     public static bool isConfirmExit = false;
 
 
     void Update() {
-
         // Exit game
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (isGamePaused || isConfirmExit) 
@@ -58,6 +57,7 @@ public class GameController : MonoBehaviour {
         
         isConfirmExit = true;
     }
+
 
     public void OpenShop() {
         ResumeGame();

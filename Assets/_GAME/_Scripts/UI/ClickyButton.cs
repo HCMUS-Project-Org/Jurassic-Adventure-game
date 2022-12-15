@@ -7,12 +7,13 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(AudioSource))] public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
-    
+
     [SerializeField] private Image       _img;
-    [SerializeField] private Sprite      _default, _pressed;
     [SerializeField] private AudioClip   _clickClip;
     private                  Transform   _buttonText ,_buttonImg;
     private                  AudioSource _audioSource;
+    
+    public Sprite _default, _pressed;
     
     private float positionChange = 2f;
 

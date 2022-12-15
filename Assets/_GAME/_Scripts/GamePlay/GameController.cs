@@ -6,16 +6,17 @@ public class GameController : MonoBehaviour {
 
     [SerializeField] private GameObject[] _enemies;
     [SerializeField] private GameObject _player;
-    [SerializeField] private GameObject _levelCompleteUI, _levelFailedUI, _pauseMenuUI;
+    [SerializeField] private GameObject _levelCompleteUI, _levelFailedUI, _pauseMenuUI, _shopUI;
     
     [SerializeField] private int _level;
     
     public static bool isGamePaused = false;
+    public static bool isOpenShop = false;
 
 
     void Update() {
+        // Pause game
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            Debug.Log("Escape key pressed");
             if (isGamePaused) {
                 ResumeGame();
             }
@@ -23,10 +24,32 @@ public class GameController : MonoBehaviour {
                 PauseGame();
             }
         }
+
+        // Open Shop
+        if (Input.GetKeyDown(KeyCode.P)) {
+            if (isOpenShop) {
+                ResumeGame();
+            }
+            else {
+                OpenShop();
+            }
+        }
     }
 
 
-    // Update is called once per frame
+    void OpenShop() {
+        Time.timeScale = 0f;
+
+        if (_pauseMenuUI != null) 
+            _pauseMenuUI.SetActive(false);
+
+        _shopUI.SetActive(true);
+        
+        isGamePaused = true;
+        isOpenShop = true;
+    }
+
+
     public void RestartGame() {
         Debug.Log("Restart level");
     }
@@ -34,17 +57,27 @@ public class GameController : MonoBehaviour {
 
     public void PauseGame() {
         Debug.Log("Pause game");
+        
         _pauseMenuUI.SetActive(true);
+        
         Time.timeScale = 0f;
+        
         isGamePaused = true;
     }
 
 
     public void ResumeGame() {
         Debug.Log("Resume game");
-        _pauseMenuUI.SetActive(false);
+
+        if (_pauseMenuUI != null) 
+            _pauseMenuUI.SetActive(false);
+
+        _shopUI.SetActive(false);
+        
         Time.timeScale = 1f;
+        
         isGamePaused = false;
+        isOpenShop = false;
     }
 
 

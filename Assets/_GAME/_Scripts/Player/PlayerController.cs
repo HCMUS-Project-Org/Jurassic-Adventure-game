@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         health = GetComponent<PlayerHealth>();
      
-        SetCharacter(0); //test
+        SetCharacter(1); //test
         // SetCharacter(ChooseCharacter.Character);
     }
 

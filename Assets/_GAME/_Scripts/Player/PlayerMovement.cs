@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] private LayerMask _platformLayerMask;
+    [SerializeField] private PlayerController _playerController;
+    [SerializeField] private PlayerHealth _playerHealth;
     private                  Rigidbody2D _rigidbody2d;
     private                  BoxCollider2D _boxCollider2d;
     private                  Vector2 _lookDirection = new Vector2(1, 0);
@@ -121,15 +123,20 @@ public class PlayerMovement : MonoBehaviour {
 
 
     public void Launch() {
+        if (_playerController.health.currentMana <= 0) {
+            return;
+        }
+
+        _playerController.health.ChangeMana(-1);
+
         _lookDirection.Set(_facingRight ? 1 : -1, 0);
-        Debug.Log("Player Launch " + _lookDirection);
 
-        // Debug.Log("_playerMovement._facingRight" + _playerMovement._facingRight);
         GameObject projectileObject = Instantiate(projectilePrefab, _rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
-
         Projectile projectile = projectileObject.GetComponent<Projectile>();
 
         projectile.Launch(_lookDirection, 300);
+
+        // decrease mana
 
         _animator.SetTrigger("Launch");
     }

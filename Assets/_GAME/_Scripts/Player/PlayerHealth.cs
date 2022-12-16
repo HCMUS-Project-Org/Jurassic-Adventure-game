@@ -11,6 +11,9 @@ public class PlayerHealth : MonoBehaviour {
 
     public int maxHealth = 100;
     public int currentHealth;
+
+    public int maxMana = 10;
+    public int currentMana;
     
 
     void Start() {
@@ -36,9 +39,17 @@ public class PlayerHealth : MonoBehaviour {
 
         // set value
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        HealthBar.instance.SetValue(currentHealth / (float)maxHealth);
+        HealthBar.instance.SetHealthValue(currentHealth / (float)maxHealth);
         _healthShow.text = "Health: " + currentHealth;
 
         Debug.Log("Player health:" + currentHealth + "/" + maxHealth);
+    }
+
+    public void ChangeMana(int amount) {
+        // set value
+        currentMana = Mathf.Clamp(currentMana + amount, 0, maxMana);
+        HealthBar.instance.SetManaValue(currentMana / (float)maxMana);
+
+        Debug.Log("Player Mana:" + currentMana + "/" + maxMana);
     }
 }

@@ -44,8 +44,8 @@ public class PlayerController : MonoBehaviour {
     void ReadInstruction() {
         RaycastHit2D hit = Physics2D.Raycast(_rigidbody2d.position,
         transform.TransformDirection(Vector3.forward), 1.5f, LayerMask.GetMask("Instruction"));
-        if (hit.collider != null)
-        {
+       
+        if (hit.collider != null) {
             Instruction instruction = hit.collider.GetComponent<Instruction>();
             
             if (instruction != null) {

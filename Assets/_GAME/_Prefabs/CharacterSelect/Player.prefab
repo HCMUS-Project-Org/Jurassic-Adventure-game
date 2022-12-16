@@ -271,7 +271,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  currentHealth: 0
+  currentHealth: 10
+  maxMana: 10
+  currentMana: 10
 --- !u!114 &7916472293349428617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +289,8 @@ MonoBehaviour:
   _platformLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  _playerController: {fileID: 7916472293349428623}
+  _playerHealth: {fileID: 0}
   _speed: 20
   _jumpVelocity: 32
   projectilePrefab: {fileID: 9193374948919892479, guid: b468168285589d744b710a1340add71c, type: 3}

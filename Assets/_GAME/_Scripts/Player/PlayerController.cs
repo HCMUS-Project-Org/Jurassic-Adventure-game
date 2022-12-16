@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour {
         SetCharacter(ChooseCharacter.character);
     }
 
+    void Update() {
+        ReadInstruction();
+    }
+
 
     void SetCharacter(int characterIdx) {
         if (characterIdx == 0) {
@@ -33,6 +37,20 @@ public class PlayerController : MonoBehaviour {
             GetComponent<Transform>().localScale = new Vector3(1.7f, 2f, 1.5f);
             GetComponent<BoxCollider2D>().size = new Vector2(1.075f, 1.458f);
             GetComponent<BoxCollider2D>().offset = new Vector2(-0.0075f, -0.52f);
+        }
+    }
+
+
+    void ReadInstruction() {
+        RaycastHit2D hit = Physics2D.Raycast(_rigidbody2d.position,
+        transform.TransformDirection(Vector3.forward), 1.5f, LayerMask.GetMask("Instruction"));
+        if (hit.collider != null)
+        {
+            Instruction instruction = hit.collider.GetComponent<Instruction>();
+            
+            if (instruction != null) {
+                instruction.DisplayDialog();
+            }
         }
     }
 

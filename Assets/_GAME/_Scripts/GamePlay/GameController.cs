@@ -7,20 +7,22 @@ public class GameController : MonoBehaviour {
 
     [SerializeField] private GameObject[] _enemies;
     [SerializeField] private GameObject _player;
-    [SerializeField] private GameObject _levelCompleteUI, _levelFailedUI, _pauseMenuUI, _shopUI, _confirmExitUI;
+    [SerializeField] private GameObject _levelCompleteUI, _levelFailedUI;
+    [SerializeField] private GameObject _pauseMenuUI, _shopUI, _inventoryUI, _confirmExitUI;
     [SerializeField] private GameObject _pauseBtn;
     [SerializeField] private Sprite _pauseBtnImg, _resumeBtnImg;
     [SerializeField] private int _level;
 
-    public static bool isGamePaused = false;
-    public static bool isOpenShop = false;
-    public static bool isConfirmExit = false;
+    private bool _isGamePaused = false;
+    private bool _isOpenShop = false;
+    private bool _isOpenInventory = false;
+    private bool _isConfirmExit = false;
 
 
     void Update() {
         // Exit game
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (isGamePaused || isConfirmExit) 
+            if (_isGamePaused || _isConfirmExit) 
                 ResumeGame();
             else 
                 ConfirmExitGame();
@@ -28,9 +30,9 @@ public class GameController : MonoBehaviour {
 
         // Pause game
         if (Input.GetKeyDown(KeyCode.P)) {
-            if (isOpenShop || isConfirmExit)
+            if (_isOpenShop || _isConfirmExit || _isOpenInventory)
                 PauseGame();
-            else if (isGamePaused) 
+            else if (_isGamePaused) 
                 ResumeGame();
             else
                 PauseGame();
@@ -38,10 +40,18 @@ public class GameController : MonoBehaviour {
 
         // Open Shop
         if (Input.GetKeyDown(KeyCode.O)) {
-            if (isOpenShop) 
+            if (_isOpenShop) 
                 ResumeGame();
             else 
                 OpenShop();
+        }
+
+        // Open Inventory
+        if (Input.GetKeyDown(KeyCode.B)) {
+            if (_isOpenInventory) 
+                ResumeGame();
+            else 
+                OpenInventory();
         }
     }
 
@@ -50,12 +60,10 @@ public class GameController : MonoBehaviour {
         ResumeGame();
         PauseGame();
 
-        if (_pauseMenuUI != null) 
-            _pauseMenuUI.SetActive(false);
-        
+        _pauseMenuUI.SetActive(false);
         _confirmExitUI.SetActive(true);
         
-        isConfirmExit = true;
+        _isConfirmExit = true;
     }
 
 
@@ -63,12 +71,21 @@ public class GameController : MonoBehaviour {
         ResumeGame();
         PauseGame();
 
-        if (_pauseMenuUI != null) 
-            _pauseMenuUI.SetActive(false);
-
+        _pauseMenuUI.SetActive(false);
         _shopUI.SetActive(true);
 
-        isOpenShop = true;
+        _isOpenShop = true;
+    }
+
+
+    public void OpenInventory() {
+        ResumeGame();
+        PauseGame();
+
+        _pauseMenuUI.SetActive(false);
+        _inventoryUI.SetActive(true);
+
+        _isOpenInventory = true;
     }
 
 
@@ -88,7 +105,7 @@ public class GameController : MonoBehaviour {
         
         Time.timeScale = 0f;
         
-        isGamePaused = true;
+        _isGamePaused = true;
     }
 
 
@@ -100,13 +117,15 @@ public class GameController : MonoBehaviour {
 
         _pauseMenuUI.SetActive(false);
         _shopUI.SetActive(false);
+        _inventoryUI.SetActive(false);
         _confirmExitUI.SetActive(false);
         
         Time.timeScale = 1f;
         
-        isGamePaused = false;
-        isOpenShop = false;
-        isConfirmExit = false;
+        _isGamePaused = false;
+        _isOpenShop = false;
+        _isOpenInventory = false;
+        _isConfirmExit = false;
     }
 
 

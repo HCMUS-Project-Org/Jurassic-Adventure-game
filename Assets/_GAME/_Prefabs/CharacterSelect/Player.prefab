@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 300172372}
   - component: {fileID: 300172373}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Marker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ Transform:
   m_GameObject: {fileID: 7916472293349428630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.29, y: -5.87, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.5, y: 1.68, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 300172372}
@@ -164,7 +164,7 @@ SpriteRenderer:
   m_SortingLayerID: 951667095
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cee0f3d723836fb45aff84dd2bc4b349, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 84ce2f114ad12bd4ebafc77060220324, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -188,7 +188,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11, y: 0.01}
+  m_Offset: {x: -0.0075, y: -0.52}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -199,7 +199,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 1.87}
+  m_Size: {x: 1.075, y: 1.458}
   m_EdgeRadius: 0
 --- !u!50 &7916472293349428618
 Rigidbody2D:
@@ -232,7 +232,7 @@ Animator:
   m_GameObject: {fileID: 7916472293349428630}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 062fabeb147e36244877b293dd6ad134, type: 2}
+  m_Controller: {fileID: 9100000, guid: f842df6650817bf44be219a37cf266a7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -254,6 +254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d67b6f3f66eacd4aa4809c061c22351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ninjaController: {fileID: 9100000, guid: 062fabeb147e36244877b293dd6ad134, type: 2}
+  _knightController: {fileID: 9100000, guid: f842df6650817bf44be219a37cf266a7, type: 2}
   health: {fileID: 7916472293349428622}
   animator: {fileID: 7916472293349428620}
 --- !u!114 &7916472293349428622
@@ -282,8 +284,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9619c25ebb1ca647931db56c67f2577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformLayerMask:
+  _platformLayerMask:
     serializedVersion: 2
     m_Bits: 8
   _speed: 20
-  jumpVelocity: 32
+  _jumpVelocity: 32
+  projectilePrefab: {fileID: 9193374948919892479, guid: b468168285589d744b710a1340add71c, type: 3}

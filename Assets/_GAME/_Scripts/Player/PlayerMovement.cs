@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private LayerMask _platformLayerMask;
     private                  Rigidbody2D _rigidbody2d;
     private                  BoxCollider2D _boxCollider2d;
+    private                  Vector2 _lookDirection = new Vector2(1, 0);
     private                  Animator _animator;
     
     [SerializeField] private float _speed = 5;
@@ -16,7 +17,9 @@ public class PlayerMovement : MonoBehaviour {
     private bool _moveRight = true;
     private bool _isCrouch = false;
     private bool _isCrouchDash = false;
-
+    
+    public GameObject projectilePrefab;
+    
 
     private void Start() {
         _rigidbody2d= transform.GetComponent<Rigidbody2D>();
@@ -46,8 +49,10 @@ public class PlayerMovement : MonoBehaviour {
             _animator.SetTrigger("Melee");   
         
         // skill
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-            _animator.SetTrigger("Skill");                
+        if (Input.GetKeyDown(KeyCode.Mouse0)) {
+            _animator.SetTrigger("Skill");     
+            Launch();           
+        }
 
         HandleMovement();
     }
@@ -89,7 +94,10 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
 
-        _moveRight = _movement > 0 ? true : false;
+        if (_movement == 0f) 
+            _moveRight = _facingRight;
+        else
+            _moveRight = _movement > 0 ? true : false;
 
         transform.position += new Vector3(_movement, 0, 0) * Time.deltaTime * _speed;
 
@@ -101,7 +109,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private bool IsGrounded() {
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(_boxCollider2d.bounds.center, _boxCollider2d.bounds.size, 0f, Vector2.down, .1f, _platformLayerMask);
-        // Debug.Log(raycastHit2D.collider);
+        
         return raycastHit2D.collider != null;
     }
 
@@ -109,5 +117,20 @@ public class PlayerMovement : MonoBehaviour {
     private void Flip() {
         _facingRight = !_facingRight;
         transform.Rotate(0f, 180f, 0f);
+    }
+
+
+    public void Launch() {
+        _lookDirection.Set(_facingRight ? 1 : -1, 0);
+        Debug.Log("Player Launch " + _lookDirection);
+
+        // Debug.Log("_playerMovement._facingRight" + _playerMovement._facingRight);
+        GameObject projectileObject = Instantiate(projectilePrefab, _rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+
+        Projectile projectile = projectileObject.GetComponent<Projectile>();
+
+        projectile.Launch(_lookDirection, 300);
+
+        _animator.SetTrigger("Launch");
     }
 }

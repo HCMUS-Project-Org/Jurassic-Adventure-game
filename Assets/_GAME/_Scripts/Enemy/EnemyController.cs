@@ -45,4 +45,9 @@ public class EnemyController : MonoBehaviour {
             player.health.ChangeHealth(-1);
         }
     }
+
+
+    public void Killed() {
+        Destroy(gameObject);
+    }
 }

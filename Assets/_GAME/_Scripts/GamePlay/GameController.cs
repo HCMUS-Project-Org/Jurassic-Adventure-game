@@ -101,6 +101,8 @@ public class GameController : MonoBehaviour {
         // change pause btn sprite
         _pauseBtn.GetComponent<Image>().sprite = _resumeBtnImg;
 
+        _player.SetActive(false);
+        
         _pauseMenuUI.SetActive(true);
         
         Time.timeScale = 0f;
@@ -120,6 +122,8 @@ public class GameController : MonoBehaviour {
         _inventoryUI.SetActive(false);
         _confirmExitUI.SetActive(false);
         
+        _player.SetActive(true);
+
         Time.timeScale = 1f;
         
         _isGamePaused = false;

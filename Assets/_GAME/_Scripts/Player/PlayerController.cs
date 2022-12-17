@@ -7,8 +7,11 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private RuntimeAnimatorController _ninjaController, _knightController;
     private                  Rigidbody2D _rigidbody2d;
 
+    public static int budget = 50;
+    
     public PlayerHealth health;
     public Animator animator;
+
 
 
     void Start() {

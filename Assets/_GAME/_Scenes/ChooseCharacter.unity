@@ -622,9 +622,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _img: {fileID: 486604038}
+  _clickClip: {fileID: 8300000, guid: c7d58f9dae986ed4e8fbf3a7b430dcfb, type: 3}
   _default: {fileID: 21300000, guid: 81445cf35205e514490a2eaa0467a9ec, type: 3}
   _pressed: {fileID: 21300000, guid: 81445cf35205e514490a2eaa0467a9ec, type: 3}
-  _clickClip: {fileID: 8300000, guid: c7d58f9dae986ed4e8fbf3a7b430dcfb, type: 3}
   hasText: 0
   hasImg: 0
 --- !u!95 &486604034
@@ -2040,9 +2040,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _img: {fileID: 1383016907}
+  _clickClip: {fileID: 8300000, guid: c7d58f9dae986ed4e8fbf3a7b430dcfb, type: 3}
   _default: {fileID: 21300000, guid: 81445cf35205e514490a2eaa0467a9ec, type: 3}
   _pressed: {fileID: 21300000, guid: 81445cf35205e514490a2eaa0467a9ec, type: 3}
-  _clickClip: {fileID: 8300000, guid: c7d58f9dae986ed4e8fbf3a7b430dcfb, type: 3}
   hasText: 0
   hasImg: 0
 --- !u!82 &1383016911

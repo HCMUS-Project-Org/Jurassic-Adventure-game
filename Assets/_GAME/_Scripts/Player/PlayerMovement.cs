@@ -30,8 +30,11 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 
-    private void Update() {
-        if (IsGrounded()) {
+    private void Update()
+    {
+        _isGrounded = IsGrounded;
+        
+        if (IsGrounded) {
             // jump
             if (Input.GetButtonDown("Jump"))  {
                 _rigidbody2d.velocity = Vector2.up * _jumpVelocity;
@@ -63,7 +66,7 @@ public class PlayerMovement : MonoBehaviour {
     private void HandleMovement() {
         _movement = Input.GetAxis("Horizontal");
         
-        if (!IsGrounded()) {
+        if (!IsGrounded) {
             _animator.SetBool("IsJump", true);
             _animator.SetBool("IsRun", false);
             _animator.SetBool("IsCrouch", false);
@@ -109,11 +112,12 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 
-    private bool IsGrounded() {
-        RaycastHit2D raycastHit2D = Physics2D.BoxCast(_boxCollider2d.bounds.center, _boxCollider2d.bounds.size, 0f, Vector2.down, .1f, _platformLayerMask);
+    private bool _isGrounded;
+    
+    private bool IsGrounded =>
+        Physics2D.BoxCast(_boxCollider2d.bounds.center, _boxCollider2d.bounds.size, 0f, Vector2.down, .1f, _platformLayerMask).collider != null;
         
-        return raycastHit2D.collider != null;
-    }
+   
 
 
     private void Flip() {

@@ -470,6 +470,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyController: {fileID: 7351659741570310397}
-  _healthBar: {fileID: 397711368}
+  healthBar: {fileID: 397711368}
   maxHealth: 3
   currentHealth: 3

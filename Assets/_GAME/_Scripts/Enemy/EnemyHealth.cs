@@ -7,15 +7,19 @@ using TMPro;
 public class EnemyHealth : MonoBehaviour {
 
     [SerializeField] private EnemyController _enemyController;
-    [SerializeField] private HealthBar _healthBar;
     private                  Animator _animator;
 
+    public HealthBar healthBar;
+    
     public int maxHealth;
     public int currentHealth;
+
 
     void Start() {
         _animator = GetComponent<EnemyController>().animator;     
         currentHealth = maxHealth;
+
+        healthBar.Show(false);
     }
 
 
@@ -26,7 +30,8 @@ public class EnemyHealth : MonoBehaviour {
 
         // set value
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        _healthBar.instance.SetHealthValue(currentHealth / (float)maxHealth);
+        healthBar.Show(true);
+        healthBar.instance.SetHealthValue(currentHealth / (float)maxHealth);
         
         if (currentHealth <= 0) {
             _enemyController.Killed();

@@ -61,5 +61,6 @@ public class EnemyController : MonoBehaviour {
 
     private void Flip() {
         transform.Rotate(0f, 180f, 0f);
+        health.healthBar.transform.Rotate(0f, 180f, 0f);
     }
 }

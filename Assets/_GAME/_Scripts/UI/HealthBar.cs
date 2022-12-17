@@ -16,6 +16,7 @@ public class HealthBar : MonoBehaviour {
         instance = this;
     }
 
+
     void Start() {
         _healthOriginalSize = _healthMask.rectTransform.rect.width;
         
@@ -23,9 +24,20 @@ public class HealthBar : MonoBehaviour {
             _manaOriginalSize = _manaMask.rectTransform.rect.width;
     }
 
+
+    public void Show(bool value) {
+        gameObject.GetComponent<Image>().enabled = value;
+        _healthMask.enabled = value;
+
+        if (_manaMask != null) 
+            _manaMask.enabled = value;
+    }
+
+
     public void SetHealthValue(float value) {
         _healthMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, _healthOriginalSize * value);
     }
+
 
     public void SetManaValue(float value) {
         _manaMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, _manaOriginalSize * value);

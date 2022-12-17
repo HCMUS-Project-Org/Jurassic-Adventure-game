@@ -275,7 +275,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 10
   maxMana: 10
-  currentMana: 2
+  currentMana: 10
 --- !u!114 &7916472293349428617
 MonoBehaviour:
   m_ObjectHideFlags: 0

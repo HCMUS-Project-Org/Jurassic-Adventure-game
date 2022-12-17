@@ -6,10 +6,10 @@ public class EnemyController : MonoBehaviour {
 
     [SerializeField] private float _speed = 3.0f;
     [SerializeField] private float _changeTime = 3.0f;
-    [SerializeField] private int maxHealth = 1;
     private                  float _timer;
-    
-    private int _direction = 1;
+        
+    [SerializeField] private int maxHealth = 1;
+    private                  int _direction = 1;
 
     private Rigidbody2D _rigidbody2D;
 
@@ -21,6 +21,7 @@ public class EnemyController : MonoBehaviour {
     void Start() {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _timer = _changeTime;
+        Flip();
     }
 
 
@@ -28,7 +29,9 @@ public class EnemyController : MonoBehaviour {
         _timer -= Time.deltaTime;
 
         if (_timer < 0) {
-            _direction = -_direction; _timer = _changeTime;
+            _direction = -_direction; 
+            _timer = _changeTime;
+            Flip();
         }
     }
 
@@ -53,5 +56,10 @@ public class EnemyController : MonoBehaviour {
 
     public void Killed() {
         Destroy(gameObject);
+    }
+
+
+    private void Flip() {
+        transform.Rotate(0f, 180f, 0f);
     }
 }

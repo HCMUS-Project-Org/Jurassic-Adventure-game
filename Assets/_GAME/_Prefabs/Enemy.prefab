@@ -191,8 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9824527ea6a166142b9624f2b573e665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMask: {fileID: 2048770362}
-  manaMask: {fileID: 0}
+  _healthMask: {fileID: 2048770362}
+  _manaMask: {fileID: 0}
 --- !u!1 &2048770359
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,5 +470,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyController: {fileID: 7351659741570310397}
+  _healthBar: {fileID: 397711368}
   maxHealth: 3
   currentHealth: 3

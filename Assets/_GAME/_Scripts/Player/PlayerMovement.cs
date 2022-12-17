@@ -54,10 +54,8 @@ public class PlayerMovement : MonoBehaviour {
             _animator.SetTrigger("Melee");   
         
         // skill
-        if (Input.GetKeyDown(KeyCode.Mouse0)) {
-            _animator.SetTrigger("Skill");     
+        if (Input.GetKeyDown(KeyCode.Mouse0)) 
             Launch();           
-        }
 
         HandleMovement();
     }
@@ -117,7 +115,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool IsGrounded =>
         Physics2D.BoxCast(_boxCollider2d.bounds.center, _boxCollider2d.bounds.size, 0f, Vector2.down, .1f, _platformLayerMask).collider != null;
         
-   
+
 
 
     private void Flip() {
@@ -128,10 +126,14 @@ public class PlayerMovement : MonoBehaviour {
 
     public void Launch() {
         if (_playerController.health.currentMana <= 0) {
+            _playerHealth.manaAnnounce.DisplayDialog();
             return;
         }
 
         _playerController.health.ChangeMana(-1);
+
+        _animator.SetTrigger("Skill");     
+
 
         _lookDirection.Set(_facingRight ? 1 : -1, 0);
 

@@ -116,7 +116,7 @@ Transform:
   m_GameObject: {fileID: 7916472293349428630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.29, y: -5.87, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.68, z: 1.5}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 300172372}
@@ -270,10 +270,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7839c90b2c1d18458f0f49442c488ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthBar: {fileID: 0}
+  manaAnnounce: {fileID: 0}
   maxHealth: 10
   currentHealth: 10
   maxMana: 10
-  currentMana: 10
+  currentMana: 2
 --- !u!114 &7916472293349428617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +292,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _playerController: {fileID: 7916472293349428623}
-  _playerHealth: {fileID: 0}
-  _speed: 20
-  _jumpVelocity: 32
+  _playerHealth: {fileID: 7916472293349428622}
+  _speed: 15
+  _jumpVelocity: 30
   projectilePrefab: {fileID: 9193374948919892479, guid: b468168285589d744b710a1340add71c, type: 3}

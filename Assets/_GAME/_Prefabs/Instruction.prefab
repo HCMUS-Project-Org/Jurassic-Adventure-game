@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9134074910799153505}
   - component: {fileID: 9134074910799153511}
   - component: {fileID: 9134074910799153510}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Shortkey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9134074910999936216}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: VisualizeImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 9134074911081272539}
   - component: {fileID: 9134074911081272538}
   - component: {fileID: 9134074911081272537}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: GuideSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 9134074911307245018}
   - component: {fileID: 9134074911307245016}
   - component: {fileID: 9134074911307245019}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: BlackImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 9134074911334758775}
   - component: {fileID: 9134074911334758773}
   - component: {fileID: 9134074911334758772}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9134074911402024232}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 9134074911491812554}
   - component: {fileID: 9134074911491812552}
   - component: {fileID: 9134074911491812555}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: FunctionName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -697,7 +697,7 @@ GameObject:
   - component: {fileID: 9134074911572402844}
   - component: {fileID: 9134074911572402847}
   - component: {fileID: 9134074911572402846}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: StandImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 9134074911890536618}
   - component: {fileID: 9134074911890536597}
   - component: {fileID: 9134074911890536596}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: JumpImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -890,7 +890,7 @@ GameObject:
   - component: {fileID: 9134074911949007898}
   - component: {fileID: 9134074911949007896}
   - component: {fileID: 9134074911949007899}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 9134074912019382277}
   - component: {fileID: 9134074912019382299}
   - component: {fileID: 9134074912019382298}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: InstructionBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}

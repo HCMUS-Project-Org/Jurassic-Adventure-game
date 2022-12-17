@@ -6,6 +6,7 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour {
 
+    [SerializeField] private HealthBar _healthBar;
     private Animator _animator;
     private TMPro.TextMeshProUGUI _healthShow; 
 
@@ -28,18 +29,11 @@ public class PlayerHealth : MonoBehaviour {
     public void ChangeHealth(int amount) {
         if (amount < 0) {
             _animator.SetTrigger("Hurt");
-            // PlaySound(triggerClip);
-
-            // if (isInvincible)
-            //     return;
-
-            // isInvincible = true;
-            // invincibleTimer = timeInvincible;
         }
 
         // set value
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        HealthBar.instance.SetHealthValue(currentHealth / (float)maxHealth);
+        _healthBar.instance.SetHealthValue(currentHealth / (float)maxHealth);
         _healthShow.text = "Health: " + currentHealth;
 
         Debug.Log("Player health:" + currentHealth + "/" + maxHealth);
@@ -48,7 +42,7 @@ public class PlayerHealth : MonoBehaviour {
     public void ChangeMana(int amount) {
         // set value
         currentMana = Mathf.Clamp(currentMana + amount, 0, maxMana);
-        HealthBar.instance.SetManaValue(currentMana / (float)maxMana);
+        _healthBar.instance.SetManaValue(currentMana / (float)maxMana);
 
         Debug.Log("Player Mana:" + currentMana + "/" + maxMana);
     }

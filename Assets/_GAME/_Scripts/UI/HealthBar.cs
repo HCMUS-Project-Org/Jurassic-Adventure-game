@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour {
 
+    [SerializeField] private Image _healthMask, _manaMask;
+    
     private float _healthOriginalSize, _manaOriginalSize;
 
-    public static HealthBar instance { get; private set; }
-    public        Image healthMask, manaMask;
+    public HealthBar instance { get; private set; }
 
 
     void Awake() {
@@ -16,15 +17,17 @@ public class HealthBar : MonoBehaviour {
     }
 
     void Start() {
-        _healthOriginalSize = healthMask.rectTransform.rect.width;
-        _manaOriginalSize = manaMask.rectTransform.rect.width;
+        _healthOriginalSize = _healthMask.rectTransform.rect.width;
+        
+        if (_manaMask != null) 
+            _manaOriginalSize = _manaMask.rectTransform.rect.width;
     }
 
     public void SetHealthValue(float value) {
-        healthMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, _healthOriginalSize * value);
+        _healthMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, _healthOriginalSize * value);
     }
 
     public void SetManaValue(float value) {
-        manaMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, _manaOriginalSize * value);
+        _manaMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, _manaOriginalSize * value);
     }
 }

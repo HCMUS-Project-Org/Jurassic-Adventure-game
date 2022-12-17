@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour {
 
     private Rigidbody2D _rigidbody2d;
+    public int damage = 1;
 
     void Awake() {
         _rigidbody2d = GetComponent<Rigidbody2D>();
@@ -30,9 +31,10 @@ public class Projectile : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision) {
         //we also add a debug log to know what the projectile touch
         
-        EnemyController e = collision.collider.GetComponent<EnemyController>();
-        if (e != null) {
-            e.Killed();
+        EnemyController enemy = collision.collider.GetComponent<EnemyController>();
+        
+        if (enemy != null) {
+            enemy.health.ChangeHealth(-damage);
         }
 
         Destroy(gameObject);

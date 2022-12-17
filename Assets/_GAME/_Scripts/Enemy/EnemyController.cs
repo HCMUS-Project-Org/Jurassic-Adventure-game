@@ -6,11 +6,15 @@ public class EnemyController : MonoBehaviour {
 
     [SerializeField] private float _speed = 3.0f;
     [SerializeField] private float _changeTime = 3.0f;
+    [SerializeField] private int maxHealth = 1;
     private                  float _timer;
     
     private int _direction = 1;
 
     private Rigidbody2D _rigidbody2D;
+
+    public EnemyHealth health;
+    public Animator animator;
 
 
     // Start is called before the first frame update

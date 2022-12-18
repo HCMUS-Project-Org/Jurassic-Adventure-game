@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     [SerializeField] private RuntimeAnimatorController _ninjaController, _knightController;
-    private                  Rigidbody2D _rigidbody2d;
+    [SerializeField] private Rigidbody2D _rigidbody2d;
+    [SerializeField] private UIInventory _uiInventory;
+    private                  InventoryManager _inventoryManager;
 
     public static int budget = 50;
     
@@ -14,9 +16,13 @@ public class PlayerController : MonoBehaviour {
 
 
 
-    void Start() {
+    void Awake() {
         _rigidbody2d = GetComponent<Rigidbody2D>();
         health = GetComponent<PlayerHealth>();
+
+
+        _inventoryManager = new InventoryManager();
+        _uiInventory.SetInventory(_inventoryManager);
 
         // SetCharacter(0); //test
         SetCharacter(ChooseCharacter.character);

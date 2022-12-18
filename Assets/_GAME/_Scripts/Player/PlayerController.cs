@@ -6,7 +6,9 @@ public class PlayerController : MonoBehaviour {
 
     [SerializeField] private RuntimeAnimatorController _ninjaController, _knightController;
     [SerializeField] private Rigidbody2D _rigidbody2d;
-    [SerializeField] private UIInventory _uiInventory;
+    [SerializeField] private UIInventory _inventoryMenu;
+    [SerializeField] private GameObject _uiInventory;
+
     private                  InventoryManager _inventoryManager;
 
     public static int budget = 50;
@@ -20,9 +22,10 @@ public class PlayerController : MonoBehaviour {
         _rigidbody2d = GetComponent<Rigidbody2D>();
         health = GetComponent<PlayerHealth>();
 
-
+        _uiInventory.SetActive(true);
         _inventoryManager = new InventoryManager();
-        _uiInventory.SetInventory(_inventoryManager);
+        _inventoryMenu.SetInventory(_inventoryManager);
+        _uiInventory.SetActive(false);
 
         // SetCharacter(0); //test
         SetCharacter(ChooseCharacter.character);

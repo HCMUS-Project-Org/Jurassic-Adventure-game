@@ -715,11 +715,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41052b029658c6347ac3c8f3824198db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemPropertyPanel: {fileID: 0}
   _tooltip: {fileID: 538767888}
   _price: {fileID: 7011576048602917507}
-  itemName: Mana
-  itemPrice: 12
-  itemID: 2
+  itemType: 0
+  price: 0
+  amount: 0
 --- !u!1 &8767581525452139248
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,7 +787,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b978902bfc821c2468fa0513aada1891, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb3f2a4a360053649b5e0a3aa4e34952, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

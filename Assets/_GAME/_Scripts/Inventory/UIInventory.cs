@@ -18,6 +18,10 @@ public class UIInventory : MonoBehaviour {
         _itemImage = transform.Find("ItemImg").GetComponent<Image>();
     }
 
+    void Update() {
+        // SetInventory(InventoryManager.instance);
+    }
+
 
     public void SetInventory(InventoryManager inventoryManager) {
         _inventoryManager = inventoryManager;

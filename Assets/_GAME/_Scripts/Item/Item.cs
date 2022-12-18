@@ -89,4 +89,19 @@ public class Item : MonoBehaviour {
         description.text = this.GetDescription(this.itemType);
         itemImage.sprite = this.GetSprite(this.itemType);
     }
+
+
+    bool IsCanBuy() {
+        return PlayerController.budget >= this.price;
+    }
+
+
+    public void Buy() {
+        if (IsCanBuy()) {
+            PlayerController.budget -= this.price;
+            InventoryManager.instance.AddItem(this);
+        } else {
+            Debug.Log("Not enough money");
+        }
+    }
 }

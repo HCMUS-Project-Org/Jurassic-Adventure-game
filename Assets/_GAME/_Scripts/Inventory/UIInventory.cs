@@ -9,23 +9,15 @@ public class UIInventory : MonoBehaviour {
     [SerializeField] private Sprite _activeSlotSprite;
     private                  InventoryManager _inventoryManager;
     private                  Image _itemImage;
-
-    [SerializeField] private int _slotPerRow = 3;
-    [SerializeField] private int _numberRow = 4;
-    [SerializeField] private float _paddingY = 10f;
+    
     
     void Awake() {
         _itemImage = transform.Find("ItemImg").GetComponent<Image>();
     }
 
-    void Update() {
-        // SetInventory(InventoryManager.instance);
-    }
-
 
     public void SetInventory(InventoryManager inventoryManager) {
         _inventoryManager = inventoryManager;
-
         RefreshInventoryItems();
     }
 
@@ -34,8 +26,7 @@ public class UIInventory : MonoBehaviour {
         for (int i = 0; i < _itemSlotList.Count; i++) {     
             Vector2 slotAnchorPosition = _itemSlotList[i].GetComponent<RectTransform>().anchoredPosition;
             
-            GameObject currentSlot = _itemSlotList[i].gameObject;
-           
+            GameObject currentSlot = _itemSlotList[i].gameObject; 
 
             if (i < _inventoryManager.GetItemList().Count) {
                 RectTransform itemImageRectTransform = Instantiate(_itemImage, GetComponent<RectTransform>()).GetComponent<RectTransform>();
@@ -43,7 +34,7 @@ public class UIInventory : MonoBehaviour {
                 GameObject amountBadge = itemImageRectTransform.transform.Find("amountBadge").gameObject;
 
                 Item item = _inventoryManager.GetItemList()[i];
-              
+
                 // add item to slot
                 itemImageRectTransform.gameObject.SetActive(true);
 
@@ -55,7 +46,8 @@ public class UIInventory : MonoBehaviour {
 
                 // show item image
                 itemImageRectTransform.anchoredPosition = slotAnchorPosition;
-                itemImageRectTransform.gameObject.GetComponent<Image>().sprite = item.GetSprite(item.itemType);
+
+                itemImageRectTransform.gameObject.GetComponent<Image>().sprite =  item.GetSprite(item.itemType);
 
                 // // show amount badge 
                 if (item.amount > 1) {     
@@ -63,8 +55,6 @@ public class UIInventory : MonoBehaviour {
 
                     TMPro.TextMeshProUGUI amountText = amountBadge.transform.Find("amountTxt").GetComponent<TMPro.TextMeshProUGUI>();
                     amountText.text = item.amount.ToString();
-
-                    Debug.Log("item: " + item.itemType + " | amount: " + item.amount);
                 }
                 else {
                     amountBadge.SetActive(false);

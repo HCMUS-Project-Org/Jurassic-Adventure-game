@@ -11,12 +11,12 @@ public class InventoryManager : MonoBehaviour {
     public InventoryManager() {
         _itemList = new List<Item>();
 
-        AddItem(new Item {
-            itemType = Item.ItemType.Health,
-            amount = 1
-        });
          AddItem(new Item {
             itemType = Item.ItemType.Mana,
+            amount = 1
+        });
+        AddItem(new Item {
+            itemType = Item.ItemType.Health,
             amount = 1
         });
         

@@ -21,16 +21,18 @@ public class PlayerController : MonoBehaviour {
     void Awake() {
         _rigidbody2d = GetComponent<Rigidbody2D>();
         health = GetComponent<PlayerHealth>();
+  
+        // SetCharacter(0); //test
+        SetCharacter(ChooseCharacter.character);
+    }
 
+    void Start() {
         _uiInventory.SetActive(true);
         _inventoryManager = new InventoryManager();
         _inventoryMenu.SetInventory(_inventoryManager);
         _uiInventory.SetActive(false);
 
-        // SetCharacter(0); //test
-        SetCharacter(ChooseCharacter.character);
     }
-
     void Update() {
         ReadInstruction();
     }

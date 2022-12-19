@@ -6,10 +6,10 @@ using TMPro;
 
 public class Item : MonoBehaviour {
     
+    [SerializeField] private ItemAssets _itemAssets;
     [SerializeField] private GameObject _itemPropertyPanel;
     [SerializeField] private TMPro.TextMeshProUGUI _tooltip, _price;
-    // private                  GameObject _itemIcon, _priceBoard, _coinIcon;
-    
+
     public enum ItemType {
         Health,
         Mana,
@@ -25,21 +25,21 @@ public class Item : MonoBehaviour {
     public Sprite GetSprite(ItemType itemType) {
         switch (itemType) {
             case ItemType.Health:
-                return ItemAssets.Instance.healthSprite;
+                return ItemAssets.instance.healthSprite;
             case ItemType.Mana:
-                return ItemAssets.Instance.manaSprite;
+                return ItemAssets.instance.manaSprite;
             case ItemType.Poison:
-                return ItemAssets.Instance.poisonSprite;
+                return ItemAssets.instance.poisonSprite;
             case ItemType.Medkit:
-                return ItemAssets.Instance.medkitSprite;
+                return ItemAssets.instance.medkitSprite;
             case ItemType.Coin:
-                return ItemAssets.Instance.coinSprite;
+                return ItemAssets.instance.coinSprite;
             default:
                 return null;
         }
     }
 
-    public int GetSPrice(ItemType itemType) {
+    public int GetPrice(ItemType itemType) {
         switch (itemType) {
             case ItemType.Health:
                 return 12;

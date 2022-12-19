@@ -6,7 +6,6 @@ using TMPro;
 
 public class Item : MonoBehaviour {
     
-    [SerializeField] private ItemAssets _itemAssets;
     [SerializeField] private GameObject _itemPropertyPanel;
     [SerializeField] private TMPro.TextMeshProUGUI _tooltip, _price;
 

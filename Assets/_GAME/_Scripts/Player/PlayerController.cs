@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    [SerializeField] private RuntimeAnimatorController _ninjaController, _knightController;
+    // [SerializeField] private RuntimeAnimatorController _ninjaController, _knightController;
     [SerializeField] private Rigidbody2D _rigidbody2d;
     [SerializeField] private UIInventory _inventoryMenu;
     [SerializeField] private GameObject _uiInventory;
@@ -22,8 +22,7 @@ public class PlayerController : MonoBehaviour {
         _rigidbody2d = GetComponent<Rigidbody2D>();
         health = GetComponent<PlayerHealth>();
   
-        // SetCharacter(0); //test
-        SetCharacter(ChooseCharacter.character);
+        
     }
 
     void Start() {
@@ -32,22 +31,25 @@ public class PlayerController : MonoBehaviour {
         _inventoryMenu.SetInventory(_inventoryManager);
         _uiInventory.SetActive(false);
 
+        // SetCharacter(0); //test
+        SetCharacter(ChooseCharacter.characterType);
+
     }
     void Update() {
         ReadInstruction();
     }
 
 
-    void SetCharacter(int characterIdx) {
-        if (characterIdx == 0) {
+    void SetCharacter(Character.Type characterType) {
+        if (characterType == Character.Type.Ninja) {
             // ninja
-            animator.runtimeAnimatorController = _ninjaController;
+            animator.runtimeAnimatorController = CharacterAssets.instance._ninjaController;
             GetComponent<BoxCollider2D>().size = new Vector2(1.28f, 1.87f);
             GetComponent<BoxCollider2D>().offset = new Vector2(-0.11f, 0.01f);
         }
-        else if (characterIdx == 1) {
+        else if (characterType == Character.Type.Knight) {
             // knight
-            animator.runtimeAnimatorController = _knightController;
+            animator.runtimeAnimatorController = CharacterAssets.instance._knightController;
             GetComponent<Transform>().localScale = new Vector3(1.7f, 2f, 1.5f);
             GetComponent<BoxCollider2D>().size = new Vector2(1.075f, 1.458f);
             GetComponent<BoxCollider2D>().offset = new Vector2(-0.0075f, -0.52f);

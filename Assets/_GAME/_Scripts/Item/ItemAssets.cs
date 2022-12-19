@@ -12,6 +12,7 @@ public class ItemAssets : MonoBehaviour
     public Sprite medkitSprite;
     public Sprite coinSprite;
 
+
     private void Awake() {
         instance = this;
     }

@@ -42,10 +42,13 @@ public class PlayerController : MonoBehaviour {
 
 
     void SetCharacter(Character.Type characterType) {
-        animator.runtimeAnimatorController = _character.GetAnimatorController(ChooseCharacter.characterType);
-        GetComponent<Transform>().localScale = _character.GetLocalScale(ChooseCharacter.characterType);
-        GetComponent<BoxCollider2D>().size = _character.GetBoxColliderSize(ChooseCharacter.characterType);
-        GetComponent<BoxCollider2D>().offset = _character.GetBoxColliderOffset(ChooseCharacter.characterType);
+        animator.runtimeAnimatorController = _character.GetAnimatorController(characterType);
+
+        GetComponent<BoxCollider2D>().size = _character.GetBoxColliderSize(characterType);
+        GetComponent<BoxCollider2D>().offset = _character.GetBoxColliderOffset(characterType);
+        
+        // characterType = Character.Type.Ninja;
+        GetComponent<Transform>().localScale = _character.GetLocalScale(characterType);
     }
 
 

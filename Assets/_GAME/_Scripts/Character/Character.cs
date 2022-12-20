@@ -51,7 +51,7 @@ public class Character : MonoBehaviour {
             case Type.Ninja:
                 return new Vector3(1f, 1f, 1f);
             case Type.Knight:
-                return new Vector3(1.7f, 2f, 1.5f);
+                return new Vector3(1.7f, 2f, 0f);
             default:
                 return new Vector3(1f, 1f, 1f);
         }

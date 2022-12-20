@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    // [SerializeField] private RuntimeAnimatorController _ninjaController, _knightController;
     [SerializeField] private Rigidbody2D _rigidbody2d;
     [SerializeField] private UIInventory _inventoryMenu;
     [SerializeField] private GameObject _uiInventory;
-
     private                  InventoryManager _inventoryManager;
+    private                  Character _character;
 
     public static int budget = 50;
     
@@ -17,43 +16,36 @@ public class PlayerController : MonoBehaviour {
     public Animator animator;
 
 
-
     void Awake() {
         _rigidbody2d = GetComponent<Rigidbody2D>();
-        health = GetComponent<PlayerHealth>();
-  
-        
+        health = GetComponent<PlayerHealth>();    
     }
 
+
     void Start() {
+        _character = FindObjectOfType(typeof(Character)) as Character; 
+
         _uiInventory.SetActive(true);
         _inventoryManager = new InventoryManager();
         _inventoryMenu.SetInventory(_inventoryManager);
         _uiInventory.SetActive(false);
 
-        // SetCharacter(0); //test
+        ChooseCharacter.characterType = Character.Type.Knight; //test
         SetCharacter(ChooseCharacter.characterType);
 
     }
+
+
     void Update() {
         ReadInstruction();
     }
 
 
     void SetCharacter(Character.Type characterType) {
-        if (characterType == Character.Type.Ninja) {
-            // ninja
-            animator.runtimeAnimatorController = CharacterAssets.instance._ninjaController;
-            GetComponent<BoxCollider2D>().size = new Vector2(1.28f, 1.87f);
-            GetComponent<BoxCollider2D>().offset = new Vector2(-0.11f, 0.01f);
-        }
-        else if (characterType == Character.Type.Knight) {
-            // knight
-            animator.runtimeAnimatorController = CharacterAssets.instance._knightController;
-            GetComponent<Transform>().localScale = new Vector3(1.7f, 2f, 1.5f);
-            GetComponent<BoxCollider2D>().size = new Vector2(1.075f, 1.458f);
-            GetComponent<BoxCollider2D>().offset = new Vector2(-0.0075f, -0.52f);
-        }
+        animator.runtimeAnimatorController = _character.GetAnimatorController(ChooseCharacter.characterType);
+        GetComponent<Transform>().localScale = _character.GetLocalScale(ChooseCharacter.characterType);
+        GetComponent<BoxCollider2D>().size = _character.GetBoxColliderSize(ChooseCharacter.characterType);
+        GetComponent<BoxCollider2D>().offset = _character.GetBoxColliderOffset(ChooseCharacter.characterType);
     }
 
 

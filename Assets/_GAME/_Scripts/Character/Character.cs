@@ -3,47 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Character : MonoBehaviour
-{    
-
+public class Character : MonoBehaviour {    
 
     public enum Type {
         Ninja,
         Knight
     }
-    // public Sprite GetSprite(CharacterType characterType) {
-    //     switch (itemType) {
-    //         case ItemType.Health:
-    //             return ItemAssets.instance.healthSprite;
-    //         case ItemType.Mana:
-    //             return ItemAssets.instance.manaSprite;
-    //         case ItemType.Poison:
-    //             return ItemAssets.instance.poisonSprite;
-    //         case ItemType.Medkit:
-    //             return ItemAssets.instance.medkitSprite;
-    //         case ItemType.Coin:
-    //             return ItemAssets.instance.coinSprite;
-    //         default:
-    //             return null;
-    //     }
-    // }
 
-    // public int GetPrice(ItemType itemType) {
-    //     switch (itemType) {
-    //         case ItemType.Health:
-    //             return 12;
-    //         case ItemType.Mana:
-    //             return 15;
-    //         case ItemType.Poison:
-    //             return 20;
-    //         case ItemType.Medkit:
-    //             return 32;
-    //         case ItemType.Coin:
-    //             return 16;
-    //         default:
-    //             return 0;
-    //     }
-    // }
+    public RuntimeAnimatorController GetAnimatorController(Type characterType) {
+        switch (characterType) {
+            case Type.Ninja:
+                return CharacterAssets.instance._ninjaController;
+            case Type.Knight:
+                return CharacterAssets.instance._knightController;
+            default:
+                return null;
+        }
+    }
 
-  
+
+    public Vector2 GetBoxColliderSize(Type characterType) {
+        switch (characterType) {
+            case Type.Ninja:
+                return new Vector2(1.28f, 1.87f);
+            case Type.Knight:
+                return new Vector2(1.075f, 1.458f);
+            default:
+                return new Vector2(1f, 1f);
+        }
+    }
+
+
+    public Vector2 GetBoxColliderOffset(Type characterType) {
+        switch (characterType) {
+            case Type.Ninja:
+                return new Vector2(-0.11f, 0.01f);
+            case Type.Knight:
+                return new Vector2(-0.0075f, -0.52f);
+            default:
+                return new Vector2(0f, 0f);
+        }
+    }
+
+
+    public Vector3 GetLocalScale(Type characterType) {
+        switch (characterType) {
+            case Type.Ninja:
+                return new Vector3(1f, 1f, 1f);
+            case Type.Knight:
+                return new Vector3(1.7f, 2f, 1.5f);
+            default:
+                return new Vector3(1f, 1f, 1f);
+        }
+    }
 }

@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 198728148454637942}
   - component: {fileID: 6802335161882788720}
   - component: {fileID: 8283361718887715963}
-  - component: {fileID: 8283361718887715964}
+  - component: {fileID: 4808085041458859823}
   m_Layer: 0
   m_Name: ItemBtn
   m_TagString: Untagged
@@ -497,8 +497,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8283361718887715964}
-        m_TargetAssemblyTypeName: Item, Assembly-CSharp
+      - m_Target: {fileID: 4808085041458859823}
+        m_TargetAssemblyTypeName: ShopItem, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -703,7 +703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _infoBoard: {fileID: 656456307}
---- !u!114 &8283361718887715964
+--- !u!114 &4808085041458859823
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -712,15 +712,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8767581525388804655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41052b029658c6347ac3c8f3824198db, type: 3}
+  m_Script: {fileID: 11500000, guid: abf285eda4dc6e44d97c6b7f42919c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemPropertyPanel: {fileID: 0}
-  _tooltip: {fileID: 538767888}
-  _price: {fileID: 7011576048602917507}
   itemType: 0
-  price: 0
-  amount: 0
 --- !u!1 &8767581525452139248
 GameObject:
   m_ObjectHideFlags: 0

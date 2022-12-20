@@ -5,11 +5,6 @@ using TMPro;
 
 public class ChooseCharacter : MonoBehaviour {
 
-    // public enum Character {
-    //     Ninja,
-    //     Knight
-    // }
-
     [SerializeField] private GameObject _ninja, _knight;
     [SerializeField] private GameObject _knightSelectedArrow, _ninjaSelectedArrow;
     private                  TMPro.TextMeshProUGUI _characterName;

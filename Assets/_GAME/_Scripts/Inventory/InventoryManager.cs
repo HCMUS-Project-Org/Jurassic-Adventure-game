@@ -11,36 +11,36 @@ public class InventoryManager : MonoBehaviour {
         _itemList = new List<Item>();
 
          AddItem(new Item {
-            itemType = Item.ItemType.Mana,
+            itemType = Item.Type.Mana,
             amount = 1
         });
         AddItem(new Item {
-            itemType = Item.ItemType.Health,
+            itemType = Item.Type.Health,
             amount = 1
         });
         
          AddItem(new Item {
-            itemType = Item.ItemType.Poison,
+            itemType = Item.Type.Poison,
             amount = 1
         });
           AddItem(new Item {
-            itemType = Item.ItemType.Medkit,
+            itemType = Item.Type.Medkit,
             amount = 3
         });
           AddItem(new Item {
-            itemType = Item.ItemType.Coin,
+            itemType = Item.Type.Coin,
             amount = 2
         });
           AddItem(new Item {
-            itemType = Item.ItemType.Health,
+            itemType = Item.Type.Health,
             amount = 1
         });
               AddItem(new Item {
-            itemType = Item.ItemType.Health,
+            itemType = Item.Type.Health,
             amount = 3
         });
            AddItem(new Item {
-            itemType = Item.ItemType.Medkit,
+            itemType = Item.Type.Medkit,
             amount = 2
         });
     }

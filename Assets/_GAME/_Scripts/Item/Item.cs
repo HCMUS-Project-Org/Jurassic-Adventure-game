@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 public class Item : MonoBehaviour {
-    public enum ItemType {
+    public enum Type {
         Health,
         Mana,
         Poison,
@@ -14,48 +14,22 @@ public class Item : MonoBehaviour {
     }
 
     [SerializeField] private GameObject _itemPropertyPanel;
-    private                  GameObject _itemIcon, _priceBoard, _coinIcon, _info;
 
-    private                  TMPro.TextMeshProUGUI _tooltipTxt, _priceTxt;
-
-    private                  Color _disableColor = new Color32(152, 152, 152, 255);
-    private                  Color _enableColor = Color.white;
-
-    public ItemType itemType;
+    public Type itemType;
     public int amount;
 
 
-    void Start() {
-        _itemIcon = transform.GetChild(0).gameObject;   
-        _priceBoard = transform.GetChild(1).gameObject;
-        _info = transform.GetChild(2).gameObject;
-
-        _coinIcon = _priceBoard.transform.GetChild(1).gameObject;
-        _priceTxt = _priceBoard.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>();
-        _tooltipTxt = _info.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>();
-        
-        _itemIcon.GetComponent<Image>().sprite = this.GetSprite(this.itemType);
-        _tooltipTxt.text = this.itemType.ToString();
-        _priceTxt.text = this.GetPrice(this.itemType).ToString();
-    }
-
-
-    void Update() {
-        DisableItem(IsCanBuy());
-    }
-
-
-    public Sprite GetSprite(ItemType itemType) {
+    public Sprite GetSprite(Type itemType) {
         switch (itemType) {
-            case ItemType.Health:
+            case Type.Health:
                 return ItemAssets.instance.healthSprite;
-            case ItemType.Mana:
+            case Type.Mana:
                 return ItemAssets.instance.manaSprite;
-            case ItemType.Poison:
+            case Type.Poison:
                 return ItemAssets.instance.poisonSprite;
-            case ItemType.Medkit:
+            case Type.Medkit:
                 return ItemAssets.instance.medkitSprite;
-            case ItemType.Coin:
+            case Type.Coin:
                 return ItemAssets.instance.coinSprite;
             default:
                 return null;
@@ -63,17 +37,17 @@ public class Item : MonoBehaviour {
     }
 
 
-    public int GetPrice(ItemType itemType) {
+    public int GetPrice(Type itemType) {
         switch (itemType) {
-            case ItemType.Health:
+            case Type.Health:
                 return 12;
-            case ItemType.Mana:
+            case Type.Mana:
                 return 15;
-            case ItemType.Poison:
+            case Type.Poison:
                 return 20;
-            case ItemType.Medkit:
+            case Type.Medkit:
                 return 32;
-            case ItemType.Coin:
+            case Type.Coin:
                 return 16;
             default:
                 return 0;
@@ -81,46 +55,20 @@ public class Item : MonoBehaviour {
     }
 
 
-    public string GetDescription(ItemType itemType) {
+    public string GetDescription(Type itemType) {
         switch (itemType) {
-            case ItemType.Health:
+            case Type.Health:
                 return "This is health";
-            case ItemType.Mana:
+            case Type.Mana:
                 return "This is mana";
-            case ItemType.Poison:
+            case Type.Poison:
                 return "This is poison";
-            case ItemType.Medkit:
+            case Type.Medkit:
                 return "This is Medkit";
-            case ItemType.Coin:
+            case Type.Coin:
                 return "This is coin";
             default:
                 return null;
-        }
-    }
-    
-
-    void DisableItem(bool isCanBuy) {
-        if (isCanBuy) {
-            gameObject.GetComponent<ClickyButton>().enabled = true;
-            gameObject.GetComponent<CustomEvent>().enabled = true;
-            gameObject.GetComponent<Button>().enabled = true;
-
-            gameObject.GetComponent<Image>().color = _enableColor;
-            _itemIcon.GetComponent<Image>().color = _enableColor;
-            _priceBoard.GetComponent<Image>().color = _enableColor;
-            _coinIcon.GetComponent<Image>().color = _enableColor;
-            _priceTxt.color = _enableColor;
-        } 
-        else {
-            gameObject.GetComponent<ClickyButton>().enabled = false;
-            gameObject.GetComponent<CustomEvent>().enabled = false;
-            gameObject.GetComponent<Button>().enabled = false;
-
-            gameObject.GetComponent<Image>().color = _disableColor;
-            _itemIcon.GetComponent<Image>().color = _disableColor;
-            _priceBoard.GetComponent<Image>().color = _disableColor;
-            _coinIcon.GetComponent<Image>().color = _disableColor;
-            _priceTxt.color = _disableColor;
         }
     }
 
@@ -141,20 +89,5 @@ public class Item : MonoBehaviour {
         itemName.text = this.itemType.ToString();
         description.text = this.GetDescription(this.itemType);
         itemImage.sprite = this.GetSprite(this.itemType);
-    }
-
-
-    bool IsCanBuy() {
-        return PlayerController.budget >=  this.GetPrice(this.itemType);
-    }
-
-
-    public void Buy() {
-        if (IsCanBuy()) {
-            PlayerController.budget -= this.GetPrice(this.itemType);
-            InventoryManager.instance.AddItem(this);
-        } else {
-            Debug.Log("Not enough money");
-        }
     }
 }

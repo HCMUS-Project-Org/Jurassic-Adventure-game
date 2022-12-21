@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 
 public class ShopItem : MonoBehaviour {
 
-    [SerializeField] private EventTrigger myEventTrigger;
+    [SerializeField] private UIInventory _inventoryMenu;
     [SerializeField] private Item.Type itemType;
     private                  Item _item;
+    private                  InventoryManager _inventoryManager;
     private                  Color _disableColor = new Color32(152, 152, 152, 255);
     private                  Color _enableColor = Color.white;
     private                  GameObject _itemIcon, _priceBoard, _coinIcon, _info;
@@ -19,6 +19,7 @@ public class ShopItem : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         _item = FindObjectOfType(typeof(Item)) as Item; 
+        _inventoryManager = FindObjectOfType(typeof(InventoryManager)) as InventoryManager;
 
         _itemIcon = transform.GetChild(0).gameObject;   
         _priceBoard = transform.GetChild(1).gameObject;
@@ -41,22 +42,17 @@ public class ShopItem : MonoBehaviour {
 
 
     void DisableItem(bool isCanBuy) {
-        Debug.Log("event: " + myEventTrigger.triggers.Count);
-        //https://forum.unity.com/threads/add-and-remove-event-type-via-script.433905/
-
         Color color = isCanBuy ? _enableColor : _disableColor;
 
         gameObject.GetComponent<ClickyButton>().enabled = isCanBuy;
-        gameObject.GetComponent<CustomEvent>().enabled = isCanBuy;
         gameObject.GetComponent<Button>().enabled = isCanBuy;
+        gameObject.GetComponent<CustomEvent>().enabled = isCanBuy;
 
         gameObject.GetComponent<Image>().color = color;
         _itemIcon.GetComponent<Image>().color = color;
         _priceBoard.GetComponent<Image>().color = color;
         _coinIcon.GetComponent<Image>().color = color;
         _priceTxt.color = color;
-
-        
     }
 
 
@@ -74,6 +70,9 @@ public class ShopItem : MonoBehaviour {
 
             PlayerController.budget -= _item.GetPrice(itemType);
             InventoryManager.instance.AddItem(tempItem);
+
+            // refesh inventory
+            _inventoryMenu.SetInventory(_inventoryManager);
         } 
     }
 }

@@ -715,8 +715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf285eda4dc6e44d97c6b7f42919c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myEventTrigger: {fileID: 5129763634176597706}
   itemType: 0
+  _inventoryMenu: {fileID: 0}
 --- !u!1 &8767581525452139248
 GameObject:
   m_ObjectHideFlags: 0

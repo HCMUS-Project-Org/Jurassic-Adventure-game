@@ -22,7 +22,7 @@ public class UIInventory : MonoBehaviour {
     }
 
 
-    private void RefreshInventoryItems() {
+    public void RefreshInventoryItems() {
         for (int i = 0; i < _itemSlotList.Count; i++) {     
             Vector2 slotAnchorPosition = _itemSlotList[i].GetComponent<RectTransform>().anchoredPosition;
             

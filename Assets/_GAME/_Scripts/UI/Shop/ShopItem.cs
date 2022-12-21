@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
 public class ShopItem : MonoBehaviour {
 
+    [SerializeField] private EventTrigger myEventTrigger;
     [SerializeField] private Item.Type itemType;
     private                  Item _item;
-    private                  GameObject _itemIcon, _priceBoard, _coinIcon, _info;
-    private                  TMPro.TextMeshProUGUI _tooltipTxt, _priceTxt;
     private                  Color _disableColor = new Color32(152, 152, 152, 255);
     private                  Color _enableColor = Color.white;
+    private                  GameObject _itemIcon, _priceBoard, _coinIcon, _info;
+    private                  TMPro.TextMeshProUGUI _tooltipTxt, _priceTxt;
 
 
     // Start is called before the first frame update
@@ -38,29 +40,23 @@ public class ShopItem : MonoBehaviour {
     }
 
 
-     void DisableItem(bool isCanBuy) {
-        if (isCanBuy) {
-            gameObject.GetComponent<ClickyButton>().enabled = true;
-            gameObject.GetComponent<CustomEvent>().enabled = true;
-            gameObject.GetComponent<Button>().enabled = true;
+    void DisableItem(bool isCanBuy) {
+        Debug.Log("event: " + myEventTrigger.triggers.Count);
+        //https://forum.unity.com/threads/add-and-remove-event-type-via-script.433905/
 
-            gameObject.GetComponent<Image>().color = _enableColor;
-            _itemIcon.GetComponent<Image>().color = _enableColor;
-            _priceBoard.GetComponent<Image>().color = _enableColor;
-            _coinIcon.GetComponent<Image>().color = _enableColor;
-            _priceTxt.color = _enableColor;
-        } 
-        else {
-            gameObject.GetComponent<ClickyButton>().enabled = false;
-            gameObject.GetComponent<CustomEvent>().enabled = false;
-            gameObject.GetComponent<Button>().enabled = false;
+        Color color = isCanBuy ? _enableColor : _disableColor;
 
-            gameObject.GetComponent<Image>().color = _disableColor;
-            _itemIcon.GetComponent<Image>().color = _disableColor;
-            _priceBoard.GetComponent<Image>().color = _disableColor;
-            _coinIcon.GetComponent<Image>().color = _disableColor;
-            _priceTxt.color = _disableColor;
-        }
+        gameObject.GetComponent<ClickyButton>().enabled = isCanBuy;
+        gameObject.GetComponent<CustomEvent>().enabled = isCanBuy;
+        gameObject.GetComponent<Button>().enabled = isCanBuy;
+
+        gameObject.GetComponent<Image>().color = color;
+        _itemIcon.GetComponent<Image>().color = color;
+        _priceBoard.GetComponent<Image>().color = color;
+        _coinIcon.GetComponent<Image>().color = color;
+        _priceTxt.color = color;
+
+        
     }
 
 

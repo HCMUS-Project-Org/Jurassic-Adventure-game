@@ -379,9 +379,9 @@ GameObject:
   - component: {fileID: 8767581525388804691}
   - component: {fileID: 8767581525388804690}
   - component: {fileID: 8767581525388804653}
-  - component: {fileID: 5129763634176597706}
   - component: {fileID: 9143131782091371538}
   - component: {fileID: 198728148454637942}
+  - component: {fileID: 5129763634176597706}
   - component: {fileID: 6802335161882788720}
   - component: {fileID: 8283361718887715963}
   - component: {fileID: 4808085041458859823}
@@ -529,27 +529,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5129763634176597706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8767581525388804655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55ee30b514cbf9b4fb33219e909f768f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls: []
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!61 &9143131782091371538
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -672,6 +651,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5129763634176597706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8767581525388804655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ee30b514cbf9b4fb33219e909f768f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!114 &6802335161882788720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,6 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf285eda4dc6e44d97c6b7f42919c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myEventTrigger: {fileID: 5129763634176597706}
   itemType: 0
 --- !u!1 &8767581525452139248
 GameObject:

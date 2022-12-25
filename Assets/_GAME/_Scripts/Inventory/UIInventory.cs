@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class UIInventory : MonoBehaviour {
 
     [SerializeField] private List<GameObject> _itemSlotList;
-    [SerializeField] private Sprite _activeSlotSprite;
+    [SerializeField] private Sprite _activeSlotSprite, _inactiveSlotSprite;
     private                  InventoryManager _inventoryManager;
     private                  Image _itemImage;
     
@@ -22,7 +23,27 @@ public class UIInventory : MonoBehaviour {
     }
 
 
+    void ClearInventory() {
+        // remove all items from inventory
+        foreach(GameObject item in GameObject.FindGameObjectsWithTag("Item")) {
+            if(item.name == "ItemImg(Clone)") {
+                Destroy(item);
+            }
+        }
+
+        // refesh inventory slots
+        for (int i = 0; i < _itemSlotList.Count; i++) {
+            GameObject currentSlot = _itemSlotList[i].gameObject;
+
+            // change slot sprite
+            currentSlot.GetComponent<Image>().sprite = _inactiveSlotSprite;
+        }
+    }
+
+
     public void RefreshInventoryItems() {
+        ClearInventory();
+
         for (int i = 0; i < _itemSlotList.Count; i++) {     
             Vector2 slotAnchorPosition = _itemSlotList[i].GetComponent<RectTransform>().anchoredPosition;
             

@@ -6,10 +6,8 @@ using UnityEngine.UI;
 
 public class ShopItem : MonoBehaviour {
 
-    [SerializeField] private UIInventory _inventoryMenu;
     [SerializeField] private Item.Type itemType;
     private                  Item _item;
-    private                  InventoryManager _inventoryManager;
     private                  Color _disableColor = new Color32(152, 152, 152, 255);
     private                  Color _enableColor = Color.white;
     private                  GameObject _itemIcon, _priceBoard, _coinIcon, _info;
@@ -19,7 +17,6 @@ public class ShopItem : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         _item = FindObjectOfType(typeof(Item)) as Item; 
-        _inventoryManager = FindObjectOfType(typeof(InventoryManager)) as InventoryManager;
 
         _itemIcon = transform.GetChild(0).gameObject;   
         _priceBoard = transform.GetChild(1).gameObject;
@@ -70,9 +67,6 @@ public class ShopItem : MonoBehaviour {
 
             PlayerController.budget -= _item.GetPrice(itemType);
             InventoryManager.instance.AddItem(tempItem);
-
-            // refesh inventory
-            _inventoryMenu.SetInventory(_inventoryManager);
         } 
     }
 }

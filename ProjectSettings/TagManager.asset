@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
+  - InventorySlot
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Instruction
   - Projectile
   - MinimapObj
-  - 
+  - InventoryItem
   - 
   - 
   - 

@@ -7,11 +7,21 @@ using TMPro;
 
 public class ItemSlot : MonoBehaviour, IDropHandler, IPointerDownHandler {
 
-    public void OnDrop(PointerEventData eventData) {
-        Debug.Log("OnDrop");
+    [SerializeField] private Sprite _activeSlotSprite, _inactiveSlotSprite;
 
-        if (eventData.pointerDrag != null) {
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition  = this.GetComponent<RectTransform>().anchoredPosition;
+    void Update() {
+        if (transform.childCount == 0) {
+            GetComponent<Image>().sprite = _inactiveSlotSprite;
+        } else {
+            GetComponent<Image>().sprite = _activeSlotSprite;
+        }
+    }
+
+    public void OnDrop(PointerEventData eventData) {
+        if (transform.childCount == 0) {
+            GameObject dropped = eventData.pointerDrag;
+            DragAndDrop dragAndDropItem = dropped.GetComponent<DragAndDrop>();
+            dragAndDropItem.parentAfterDrag = transform;
         }
     }
 

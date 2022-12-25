@@ -1,40 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler {
 
-    [SerializeField] private Canvas _canvas;
-    private                  RectTransform _rectTransform;
-    private                  CanvasGroup _canvasGroup;
+    // [SerializeField] private Canvas _canvas;
+    // private                  RectTransform _rectTransform;
+    private CanvasGroup _canvasGroup;
+    private Image _image;
+
+    [HideInInspector] public Transform parentAfterDrag;
 
     private void Awake() {
-        _rectTransform = GetComponent<RectTransform>();
         _canvasGroup = GetComponent<CanvasGroup>();
+        _image = GetComponent<Image>();
     }
 
 
     public void OnBeginDrag(PointerEventData eventData) {
         Debug.Log("OnBeginDrag");
+
+        parentAfterDrag = transform.parent;
         
-        _canvasGroup.alpha = .6f;
-        _canvasGroup.blocksRaycasts = false;
+        transform.SetParent(transform.root);
+        transform.SetAsLastSibling();
+        
+        _image.raycastTarget = false;
+        // _canvasGroup.alpha = .6f;
+        // _canvasGroup.blocksRaycasts = false;
     }
 
 
     public void OnDrag(PointerEventData eventData) {
         Debug.Log("OnDrag");
         
-        _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
+        transform.position = Input.mousePosition;;
+        // _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
     }
 
 
     public void OnEndDrag(PointerEventData eventData) {
         Debug.Log("OnEndDrag");
 
-        _canvasGroup.alpha = 1f;
-        _canvasGroup.blocksRaycasts = true;
+        transform.SetParent(parentAfterDrag);
+
+        _image.raycastTarget = true;
+        // _canvasGroup.alpha = 1f;
+        // _canvasGroup.blocksRaycasts = true;
     }
 
 

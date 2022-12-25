@@ -6,8 +6,6 @@ using UnityEngine.EventSystems;
 
 public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler {
 
-    // [SerializeField] private Canvas _canvas;
-    // private                  RectTransform _rectTransform;
     private CanvasGroup _canvasGroup;
     private Image _image;
 
@@ -28,8 +26,6 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         transform.SetAsLastSibling();
         
         _image.raycastTarget = false;
-        // _canvasGroup.alpha = .6f;
-        // _canvasGroup.blocksRaycasts = false;
     }
 
 
@@ -37,7 +33,6 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         Debug.Log("OnDrag");
         
         transform.position = Input.mousePosition;;
-        // _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
     }
 
 
@@ -47,11 +42,5 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         transform.SetParent(parentAfterDrag);
 
         _image.raycastTarget = true;
-        // _canvasGroup.alpha = 1f;
-        // _canvasGroup.blocksRaycasts = true;
     }
-
-
-   
-
 }

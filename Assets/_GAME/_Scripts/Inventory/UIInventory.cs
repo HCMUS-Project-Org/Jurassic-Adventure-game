@@ -40,7 +40,6 @@ public class UIInventory : MonoBehaviour {
 
                 GameObject amountBadge = itemImageRectTransform.transform.Find("amountBadge").gameObject;
 
-
                 // add item to slot
                 itemImageRectTransform.SetParent(currentSlot.transform);
                 itemImageRectTransform.gameObject.SetActive(true);

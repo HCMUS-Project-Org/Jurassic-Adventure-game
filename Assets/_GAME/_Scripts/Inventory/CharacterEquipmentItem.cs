@@ -18,6 +18,8 @@ public class CharacterEquipmentItem : MonoBehaviour
         else {
             EquipmentManager.instance.ChangeSlotEquipment(slotIndex, null);
         } 
+
+        Debug.Log("slot:" + slotIndex + " item:" + EquipmentManager.instance.GetEquipmentList()[slotIndex]);
     }
 
 
@@ -29,7 +31,7 @@ public class CharacterEquipmentItem : MonoBehaviour
                 return itemList[i].amount;
             }
         }
-        
+
         return 1;
     }
 }

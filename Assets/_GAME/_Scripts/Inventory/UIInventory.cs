@@ -41,7 +41,7 @@ public class UIInventory : MonoBehaviour {
     }
 
 
-    void InstantiateItem(Item item, GameObject parent) {
+    public void InstantiateItem(Item item, GameObject parent) {
         RectTransform itemImageRectTransform = Instantiate(_inventoryItem, GetComponent<RectTransform>()).GetComponent<RectTransform>();
 
         GameObject amountBadge = itemImageRectTransform.transform.Find("amountBadge").gameObject;
@@ -95,7 +95,8 @@ public class UIInventory : MonoBehaviour {
         for (int i = 0; i < equipmentItem.Length; i++) {
             if (equipmentItem[i] != null) {
                 GameObject equipmentCurrentSlot = GameObject.Find("EquipmentItemSlot " + i.ToString());
-
+            
+                // init item
                 InstantiateItem(equipmentItem[i], equipmentCurrentSlot);
             }
         }

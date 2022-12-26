@@ -18,8 +18,6 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
 
     public void OnBeginDrag(PointerEventData eventData) {
-        Debug.Log("OnBeginDrag");
-
         parentAfterDrag = transform.parent;
         
         transform.SetParent(transform.root);
@@ -30,15 +28,11 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
 
     public void OnDrag(PointerEventData eventData) {
-        Debug.Log("OnDrag");
-        
         transform.position = Input.mousePosition;;
     }
 
 
     public void OnEndDrag(PointerEventData eventData) {
-        Debug.Log("OnEndDrag");
-
         transform.SetParent(parentAfterDrag);
 
         _image.raycastTarget = true;

@@ -4,51 +4,32 @@ using UnityEngine;
 
 public class CharacterEquipmentItem : MonoBehaviour
 {
-     private List<Item> _equipmentList;
+    void Update() {
+        string gameObjectName = gameObject.name;
+        int slotIndex = int.Parse(gameObjectName.Substring(gameObjectName.Length - 1));
 
-    public static CharacterEquipmentItem instance;
-
-    public CharacterEquipmentItem() {
-        _equipmentList = new List<Item>();
-
-        AddEquipmentItem(new Item {
-            itemType = Item.Type.Mana,
-            amount = 1
-        });
-        AddEquipmentItem(new Item {
-            itemType = Item.Type.Health,
-            amount = 1
-        });
-        
-         AddEquipmentItem(new Item {
-            itemType = Item.Type.Poison,
-            amount = 1
-        });
-    }
-
-    void Awake() {
-        if (instance == null) {
-            instance = this;
+        if (gameObject.transform.childCount > 0) {
+            Item _itemInSlot = gameObject.transform.GetChild(0).GetComponent<Item>();
+            _itemInSlot.amount = GetItemAmount(_itemInSlot);
+    
+            if (_itemInSlot != null) 
+                EquipmentManager.instance.ChangeSlotEquipment(slotIndex, _itemInSlot);
         }
         else {
-            Destroy(gameObject);
-        }
+            EquipmentManager.instance.ChangeSlotEquipment(slotIndex, null);
+        } 
     }
 
-    public void AddEquipmentItem(Item addItem) {
-        for (int i = 0; i < _equipmentList.Count; i++) {
-            if (_equipmentList[i].itemType == addItem.itemType) {
-                Item tempItem = new Item {
-                    itemType = addItem.itemType,
-                    amount = _equipmentList[i].amount + addItem.amount
-                };
 
-                _equipmentList[i] = tempItem;
+    int GetItemAmount(Item item) {
+        List<Item> itemList = InventoryManager.instance.GetItemList();
 
-                return;
+        for (int i = 0; i < itemList.Count; i++) {
+            if (itemList[i].itemType == item.itemType) {
+                return itemList[i].amount;
             }
         }
-
-        _equipmentList.Add(addItem);
+        
+        return 1;
     }
 }

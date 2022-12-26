@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private UIInventory _inventoryMenu;
     [SerializeField] private GameObject _uiInventory;
     private                  InventoryManager _inventoryManager;
-    private                  CharacterEquipmentItem _characterEquipmentItem;
+    private                  EquipmentManager _equipmentManager;
     private                  Character _character;
 
     public static int budget = 50;
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour {
 
         _uiInventory.SetActive(true);
         _inventoryManager = new InventoryManager();
-        _characterEquipmentItem = new CharacterEquipmentItem(); 
+        _equipmentManager = new EquipmentManager();
         _inventoryMenu.SetInventory(_inventoryManager);
         _uiInventory.SetActive(false);
 

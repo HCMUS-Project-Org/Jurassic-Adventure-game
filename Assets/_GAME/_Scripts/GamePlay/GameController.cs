@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour {
     [SerializeField] private Sprite _pauseBtnImg, _resumeBtnImg;
     [SerializeField] private UIInventory _inventoryMenu;
     private                  InventoryManager _inventoryManager;
+    private                  EquipmentManager _equipmentManager;
     
     [SerializeField] private int _level;
 
@@ -23,6 +24,7 @@ public class GameController : MonoBehaviour {
 
     void Start() {
         _inventoryManager = FindObjectOfType(typeof(InventoryManager)) as InventoryManager;
+        _equipmentManager = FindObjectOfType(typeof(EquipmentManager)) as EquipmentManager;
     }
 
     void Update() {
@@ -88,11 +90,10 @@ public class GameController : MonoBehaviour {
         ResumeGame();
         PauseGame();
         
-        // refesh inventory
-
         _pauseMenuUI.SetActive(false);
         _inventoryUI.SetActive(true);
-        
+
+        // refesh inventory
         _inventoryMenu.SetInventory(_inventoryManager);
 
         _isOpenInventory = true;

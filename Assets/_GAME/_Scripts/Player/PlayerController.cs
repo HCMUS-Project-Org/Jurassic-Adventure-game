@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour {
         _inventoryMenu.SetInventory(_inventoryManager);
         _uiInventory.SetActive(false);
 
-        ChooseCharacter.characterType = Character.Type.Knight; //test
         SetCharacter(ChooseCharacter.characterType);
 
     }

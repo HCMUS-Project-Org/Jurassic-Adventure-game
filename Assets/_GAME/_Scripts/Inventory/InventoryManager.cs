@@ -20,16 +20,12 @@ public class InventoryManager : MonoBehaviour {
         });
         
          AddItem(new Item {
-            itemType = Item.Type.Poison,
+            itemType = Item.Type.Experience,
             amount = 1
         });
           AddItem(new Item {
             itemType = Item.Type.Medkit,
             amount = 3
-        });
-          AddItem(new Item {
-            itemType = Item.Type.Coin,
-            amount = 2
         });
           AddItem(new Item {
             itemType = Item.Type.Health,

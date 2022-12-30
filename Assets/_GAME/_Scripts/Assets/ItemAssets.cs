@@ -8,9 +8,8 @@ public class ItemAssets : MonoBehaviour
 
     public Sprite healthSprite;
     public Sprite manaSprite;
-    public Sprite poisonSprite;
+    public Sprite experienceSprite;
     public Sprite medkitSprite;
-    public Sprite coinSprite;
 
 
     private void Awake() {

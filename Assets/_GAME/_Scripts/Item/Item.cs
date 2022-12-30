@@ -7,10 +7,9 @@ using TMPro;
 public class Item : MonoBehaviour {
     public enum Type {
         Health,
-        Mana,
-        Poison,
         Medkit,
-        Coin,
+        Mana,
+        Experience,
     }
 
     [SerializeField] private GameObject _itemPropertyPanel;
@@ -25,12 +24,10 @@ public class Item : MonoBehaviour {
                 return ItemAssets.instance.healthSprite;
             case Type.Mana:
                 return ItemAssets.instance.manaSprite;
-            case Type.Poison:
-                return ItemAssets.instance.poisonSprite;
             case Type.Medkit:
                 return ItemAssets.instance.medkitSprite;
-            case Type.Coin:
-                return ItemAssets.instance.coinSprite;
+            case Type.Experience:
+                return ItemAssets.instance.experienceSprite;
             default:
                 return null;
         }
@@ -43,11 +40,9 @@ public class Item : MonoBehaviour {
                 return 12;
             case Type.Mana:
                 return 15;
-            case Type.Poison:
-                return 20;
             case Type.Medkit:
                 return 32;
-            case Type.Coin:
+            case Type.Experience:
                 return 16;
             default:
                 return 0;
@@ -61,12 +56,10 @@ public class Item : MonoBehaviour {
                 return "This is health";
             case Type.Mana:
                 return "This is mana";
-            case Type.Poison:
+            case Type.Experience:
                 return "This is poison";
             case Type.Medkit:
                 return "This is Medkit";
-            case Type.Coin:
-                return "This is coin";
             default:
                 return null;
         }

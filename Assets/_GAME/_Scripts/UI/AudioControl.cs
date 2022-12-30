@@ -33,8 +33,6 @@ public class AudioControl : MonoBehaviour
 
     void Start()
     {
-        //_musicSource = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
-        //_effectSource = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
 
         _vol = (decimal) PlayerPrefs.GetFloat("VOL", 1f);
         _bgm = (decimal) PlayerPrefs.GetFloat("BGM", 1f);
@@ -151,6 +149,26 @@ public class AudioControl : MonoBehaviour
     {
         _effectSource.PlayOneShot(clip);
     }
+
+    public void PlayMusic(AudioClip Music)
+    {
+        if (instance != null)
+        {
+            Debug.Log("Instace");
+            if (instance._musicSource != null)
+            {
+                Debug.Log("Success");
+                instance._musicSource.Stop();
+                instance._musicSource.clip = Music;
+                instance._musicSource.Play();
+            }
+        }
+        else
+        {
+            Debug.LogError("Unavailable MusicPlayer component");
+        }
+    }
+
 
 
     public void UpdateBar(Image _img,float value)

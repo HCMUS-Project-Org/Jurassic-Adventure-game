@@ -2,15 +2,20 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using JetBrains.Annotations;
 
 public class LevelLoader : MonoBehaviour {
 
     public GameObject loadingScreen;
     public Slider slider;
 
-
     public void LoadLevel(int sceneIndex) {
         StartCoroutine(LoadAsynchronously(sceneIndex));
+    }
+
+    public void LoadMusic(AudioClip Music)
+    {
+        AudioControl.instance.PlayMusic(Music);
     }
 
 

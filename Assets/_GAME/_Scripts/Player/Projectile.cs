@@ -7,6 +7,8 @@ public class Projectile : MonoBehaviour
     private Rigidbody2D _rigidbody2d;
     public  int         damage = 1;
 
+    private float timer = 1f;
+
     void Awake()
     {
         _rigidbody2d = GetComponent<Rigidbody2D>();
@@ -15,10 +17,10 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        // if (transform.position.magnitude > 100.0f)
-        // {
-        //     Destroy(gameObject);
-        // }
+        if ((timer -= Time.deltaTime) <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
 

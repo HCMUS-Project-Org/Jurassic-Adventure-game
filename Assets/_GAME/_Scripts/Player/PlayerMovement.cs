@@ -181,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
         GameObject projectileObject = Instantiate(projectilePrefab, _rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         Projectile projectile       = projectileObject.GetComponent<Projectile>();
 
-        projectile.Launch(_lookDirection, 300);
+        projectile.Launch(_lookDirection, 1000);
 
         // decrease mana
 

@@ -42,6 +42,8 @@ public class EnemyController : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _timer       = _changeTime;
+        
+        animator.SetTrigger(enemy.ToString());
         Flip();
     }
 

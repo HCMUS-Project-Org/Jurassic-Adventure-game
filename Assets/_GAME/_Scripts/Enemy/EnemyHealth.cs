@@ -4,39 +4,34 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class EnemyHealth : MonoBehaviour {
-
+public class EnemyHealth : MonoBehaviour
+{
     [SerializeField] private EnemyController _enemyController;
-    private                  Animator _animator;
+    [SerializeField] private Animator        _animator;
 
     public HealthBar healthBar;
-    
-    public int maxHealth;
-    public int currentHealth;
+
+    public                  int maxHealth;
+    public                  int currentHealth;
+    private static readonly int Hit = Animator.StringToHash("Hit");
 
 
-    void Start() {
-        // _animator = GetComponent<EnemyController>().animator;     
+    void Start()
+    {  
         currentHealth = maxHealth;
 
         healthBar.Show(false);
     }
 
+    public void GetDamage(int damage)
+    {
+        currentHealth -= damage;
+        _animator.SetTrigger(Hit);
 
-    public void ChangeHealth(int amount) {
-        // if (amount < 0) {
-        //     _animator.SetTrigger("Hurt");
-        // }
-
-        // set value
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         healthBar.Show(true);
         healthBar.instance.SetHealthValue(currentHealth / (float)maxHealth);
-        
-        if (currentHealth <= 0) {
-            _enemyController.Killed();
-        }
 
-        Debug.Log("Enemy health:" + currentHealth + "/" + maxHealth);
+        if (currentHealth == 0)
+            Destroy(gameObject, .25f);
     }
 }

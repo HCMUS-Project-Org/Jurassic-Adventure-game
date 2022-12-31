@@ -452,6 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa7934e37f1e25428abb065a65fdf77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: 0
   _speed: 3
   _changeTime: 3
   maxHealth: 1
@@ -470,6 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyController: {fileID: 7351659741570310397}
+  _animator: {fileID: 1909480068966891880}
   healthBar: {fileID: 397711368}
   maxHealth: 3
   currentHealth: 3

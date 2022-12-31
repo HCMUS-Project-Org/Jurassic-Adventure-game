@@ -12,11 +12,15 @@ public class EnemyHealth : MonoBehaviour
 
     public HealthBar healthBar;
 
-    public                  int maxHealth;
-    public                  int currentHealth;
+    public int maxHealth => _enemyController.enemy switch
+    {
+        Enemy.Bunny => 5,
+        Enemy.Ghost => 3,
+    };
+    
+    private                  int currentHealth;
     private static readonly int Hit = Animator.StringToHash("Hit");
-
-
+    
     void Start()
     {  
         currentHealth = maxHealth;

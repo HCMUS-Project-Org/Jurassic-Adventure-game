@@ -5,7 +5,8 @@ using UnityEngine;
 
 public enum Enemy
 {
-    Bunny
+    Bunny,
+    Ghost
 }
 
 public enum EnemyState
@@ -17,15 +18,15 @@ public enum EnemyState
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private Enemy      enemy;
-    private                  EnemyState enemyState;
+    [SerializeField] public Enemy      enemy;
+    private                 EnemyState enemyState;
 
-    [SerializeField] private float _speed      = 3.0f;
+    private                  float _speed;
     [SerializeField] private float _changeTime = 3.0f;
     private                  float _timer;
 
-    [SerializeField] private int maxHealth  = 1;
-    private                  int _direction = 1;
+    // [SerializeField] private int maxHealth  = 1;
+    private int _direction = 1;
 
     private Rigidbody2D _rigidbody2D;
 
@@ -35,14 +36,22 @@ public class EnemyController : MonoBehaviour
     private float GetEnemySpeed() => enemy switch
     {
         Enemy.Bunny => 5f,
+        Enemy.Ghost => 10f,
     };
 
-    // Start is called before the first frame update
+    private float GetChangeTime() => enemy switch
+    {
+        Enemy.Bunny => 3f,
+        Enemy.Ghost => 1.5f,
+    };
+
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _timer       = _changeTime;
-        
+        _speed       = GetEnemySpeed();
+        _changeTime  = GetChangeTime();
+
+        _timer = _changeTime;
         animator.SetTrigger(enemy.ToString());
         Flip();
     }
@@ -68,7 +77,7 @@ public class EnemyController : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast(
             new Vector2(transform.position.x + 2, transform.position.y),
-            - transform.right,
+            -transform.right,
             12f,
             1 << LayerMask.NameToLayer("Character"));
 

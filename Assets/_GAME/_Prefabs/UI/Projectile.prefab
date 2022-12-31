@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 1278342900300877678}
   m_Layer: 8
   m_Name: Projectile
-  m_TagString: Untagged
+  m_TagString: DealDamage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.16734701, y: 0.1011318}

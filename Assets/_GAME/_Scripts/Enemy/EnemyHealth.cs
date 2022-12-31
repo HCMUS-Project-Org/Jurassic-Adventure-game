@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,5 +34,23 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth == 0)
             Destroy(gameObject, .25f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        var colliderGameObject = col.gameObject;
+        
+        if (colliderGameObject.CompareTag("DealDamage"))
+        {
+            GetDamage(1);
+            if (colliderGameObject.name.StartsWith("Projectile"))
+            {
+                Destroy(colliderGameObject);
+            }
+            else if (colliderGameObject.name.StartsWith("Sword"))
+            {
+                
+            }
+        }
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Item
   - InventorySlot
+  - DealDamage
   layers:
   - Default
   - TransparentFX

@@ -34,16 +34,6 @@ public class Projectile : MonoBehaviour
         _rigidbody2d.AddForce(direction * force);
     }
 
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.TryGetComponent(out EnemyController enemy))
-        {
-            enemy.health.GetDamage(damage);
-            Destroy(gameObject);
-        }
-    }
-
     private void Flip()
     {
         transform.Rotate(0f, 180f, 0f);

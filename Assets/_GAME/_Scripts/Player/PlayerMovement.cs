@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask        _platformLayerMask;
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private PlayerHealth     _playerHealth;
+    [SerializeField] private GameObject       _swordHitbox;
     private                  Rigidbody2D      _rigidbody2d;
     private                  BoxCollider2D    _boxCollider2d;
     private                  Vector2          _lookDirection = new Vector2(1, 0);
@@ -59,7 +60,10 @@ public class PlayerMovement : MonoBehaviour
         
         // melee
         if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
             _animator.SetTrigger("Melee");
+            StartCoroutine(EnableSwordHitbox());
+        }
 
         // skill
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -70,6 +74,13 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(Dash());
 
         HandleMovement();
+    }
+
+    private IEnumerator EnableSwordHitbox()
+    {
+        _swordHitbox.SetActive(true);
+        yield return new WaitForSeconds(.2f);
+        _swordHitbox.SetActive(false);
     }
 
     private IEnumerator Dash()

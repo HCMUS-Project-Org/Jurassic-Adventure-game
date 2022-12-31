@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
     private bool _dashing = false;
 
     [SerializeField] private float forceToAdd;
-    private                  float dashCD = 1f;
+    private                  float dashCD = .7f;
     private                  float currentDashCD;
 
     private void HandleMovement()

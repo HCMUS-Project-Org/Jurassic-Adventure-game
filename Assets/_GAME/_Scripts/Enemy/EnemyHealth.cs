@@ -16,7 +16,7 @@ public class EnemyHealth : MonoBehaviour {
 
 
     void Start() {
-        _animator = GetComponent<EnemyController>().animator;     
+        // _animator = GetComponent<EnemyController>().animator;     
         currentHealth = maxHealth;
 
         healthBar.Show(false);
@@ -24,9 +24,9 @@ public class EnemyHealth : MonoBehaviour {
 
 
     public void ChangeHealth(int amount) {
-        if (amount < 0) {
-            _animator.SetTrigger("Hurt");
-        }
+        // if (amount < 0) {
+        //     _animator.SetTrigger("Hurt");
+        // }
 
         // set value
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);

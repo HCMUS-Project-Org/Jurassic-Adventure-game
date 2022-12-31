@@ -100,7 +100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2666968851066470964
 Transform:
   m_ObjectHideFlags: 0
@@ -291,7 +291,7 @@ Animator:
   m_GameObject: {fileID: 7916472293349428630}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f842df6650817bf44be219a37cf266a7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 062fabeb147e36244877b293dd6ad134, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -353,7 +353,7 @@ MonoBehaviour:
     m_Bits: 8
   _playerController: {fileID: 7916472293349428623}
   _playerHealth: {fileID: 7916472293349428622}
-  _swordHitbox: {fileID: 0}
+  _swordHitbox: {fileID: 5134739532116968560}
   _speed: 15
   _jumpVelocity: 30
   projectilePrefab: {fileID: 9193374948919892479, guid: b468168285589d744b710a1340add71c, type: 3}

@@ -104,8 +104,8 @@ public class GameController : MonoBehaviour {
     public void OpenMap()
     {
         ResumeGame();
-        PauseGame();
 
+        _player.SetActive(false);
         _pauseMenuUI.SetActive(false);
         _mapUI.SetActive(true);
         _zoomCameraController.SetActive(true);

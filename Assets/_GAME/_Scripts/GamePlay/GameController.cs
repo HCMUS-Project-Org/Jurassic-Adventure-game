@@ -111,6 +111,7 @@ public class GameController : MonoBehaviour {
         _zoomCameraController.SetActive(true);
 
         _isOpenMap = true;
+        _isGamePaused = true;
     }
 
 

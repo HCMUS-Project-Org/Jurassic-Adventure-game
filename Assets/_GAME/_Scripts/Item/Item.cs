@@ -14,6 +14,7 @@ public class Item : MonoBehaviour
         Medkit,
         Mana,
         Experience,
+        Life
     }
 
     [SerializeField] private GameObject _itemPropertyPanel;
@@ -34,6 +35,8 @@ public class Item : MonoBehaviour
                 return ItemAssets.instance.medkitSprite;
             case Type.Experience:
                 return ItemAssets.instance.experienceSprite;
+            case Type.Life:
+                return ItemAssets.instance.lifeSprite;
             default:
                 return null;
         }
@@ -52,6 +55,8 @@ public class Item : MonoBehaviour
                 return 32;
             case Type.Experience:
                 return 16;
+            case Type.Life:
+                return 50;
             default:
                 return 0;
         }
@@ -63,6 +68,7 @@ public class Item : MonoBehaviour
         Type.Medkit     => "Regenerates 1 HP every 2 second for 12 seconds (6 HP in total).",
         Type.Mana       => "Restores 4 Mana.",
         Type.Experience => "Get 10 EXP.",
+        Type.Life       => "Get 1 Life.",
     };
 
     public void SelectItem()

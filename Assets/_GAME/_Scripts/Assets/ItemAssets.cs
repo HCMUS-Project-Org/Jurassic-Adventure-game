@@ -10,6 +10,7 @@ public class ItemAssets : MonoBehaviour
     public Sprite manaSprite;
     public Sprite experienceSprite;
     public Sprite medkitSprite;
+    public Sprite lifeSprite;
 
 
     private void Awake() {

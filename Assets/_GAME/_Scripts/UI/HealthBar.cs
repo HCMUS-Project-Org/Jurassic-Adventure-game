@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour {
 
+    [SerializeField] private GameObject _lifeTemplate;
     [SerializeField] private Image _healthMask, _manaMask;
     
     private float _healthOriginalSize, _manaOriginalSize;
@@ -16,14 +17,37 @@ public class HealthBar : MonoBehaviour {
         instance = this;
     }
 
+    void Update() {
+        int lifeShowNumber = GameObject.FindGameObjectsWithTag("Life").Length;
+
+        if (lifeShowNumber != PlayerController.life) {
+            foreach (GameObject life in GameObject.FindGameObjectsWithTag("Life")) {
+                Destroy(life);
+            }
+            
+            ShowCurrentLife();   
+        }
+        
+        print("lifeShowNumber: " + lifeShowNumber);
+    }
+
 
     void Start() {
+        ShowCurrentLife();
         _healthOriginalSize = _healthMask.rectTransform.rect.width;
         
         if (_manaMask != null) 
             _manaOriginalSize = _manaMask.rectTransform.rect.width;
     }
 
+    void ShowCurrentLife() {
+        for (int i = 0; i < PlayerController.life; i++) {
+
+                RectTransform lifeImageRectTransform = Instantiate(_lifeTemplate, GetComponent<RectTransform>()).GetComponent<RectTransform>();
+
+                lifeImageRectTransform.gameObject.SetActive(true);
+            }
+    }
 
     public void Show(bool value) {
         gameObject.GetComponent<Image>().enabled = value;

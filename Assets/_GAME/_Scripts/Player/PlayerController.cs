@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     private                  Character _character;
 
     public static int budget = 50;
+    public static int life = 3;
     
     public PlayerHealth health;
     public Animator animator;

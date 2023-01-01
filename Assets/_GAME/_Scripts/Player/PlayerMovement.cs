@@ -63,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
         {
             _animator.SetTrigger("Melee");
             StartCoroutine(EnableSwordHitbox());
+
+            PlayerController.life -= 1; // test
         }
 
         // skill

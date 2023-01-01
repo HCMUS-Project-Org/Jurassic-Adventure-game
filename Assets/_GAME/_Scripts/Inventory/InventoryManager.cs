@@ -2,61 +2,77 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : MonoBehaviour {
+public class InventoryManager : MonoBehaviour
+{
     private List<Item> _itemList;
 
     public static InventoryManager instance;
 
-    public InventoryManager() {
+    public InventoryManager()
+    {
         _itemList = new List<Item>();
 
-         AddItem(new Item {
+        AddItem(new Item
+        {
             itemType = Item.Type.Mana,
-            amount = 1
+            amount   = 1
         });
-        AddItem(new Item {
+        AddItem(new Item
+        {
             itemType = Item.Type.Health,
-            amount = 1
+            amount   = 1
         });
-        
-         AddItem(new Item {
+
+        AddItem(new Item
+        {
             itemType = Item.Type.Experience,
-            amount = 1
+            amount   = 1
         });
-          AddItem(new Item {
+        AddItem(new Item
+        {
             itemType = Item.Type.Medkit,
-            amount = 3
+            amount   = 3
         });
-          AddItem(new Item {
+        AddItem(new Item
+        {
             itemType = Item.Type.Health,
-            amount = 1
+            amount   = 1
         });
-              AddItem(new Item {
+        AddItem(new Item
+        {
             itemType = Item.Type.Health,
-            amount = 3
+            amount   = 3
         });
-           AddItem(new Item {
+        AddItem(new Item
+        {
             itemType = Item.Type.Medkit,
-            amount = 2
+            amount   = 2
         });
     }
 
-    void Awake() {
-        if (instance == null) {
+    void Awake()
+    {
+        if (instance == null)
+        {
             instance = this;
         }
-        else {
+        else
+        {
             Destroy(gameObject);
         }
     }
 
 
-    public void AddItem(Item addItem) {
-        for (int i = 0; i < _itemList.Count; i++) {
-            if (_itemList[i].itemType == addItem.itemType) {
-                Item tempItem = new Item {
+    public void AddItem(Item addItem)
+    {
+        for (int i = 0; i < _itemList.Count; i++)
+        {
+            if (_itemList[i].itemType == addItem.itemType)
+            {
+                Item tempItem = new Item
+                {
                     itemType = addItem.itemType,
-                    amount = _itemList[i].amount + addItem.amount
+                    amount   = _itemList[i].amount + addItem.amount
                 };
 
                 _itemList[i] = tempItem;
@@ -69,12 +85,14 @@ public class InventoryManager : MonoBehaviour {
     }
 
 
-    public void RemoveItem(Item item) {
+    public void RemoveItem(Item item)
+    {
         _itemList.Remove(item);
     }
 
 
-    public List<Item> GetItemList() {
+    public List<Item> GetItemList()
+    {
         return _itemList;
     }
 }

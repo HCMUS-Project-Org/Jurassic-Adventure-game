@@ -41,7 +41,7 @@ using UnityEngine.UI;
         if (hasImg)
             _buttonImg.position += positionChange * Vector3.down;
 
-        _audioSource.PlayOneShot(_clickClip);
+        AudioControl.instance.PlaySound(_clickClip);
     }
 
 

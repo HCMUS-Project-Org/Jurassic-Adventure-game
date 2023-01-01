@@ -1,42 +1,60 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class EnemyHealth : MonoBehaviour {
-
+public class EnemyHealth : MonoBehaviour
+{
     [SerializeField] private EnemyController _enemyController;
-    private                  Animator _animator;
+    [SerializeField] private Animator        _animator;
 
     public HealthBar healthBar;
+
+    public int maxHealth => _enemyController.enemy switch
+    {
+        Enemy.Bunny => 5,
+        Enemy.Ghost => 3,
+    };
     
-    public int maxHealth;
-    public int currentHealth;
-
-
-    void Start() {
-        _animator = GetComponent<EnemyController>().animator;     
+    private                  int currentHealth;
+    private static readonly int Hit = Animator.StringToHash("Hit");
+    
+    void Start()
+    {  
         currentHealth = maxHealth;
 
         healthBar.Show(false);
     }
 
+    public void GetDamage(int damage)
+    {
+        currentHealth -= damage;
+        _animator.SetTrigger(Hit);
 
-    public void ChangeHealth(int amount) {
-        if (amount < 0) {
-            _animator.SetTrigger("Hurt");
-        }
-
-        // set value
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         healthBar.Show(true);
         healthBar.instance.SetHealthValue(currentHealth / (float)maxHealth);
-        
-        if (currentHealth <= 0) {
-            _enemyController.Killed();
-        }
 
-        Debug.Log("Enemy health:" + currentHealth + "/" + maxHealth);
+        if (currentHealth == 0)
+            Destroy(gameObject, .25f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        var colliderGameObject = col.gameObject;
+        
+        if (colliderGameObject.CompareTag("DealDamage"))
+        {
+            GetDamage(1);
+            if (colliderGameObject.name.StartsWith("Projectile"))
+            {
+                Destroy(colliderGameObject);
+            }
+            else if (colliderGameObject.name.StartsWith("Sword"))
+            {
+                
+            }
+        }
     }
 }

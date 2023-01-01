@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask        _platformLayerMask;
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private PlayerHealth     _playerHealth;
+    [SerializeField] private GameObject       _swordHitbox;
     private                  Rigidbody2D      _rigidbody2d;
     private                  BoxCollider2D    _boxCollider2d;
     private                  Vector2          _lookDirection = new Vector2(1, 0);
@@ -59,7 +60,10 @@ public class PlayerMovement : MonoBehaviour
         
         // melee
         if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
             _animator.SetTrigger("Melee");
+            StartCoroutine(EnableSwordHitbox());
+        }
 
         // skill
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -70,6 +74,13 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(Dash());
 
         HandleMovement();
+    }
+
+    private IEnumerator EnableSwordHitbox()
+    {
+        _swordHitbox.SetActive(true);
+        yield return new WaitForSeconds(.2f);
+        _swordHitbox.SetActive(false);
     }
 
     private IEnumerator Dash()
@@ -89,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
     private bool _dashing = false;
 
     [SerializeField] private float forceToAdd;
-    private                  float dashCD = 1f;
+    private                  float dashCD = .7f;
     private                  float currentDashCD;
 
     private void HandleMovement()
@@ -181,7 +192,7 @@ public class PlayerMovement : MonoBehaviour
         GameObject projectileObject = Instantiate(projectilePrefab, _rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         Projectile projectile       = projectileObject.GetComponent<Projectile>();
 
-        projectile.Launch(_lookDirection, 300);
+        projectile.Launch(_lookDirection, 1000);
 
         // decrease mana
 

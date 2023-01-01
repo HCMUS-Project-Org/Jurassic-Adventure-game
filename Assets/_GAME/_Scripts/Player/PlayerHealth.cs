@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PlayerHealth : MonoBehaviour {
+public class PlayerHealth : MonoBehaviour
+{
+    [SerializeField] private HealthBar             _healthBar;
+    private                  Animator              _animator;
+    private                  TMPro.TextMeshProUGUI _healthShow;
 
-    [SerializeField] private HealthBar _healthBar;
-    private                  Animator _animator;
-    private                  TMPro.TextMeshProUGUI _healthShow; 
-    
     public Instruction manaAnnounce;
 
     private float _timerDisplay;
@@ -20,18 +20,21 @@ public class PlayerHealth : MonoBehaviour {
     public int currentMana;
 
 
-    void Start() {
+    void Start()
+    {
         _animator = GetComponent<PlayerController>().animator;
 
         currentHealth = maxHealth;
 
-        _healthShow = GameObject.Find("PropertyText").GetComponent<TextMeshProUGUI>();    
+        _healthShow      = GameObject.Find("PropertyText").GetComponent<TextMeshProUGUI>();
         _healthShow.text = "Health: " + currentHealth;
     }
 
 
-    public void ChangeHealth(int amount) {
-        if (amount < 0) {
+    public void ChangeHealth(int amount)
+    {
+        if (amount < 0)
+        {
             _animator.SetTrigger("Hurt");
         }
 
@@ -43,8 +46,10 @@ public class PlayerHealth : MonoBehaviour {
         Debug.Log("Player health:" + currentHealth + "/" + maxHealth);
     }
 
-    public void ChangeMana(int amount) {
-        if (amount < 0 && currentMana <= 0) {
+    public void ChangeMana(int amount)
+    {
+        if (amount < 0 && currentMana <= 0)
+        {
             Debug.Log("Out mana");
             manaAnnounce.DisplayDialog();
             return;
@@ -53,6 +58,26 @@ public class PlayerHealth : MonoBehaviour {
         // set value
         currentMana = Mathf.Clamp(currentMana + amount, 0, maxMana);
         _healthBar.instance.SetManaValue(currentMana / (float)maxMana);
+    }
 
+    public void Heal(int amount)
+    {
+        ChangeHealth(amount);
+    }
+
+    public void RegenMana()
+    {
+        ChangeMana(4);
+    }
+
+    public IEnumerator StartRegen()
+    {
+        var times = 6;
+        while (times > 0)
+        {
+            Heal(1);
+            yield return new WaitForSeconds(2f);
+            times--;
+        }
     }
 }

@@ -51,8 +51,10 @@ MonoBehaviour:
   _pauseMenuUI: {fileID: 0}
   _shopUI: {fileID: 0}
   _inventoryUI: {fileID: 0}
+  _mapUI: {fileID: 0}
   _confirmExitUI: {fileID: 0}
   _pauseBtn: {fileID: 0}
+  _zoomCameraController: {fileID: 708543619814795097}
   _pauseBtnImg: {fileID: -1726604654, guid: 499806766f0197b429941d2fcc3cac56, type: 3}
   _resumeBtnImg: {fileID: 157381419, guid: 680a8ac79f003b74d984831c229b31ca, type: 3}
   _inventoryMenu: {fileID: 0}

@@ -110,5 +110,8 @@ public class Item : MonoBehaviour
             case Type.Experience:
                 break;
         }
+
+        // remove used item
+        InventoryManager.instance.RemoveItem(this);
     }
 }

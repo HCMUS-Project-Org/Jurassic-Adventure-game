@@ -27,8 +27,6 @@ public class HealthBar : MonoBehaviour {
             
             ShowCurrentLife();   
         }
-        
-        print("lifeShowNumber: " + lifeShowNumber);
     }
 
 

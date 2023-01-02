@@ -85,9 +85,38 @@ public class InventoryManager : MonoBehaviour
     }
 
 
-    public void RemoveItem(Item item)
+    public void RemoveItem(Item removeItem)
     {
-        _itemList.Remove(item);
+
+     print("-------------------------");
+        for (int i = 0; i < _itemList.Count; i++)
+        {
+            if (_itemList[i].itemType == removeItem.itemType)
+            {
+                print("Ammount: "+ _itemList[i].amount);
+                if (_itemList[i].amount <= 1)
+                {
+                    _itemList.Remove(_itemList[i]);
+                } 
+                else 
+                {
+                    Item tempItem = new Item
+                    {
+                        itemType = removeItem.itemType,
+                        amount   = _itemList[i].amount - 1
+                    };
+
+                    _itemList[i] = tempItem;
+                }
+            }
+        }
+
+   
+                print("- RemoveItem: " + removeItem.itemType);
+        foreach (Item item in _itemList)
+        {
+            print(item.itemType + " " + item.itemType + " - " + item.amount);
+        }
     }
 
 

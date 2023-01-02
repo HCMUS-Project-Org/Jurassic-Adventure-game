@@ -104,19 +104,16 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-
-    public void Killed()
+    public void Died()
     {
-        Destroy(gameObject);
+        ChangeEnemyState(EnemyState.Death);
     }
-
 
     private void Flip()
     {
         transform.Rotate(0f, 180f, 0f);
         health.healthBar.transform.Rotate(0f, 180f, 0f);
     }
-
 
     private void ChangeEnemyState(EnemyState newState)
     {
@@ -131,6 +128,8 @@ public class EnemyController : MonoBehaviour
                 animator.SetBool(Running, true);
                 break;
             case EnemyState.Death:
+                PlayerEXP.GainedEXP?.Invoke(1);
+                Destroy(gameObject, .25f);
                 break;
         }
 

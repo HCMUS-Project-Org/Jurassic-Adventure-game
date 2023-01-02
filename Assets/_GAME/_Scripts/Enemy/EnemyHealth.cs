@@ -37,7 +37,9 @@ public class EnemyHealth : MonoBehaviour
         healthBar.instance.SetHealthValue(currentHealth / (float)maxHealth);
 
         if (currentHealth == 0)
-            Destroy(gameObject, .25f);
+        {
+            _enemyController.Died();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)

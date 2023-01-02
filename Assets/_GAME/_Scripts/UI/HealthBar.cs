@@ -41,11 +41,17 @@ public class HealthBar : MonoBehaviour {
     }
 
     void ShowCurrentLife() {
+        GameObject parent = GameObject.Find("LifeUI");
+
         for (int i = 0; i < PlayerController.life; i++) {
 
                 RectTransform lifeImageRectTransform = Instantiate(_lifeTemplate, GetComponent<RectTransform>()).GetComponent<RectTransform>();
 
+                
+                lifeImageRectTransform.SetParent(parent.transform);
                 lifeImageRectTransform.gameObject.SetActive(true);
+
+                lifeImageRectTransform.anchoredPosition = new Vector2(lifeImageRectTransform.rect.width / 2 +  i*(lifeImageRectTransform.rect.width + 1f) , -parent.GetComponent<RectTransform>().rect.height / 2);
             }
     }
 

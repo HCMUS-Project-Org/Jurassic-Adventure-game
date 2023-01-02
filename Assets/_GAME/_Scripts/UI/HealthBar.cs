@@ -18,27 +18,32 @@ public class HealthBar : MonoBehaviour {
     }
 
     void Update() {
-        int lifeShowNumber = GameObject.FindGameObjectsWithTag("Life").Length;
+        if (_lifeTemplate != null)  {
+            int lifeShowNumber = GameObject.FindGameObjectsWithTag("Life").Length;
 
-        if (lifeShowNumber != PlayerController.life) {
-            foreach (GameObject life in GameObject.FindGameObjectsWithTag("Life")) {
-                Destroy(life);
+            if (lifeShowNumber != PlayerController.life) {
+                foreach (GameObject life in GameObject.FindGameObjectsWithTag("Life")) {
+                    Destroy(life);
+                }
+                
+                ShowCurrentLife();   
             }
-            
-            ShowCurrentLife();   
         }
     }
 
 
     void Start() {
-        ShowCurrentLife();
         _healthOriginalSize = _healthMask.rectTransform.rect.width;
         
         if (_manaMask != null) 
             _manaOriginalSize = _manaMask.rectTransform.rect.width;
+        
+        if (_lifeTemplate != null) 
+            ShowCurrentLife();
     }
 
     void ShowCurrentLife() {
+
         GameObject parent = GameObject.Find("LifeUI");
 
         for (int i = 0; i < PlayerController.life; i++) {

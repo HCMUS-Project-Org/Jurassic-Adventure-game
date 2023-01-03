@@ -21,6 +21,17 @@ public class Character : MonoBehaviour {
         }
     }
 
+    public Sprite GetAvatar(Type characterType) {
+        switch (characterType) {
+            case Type.Ninja:
+                return CharacterAssets.instance._ninjaAvatar;
+            case Type.Knight:
+                return CharacterAssets.instance._knightAvatar;
+            default:
+                return null;
+        }
+    }
+
 
     public Vector2 GetBoxColliderSize(Type characterType) {
         switch (characterType) {

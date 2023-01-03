@@ -8,6 +8,8 @@ TagManager:
   - InventorySlot
   - DealDamage
   - Life
+  - Avatar
+  - Name
   layers:
   - Default
   - TransparentFX

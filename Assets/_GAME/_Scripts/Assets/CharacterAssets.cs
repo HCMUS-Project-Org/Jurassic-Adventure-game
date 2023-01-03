@@ -9,6 +9,9 @@ public class CharacterAssets : MonoBehaviour
     public RuntimeAnimatorController  _ninjaController;
     public RuntimeAnimatorController  _knightController;
 
+    public Sprite _ninjaAvatar;
+    public Sprite _knightAvatar;
+
 
     private void Awake() {
         instance = this;

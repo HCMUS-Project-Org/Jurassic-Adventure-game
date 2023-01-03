@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour {
 
@@ -33,6 +35,7 @@ public class PlayerController : MonoBehaviour {
         _inventoryMenu.SetInventory(_inventoryManager);
         _uiInventory.SetActive(false);
 
+        // ChooseCharacter.characterType = Character.Type.Knight; //test
         SetCharacter(ChooseCharacter.characterType);
 
     }
@@ -46,10 +49,15 @@ public class PlayerController : MonoBehaviour {
     void SetCharacter(Character.Type characterType) {
         animator.runtimeAnimatorController = _character.GetAnimatorController(characterType);
 
+        GameObject Avatar =  GameObject.FindGameObjectsWithTag("Avatar")[0];
+        Avatar.GetComponent<Image>().sprite = _character.GetAvatar(characterType);
+
+        TMPro.TextMeshProUGUI Name =  GameObject.FindGameObjectsWithTag("Name")[0].GetComponent<TextMeshProUGUI>();
+        Name.text = ChooseCharacter.characterType.ToString();
+
         GetComponent<BoxCollider2D>().size = _character.GetBoxColliderSize(characterType);
         GetComponent<BoxCollider2D>().offset = _character.GetBoxColliderOffset(characterType);
         
-        // characterType = Character.Type.Ninja;
         GetComponent<Transform>().localScale = _character.GetLocalScale(characterType);
     }
 

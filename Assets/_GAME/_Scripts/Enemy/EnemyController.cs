@@ -32,7 +32,13 @@ public class EnemyController : MonoBehaviour
 
     public                   EnemyHealth health;
     [SerializeField] private Animator    animator;
-
+    
+    private float GetEnemyIdleSpeed()=> enemy switch
+    {
+        Enemy.Bunny => 0f,
+        Enemy.Ghost => 1.2f,
+    };
+    
     private float GetEnemySpeed() => enemy switch
     {
         Enemy.Bunny => 5f,
@@ -126,7 +132,7 @@ public class EnemyController : MonoBehaviour
         switch (newState)
         {
             case EnemyState.Idle:
-                _speed = 0f;
+                _speed =GetEnemyIdleSpeed();
                 animator.SetBool(Running, false);
                 break;
             case EnemyState.Chasing:

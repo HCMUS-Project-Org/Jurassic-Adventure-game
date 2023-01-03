@@ -101,6 +101,12 @@ public class EnemyController : MonoBehaviour
         if (player != null)
         {
             player.health.ChangeHealth(-1);
+            
+            // Kill enemy when it killed player
+            if (player.health.currentHealth <= 0)
+            {
+                Died();
+            }
         }
     }
 

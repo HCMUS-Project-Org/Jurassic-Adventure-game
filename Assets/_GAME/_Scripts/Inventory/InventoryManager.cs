@@ -83,19 +83,11 @@ public class InventoryManager : MonoBehaviour
         }
 
         _itemList.Add(addItem);
-
-        print("-------------------------------");
-        foreach(Item item in _itemList)
-        {
-            Debug.Log(item.itemType + " - " + item.amount);
-        }
     }
 
 
     public void RemoveItem(Item removeItem)
     {
-
-     print("-------------------------");
         for (int i = 0; i < _itemList.Count; i++)
         {
             if (_itemList[i].itemType == removeItem.itemType)
@@ -103,7 +95,6 @@ public class InventoryManager : MonoBehaviour
                 if (_itemList[i].amount <= 1)
                 {
                     _itemList.RemoveAt(i);
-                    print("======== Remove");
                     break;
                 } 
                 else 
@@ -117,13 +108,6 @@ public class InventoryManager : MonoBehaviour
                     _itemList[i] = tempItem;
                 }
             }
-        }
-
-   
-        print("- RemoveItem: " + removeItem.itemType);
-        foreach (Item item in _itemList)
-        {
-            print(item.itemType + " " + item.itemType + " - " + item.amount);
         }
     }
 

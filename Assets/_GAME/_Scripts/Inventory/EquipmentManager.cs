@@ -51,7 +51,6 @@ public class EquipmentManager : MonoBehaviour {
                         amountBadge.SetActive(false);
                     }
 
-                    print( _equipmentList[i].itemType + ": " + _equipmentList[i].amount + " - crr: " +updateEquipmentItemInventoryAmount(_equipmentList[i]));
                 }
             }
         }

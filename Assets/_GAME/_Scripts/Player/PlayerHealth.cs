@@ -95,6 +95,12 @@ public class PlayerHealth : MonoBehaviour
         ChangeMana(4);
     }
 
+    public void RegenLife()
+    {   
+        int currentLife = PlayerController.currentLife;
+        PlayerController.currentLife = Mathf.Clamp(currentLife + 1, 0, PlayerController.maxLife);
+    }
+
     public IEnumerator StartRegen()
     {
         var times = 6;

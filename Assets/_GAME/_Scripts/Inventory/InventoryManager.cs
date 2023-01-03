@@ -12,42 +12,43 @@ public class InventoryManager : MonoBehaviour
     {
         _itemList = new List<Item>();
 
-        AddItem(new Item
-        {
-            itemType = Item.Type.Mana,
-            amount   = 1
-        });
-        AddItem(new Item
-        {
-            itemType = Item.Type.Health,
-            amount   = 1
-        });
+       
+        // AddItem(new Item
+        // {
+        //     itemType = Item.Type.Health,
+        //     amount   = 1
+        // });
+        //  AddItem(new Item
+        // {
+        //     itemType = Item.Type.Mana,
+        //     amount   = 1
+        // });
 
-        AddItem(new Item
-        {
-            itemType = Item.Type.Experience,
-            amount   = 1
-        });
-        AddItem(new Item
-        {
-            itemType = Item.Type.Medkit,
-            amount   = 3
-        });
-        AddItem(new Item
-        {
-            itemType = Item.Type.Health,
-            amount   = 1
-        });
-        AddItem(new Item
-        {
-            itemType = Item.Type.Health,
-            amount   = 3
-        });
-        AddItem(new Item
-        {
-            itemType = Item.Type.Medkit,
-            amount   = 2
-        });
+        // AddItem(new Item
+        // {
+        //     itemType = Item.Type.Experience,
+        //     amount   = 1
+        // });
+        // AddItem(new Item
+        // {
+        //     itemType = Item.Type.Medkit,
+        //     amount   = 3
+        // });
+        // AddItem(new Item
+        // {
+        //     itemType = Item.Type.Health,
+        //     amount   = 1
+        // });
+        // AddItem(new Item
+        // {
+        //     itemType = Item.Type.Health,
+        //     amount   = 3
+        // });
+        // AddItem(new Item
+        // {
+        //     itemType = Item.Type.Medkit,
+        //     amount   = 2
+        // });
     }
 
     void Awake()
@@ -82,6 +83,12 @@ public class InventoryManager : MonoBehaviour
         }
 
         _itemList.Add(addItem);
+
+        print("-------------------------------");
+        foreach(Item item in _itemList)
+        {
+            Debug.Log(item.itemType + " - " + item.amount);
+        }
     }
 
 
@@ -93,10 +100,11 @@ public class InventoryManager : MonoBehaviour
         {
             if (_itemList[i].itemType == removeItem.itemType)
             {
-                print("Ammount: "+ _itemList[i].amount);
                 if (_itemList[i].amount <= 1)
                 {
-                    _itemList.Remove(_itemList[i]);
+                    _itemList.RemoveAt(i);
+                    print("======== Remove");
+                    break;
                 } 
                 else 
                 {
@@ -112,7 +120,7 @@ public class InventoryManager : MonoBehaviour
         }
 
    
-                print("- RemoveItem: " + removeItem.itemType);
+        print("- RemoveItem: " + removeItem.itemType);
         foreach (Item item in _itemList)
         {
             print(item.itemType + " " + item.itemType + " - " + item.amount);

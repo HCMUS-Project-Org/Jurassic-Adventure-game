@@ -14,11 +14,12 @@ public class PlayerController : MonoBehaviour {
     private                  Character _character;
 
     public static int budget = 50;
-    public static int life = 3;
+    public static int maxLife = 3;
+    public static int currentLife = maxLife;
+    public static int score = 0;
     
     public PlayerHealth health;
     public Animator animator;
-
 
     void Awake() {
         _rigidbody2d = GetComponent<Rigidbody2D>();

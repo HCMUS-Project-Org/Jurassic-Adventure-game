@@ -7,11 +7,12 @@ public class GameController : MonoBehaviour {
     [SerializeField] private GameObject[]     _enemies;
     [SerializeField] private GameObject       _player;
     [SerializeField] private GameObject       _levelCompleteUI, _levelFailedUI;
-    [SerializeField] private GameObject       _pauseMenuUI, _shopUI, _inventoryUI, _mapUI, _confirmExitUI;
+    [SerializeField] private GameObject       _pauseMenuUI, _shopUI, _inventoryUI, _mapUI, _confirmExitUI, _dieCountDowndUI;
     [SerializeField] private GameObject       _pauseBtn;
     [SerializeField] private GameObject       _zoomCameraController;
     [SerializeField] private Sprite           _pauseBtnImg, _resumeBtnImg;
     [SerializeField] private UIInventory      _inventoryMenu;
+    [SerializeField] private TMPro.TextMeshProUGUI _countDownText;
     private                  InventoryManager _inventoryManager;
     private                  EquipmentManager _equipmentManager;
 
@@ -23,13 +24,33 @@ public class GameController : MonoBehaviour {
     private bool _isOpenInventory = false;
     private bool _isOpenMap = false;
     private bool _isConfirmExit   = false;
+    private bool _timerIsRunning = false;
+
+    private float _timeRemaining;
 
     void Start() {
         _inventoryManager = FindObjectOfType(typeof(InventoryManager)) as InventoryManager;
         _equipmentManager = FindObjectOfType(typeof(EquipmentManager)) as EquipmentManager;
+
+        _timeRemaining = 4;
     }
 
     void Update() {
+        // time count down
+        if (_timerIsRunning)
+        {
+            if (_timeRemaining > 0)
+            {
+                _timeRemaining -= Time.deltaTime;
+                DisplayTime(_timeRemaining);
+            }
+            else
+            {
+                Debug.Log("Time has run out!");
+                RespawnPlayer();
+            }
+        }
+
         // Exit game
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (_isGamePaused || _isConfirmExit)
@@ -76,6 +97,62 @@ public class GameController : MonoBehaviour {
                 OpenMap();
         }
     }
+
+    public void ShowLevelCompleteUI() {
+        ResumeGame();
+        PauseGame();
+
+        _pauseMenuUI.SetActive(false);
+        _levelCompleteUI.SetActive(true);
+    }
+
+    public void ShowLevelFailedUI() {
+        ResumeGame();
+        PauseGame();
+
+        _pauseMenuUI.SetActive(false);
+        _levelFailedUI.SetActive(true);
+    }
+
+
+    public void ShowDieCountDown() {
+        _dieCountDowndUI.SetActive(true);
+        _timerIsRunning = true;
+    }
+
+    void HideDieCountDown() {
+        _dieCountDowndUI.SetActive(false);
+        _timerIsRunning = false;
+
+        // time Revival  4 - 6 - 9 -> (Show: 3 - 5 - 8)
+        _timeRemaining = (PlayerController.maxLife - PlayerController.currentLife + 1) * PlayerController.maxLife;    
+    }
+
+    void RespawnPlayer() {
+        HideDieCountDown();
+        
+        // reset player health
+        PlayerHealth playerHealth = _player.GetComponent<PlayerHealth>();
+        playerHealth.ChangeHealth(9999);
+        playerHealth.ChangeMana(9999);
+
+        // enable player movement
+        PlayerMovement playerMovement = _player.GetComponent<PlayerMovement>();
+        playerMovement.enabled = true;
+
+        // enable player animator
+        Animator _playerAnimator = _player.GetComponent<Animator>();
+        _playerAnimator.SetTrigger("Revival");
+
+        
+    }
+
+
+    void DisplayTime(float timeToDisplay) {
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        _countDownText.text = seconds.ToString();
+    }
+
 
 
     public void ConfirmExitGame()

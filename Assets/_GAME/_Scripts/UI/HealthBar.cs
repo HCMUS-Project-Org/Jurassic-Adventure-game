@@ -21,7 +21,7 @@ public class HealthBar : MonoBehaviour {
         if (_lifeTemplate != null)  {
             int lifeShowNumber = GameObject.FindGameObjectsWithTag("Life").Length;
 
-            if (lifeShowNumber != PlayerController.life) {
+            if (lifeShowNumber != PlayerController.currentLife) {
                 foreach (GameObject life in GameObject.FindGameObjectsWithTag("Life")) {
                     Destroy(life);
                 }
@@ -46,7 +46,7 @@ public class HealthBar : MonoBehaviour {
 
         GameObject parent = GameObject.Find("LifeUI");
 
-        for (int i = 0; i < PlayerController.life; i++) {
+        for (int i = 0; i < PlayerController.currentLife; i++) {
 
                 RectTransform lifeImageRectTransform = Instantiate(_lifeTemplate, GetComponent<RectTransform>()).GetComponent<RectTransform>();
 

@@ -8,7 +8,9 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private HealthBar             _healthBar;
     private                  Animator              _animator;
+    private                  PlayerMovement        _playerMovement;
     private                  TMPro.TextMeshProUGUI _healthShow;
+    private                  GameController        _gameController;
 
     public Instruction manaAnnounce;
 
@@ -23,6 +25,8 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         _animator = GetComponent<PlayerController>().animator;
+        _playerMovement = GetComponent<PlayerMovement>();
+        _gameController = FindObjectOfType(typeof(GameController)) as GameController;
 
         currentHealth = maxHealth;
 
@@ -35,13 +39,34 @@ public class PlayerHealth : MonoBehaviour
     {
         if (amount < 0)
         {
-            _animator.SetTrigger("Hurt");
+            // case die
+            if (currentHealth <= 1) 
+            {
+                PlayerController.currentLife -= 1;
+
+                // show die count down
+                if (PlayerController.currentLife > 0) 
+                    _gameController.ShowDieCountDown();
+
+                // Die animate
+                _playerMovement.enabled = false;
+                _animator.SetBool("IsRun", false);
+                _animator.SetTrigger("Die");
+
+                amount = -9999;
+            } 
+            else 
+                _animator.SetTrigger("Hurt");
         }
 
         // set value
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         _healthBar.instance.SetHealthValue(currentHealth / (float)maxHealth);
         _healthShow.text = "Health: " + currentHealth;
+
+        // case over life -> game over
+        if (PlayerController.currentLife <= 0)
+            _gameController.ShowLevelFailedUI();
 
         Debug.Log("Player health:" + currentHealth + "/" + maxHealth);
     }

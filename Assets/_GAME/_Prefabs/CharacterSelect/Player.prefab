@@ -293,7 +293,7 @@ Animator:
   m_GameObject: {fileID: 7916472293349428630}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 062fabeb147e36244877b293dd6ad134, type: 2}
+  m_Controller: {fileID: 9100000, guid: f842df6650817bf44be219a37cf266a7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -334,8 +334,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 0}
   manaAnnounce: {fileID: 0}
-  maxHealth: 10
-  currentHealth: 10
+  maxHealth: 2
+  currentHealth: 2
   maxMana: 10
   currentMana: 10
 --- !u!114 &7916472293349428617

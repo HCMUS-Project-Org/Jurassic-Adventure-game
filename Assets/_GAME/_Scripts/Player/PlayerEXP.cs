@@ -1,12 +1,14 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerEXP : MonoBehaviour
 {
-    private Slider EXPSlider;
+    private Slider   EXPSlider;
+    private TMP_Text LevelText;
 
-    private static readonly int[] EXPLevels    = { 3, 7, 12, 20 };
+    private static readonly int[] EXPLevels    = { 0, 3, 7, 12, 20 };
     private                 int   currentEXP   = 0;
     private                 int   currentLevel = 1;
 
@@ -27,16 +29,17 @@ public class PlayerEXP : MonoBehaviour
     private void InitEXPSlider()
     {
         EXPSlider          = GameObject.Find("EXPBar").GetComponent<Slider>();
-        EXPSlider.minValue = 0;
-        EXPSlider.maxValue = EXPLevels[0];
+        LevelText          = GameObject.Find("LevelText").GetComponent<TMP_Text>();
+        EXPSlider.minValue = EXPLevels[0];
+        EXPSlider.maxValue = EXPLevels[1];
     }
-    
+
     private void OnExpGained(int amount)
     {
         currentEXP      += amount;
         EXPSlider.value =  currentEXP;
 
-        if (currentEXP == EXPLevels[currentLevel - 1])
+        if (currentEXP == EXPLevels[currentLevel])
             LevelUp();
     }
 
@@ -46,6 +49,7 @@ public class PlayerEXP : MonoBehaviour
         upgradePoint++;
 
         EXPSlider.minValue = EXPLevels[currentLevel - 1];
-        EXPSlider.minValue = EXPLevels[currentLevel];
+        EXPSlider.maxValue = EXPLevels[currentLevel];
+        LevelText.SetText($"Level {currentLevel}");
     }
 }

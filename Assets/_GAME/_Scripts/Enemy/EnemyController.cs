@@ -1,4 +1,3 @@
-using DG.Tweening;
 using UnityEngine;
 
 public enum Enemy
@@ -140,7 +139,6 @@ public class EnemyController : MonoBehaviour
                 animator.SetBool(Running, true);
                 break;
             case EnemyState.Death:
-                PlayerEXP.GainedEXP?.Invoke(1);
                 Instantiate(DropPrefab, transform.position, Quaternion.identity);
                 Destroy(gameObject, .25f);
                 break;

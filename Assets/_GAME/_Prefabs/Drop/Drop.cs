@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
@@ -13,10 +11,16 @@ public class Drop : MonoBehaviour
         int RandomEXPAmount   = Random.Range(1, 4);
 
         for (int i = 0; i < RandomMoneyAmount; i++)
+        {
+            PlayerController.budget += 10;
             InstantiateThenMoveUp(MoneyPrefab);
+        }
 
         for (int i = 0; i < RandomEXPAmount; i++)
+        {
+            PlayerEXP.GainedEXP?.Invoke(1);
             InstantiateThenMoveUp(EXPPrefab);
+        }
     }
 
     private void InstantiateThenMoveUp(Transform prefab)

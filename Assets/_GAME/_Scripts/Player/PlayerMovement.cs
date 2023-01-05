@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool _facingRight  = true;
     private bool _moveRight    = true;
-    private bool _isCrouch     = false;
+    // private bool _isCrouch     = false;
     private bool _isCrouchDash = false;
 
     public GameObject projectilePrefab;
@@ -50,8 +50,8 @@ public class PlayerMovement : MonoBehaviour
 
             if (!_dashing)
             {
-                // crouch
-                _isCrouch = Input.GetKey(KeyCode.LeftControl);
+                // // crouch
+                // _isCrouch = Input.GetKey(KeyCode.LeftControl);
 
                 // crouch dash
                 _isCrouchDash = Input.GetKey(KeyCode.LeftShift);
@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _animator.SetBool("IsJump", true);
             _animator.SetBool("IsRun", false);
-            _animator.SetBool("IsCrouch", false);
+            // _animator.SetBool("IsCrouch", false);
             _animator.SetBool("IsCrouchDash", false);
         }
         else
@@ -123,27 +123,27 @@ public class PlayerMovement : MonoBehaviour
             if (_movement == 0f)
             {
                 _animator.SetBool("IsRun", false);
-                _animator.SetBool("IsCrouch", _isCrouch);
+                // _animator.SetBool("IsCrouch", _isCrouch);
                 _animator.SetBool("IsCrouchDash", _isCrouchDash);
             }
             else if (_movement != 0f)
             {
-                if (_isCrouch)
+                // if (_isCrouch)
+                // {
+                //     _animator.SetBool("IsRun", false);
+                //     _animator.SetBool("IsCrouchDash", false);
+                //     _animator.SetBool("IsCrouch", true);
+                // }
+                if (_isCrouchDash)
                 {
                     _animator.SetBool("IsRun", false);
-                    _animator.SetBool("IsCrouchDash", false);
-                    _animator.SetBool("IsCrouch", true);
-                }
-                else if (_isCrouchDash)
-                {
-                    _animator.SetBool("IsRun", false);
-                    _animator.SetBool("IsCrouch", false);
+                    // _animator.SetBool("IsCrouch", false);
                     _animator.SetBool("IsCrouchDash", true);
                 }
                 else
                 {
                     _animator.SetBool("IsRun", true);
-                    _animator.SetBool("IsCrouch", false);
+                    // _animator.SetBool("IsCrouch", false);
                     _animator.SetBool("IsCrouchDash", false);
                 }
             }

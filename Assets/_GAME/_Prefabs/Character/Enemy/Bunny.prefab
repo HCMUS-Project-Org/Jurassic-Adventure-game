@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7351659741570310372, guid: 9894fdb8473ab1b4ba3432cbd549bd88, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: Bunny
       objectReference: {fileID: 0}
     - target: {fileID: 7351659741570310394, guid: 9894fdb8473ab1b4ba3432cbd549bd88, type: 3}
       propertyPath: m_RootOrder

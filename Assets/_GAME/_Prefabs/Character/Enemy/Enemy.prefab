@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9824527ea6a166142b9624f2b573e665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lifeTemplate: {fileID: 0}
   _healthMask: {fileID: 2048770362}
   _manaMask: {fileID: 0}
 --- !u!1 &2048770359
@@ -453,11 +454,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: 0
-  _speed: 3
   _changeTime: 3
-  maxHealth: 1
   health: {fileID: 1212989657}
   animator: {fileID: 1909480068966891880}
+  DropPrefab: {fileID: 6666342357853280589, guid: c6a3c1db2790e9942a84ad99affe6b5a, type: 3}
 --- !u!114 &1212989657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,5 +473,3 @@ MonoBehaviour:
   _enemyController: {fileID: 7351659741570310397}
   _animator: {fileID: 1909480068966891880}
   healthBar: {fileID: 397711368}
-  maxHealth: 3
-  currentHealth: 3

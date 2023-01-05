@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public enum Enemy
@@ -32,13 +30,15 @@ public class EnemyController : MonoBehaviour
 
     public                   EnemyHealth health;
     [SerializeField] private Animator    animator;
-    
-    private float GetEnemyIdleSpeed()=> enemy switch
+    [SerializeField] private GameObject  DropPrefab;
+
+
+    private float GetEnemyIdleSpeed() => enemy switch
     {
         Enemy.Bunny => 0f,
         Enemy.Ghost => 1.2f,
     };
-    
+
     private float GetEnemySpeed() => enemy switch
     {
         Enemy.Bunny => 5f,
@@ -107,7 +107,7 @@ public class EnemyController : MonoBehaviour
         if (player != null)
         {
             player.health.ChangeHealth(-1);
-            
+
             // Kill enemy when it killed player
             if (player.health.currentHealth <= 0)
             {
@@ -132,7 +132,7 @@ public class EnemyController : MonoBehaviour
         switch (newState)
         {
             case EnemyState.Idle:
-                _speed =GetEnemyIdleSpeed();
+                _speed = GetEnemyIdleSpeed();
                 animator.SetBool(Running, false);
                 break;
             case EnemyState.Chasing:
@@ -141,6 +141,7 @@ public class EnemyController : MonoBehaviour
                 break;
             case EnemyState.Death:
                 PlayerEXP.GainedEXP?.Invoke(1);
+                Instantiate(DropPrefab, transform.position, Quaternion.identity);
                 Destroy(gameObject, .25f);
                 break;
         }

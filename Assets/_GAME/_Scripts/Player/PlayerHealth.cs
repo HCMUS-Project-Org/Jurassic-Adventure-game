@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,6 +36,10 @@ public class PlayerHealth : MonoBehaviour
         _healthShow.text = "Health: " + currentHealth;
     }
 
+    // private void Update()
+    // {
+    //     _healthShow.text = "Health: " + currentHealth;
+    // }
 
     public void ChangeHealth(int amount)
     {
@@ -66,8 +71,7 @@ public class PlayerHealth : MonoBehaviour
         // set value
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         _healthBar.instance.SetHealthValue(currentHealth / (float)maxHealth);
-        _healthShow.text = "Health: " + currentHealth;
-
+        
         // case over life -> game over
         if (PlayerController.currentLife <= 0)
             _gameController.ShowLevelFailedUI();

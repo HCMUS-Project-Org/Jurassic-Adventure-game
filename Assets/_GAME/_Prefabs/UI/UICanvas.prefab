@@ -774,13 +774,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 967394916359949236}
+  - component: {fileID: 3731679032756308474}
   m_Layer: 5
   m_Name: InventoryUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &967394916359949236
 RectTransform:
   m_ObjectHideFlags: 0
@@ -806,6 +807,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3731679032756308474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967394916359949237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e539f8b3814f479584bb530198bb659b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healText: {fileID: 967394917196497352}
+  attackText: {fileID: 967394918194445179}
+  defenseText: {fileID: 967394918166290384}
+  upgradePointsText: {fileID: 967394916765347319}
+  levelText: {fileID: 967394916953660909}
 --- !u!1 &967394916413681537
 GameObject:
   m_ObjectHideFlags: 0
@@ -12014,6 +12032,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5494738897021537251, guid: ee261466c711144419e428abeaa49781, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494738897021537251, guid: ee261466c711144419e428abeaa49781, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3731679032756308474}
+    - target: {fileID: 5494738897021537251, guid: ee261466c711144419e428abeaa49781, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradeDefensePressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494738897021537251, guid: ee261466c711144419e428abeaa49781, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: _GAME._Scripts.UI.InventoryPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5494738897021537260, guid: ee261466c711144419e428abeaa49781, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -12740,6 +12774,22 @@ PrefabInstance:
     - target: {fileID: 5494738897021537249, guid: ee261466c711144419e428abeaa49781, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494738897021537251, guid: ee261466c711144419e428abeaa49781, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494738897021537251, guid: ee261466c711144419e428abeaa49781, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3731679032756308474}
+    - target: {fileID: 5494738897021537251, guid: ee261466c711144419e428abeaa49781, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradeAttackPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494738897021537251, guid: ee261466c711144419e428abeaa49781, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: _GAME._Scripts.UI.InventoryPanel, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5494738897021537260, guid: ee261466c711144419e428abeaa49781, type: 3}
       propertyPath: m_Sprite
@@ -16821,6 +16871,22 @@ PrefabInstance:
     - target: {fileID: 5494738897021537249, guid: ee261466c711144419e428abeaa49781, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494738897021537251, guid: ee261466c711144419e428abeaa49781, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494738897021537251, guid: ee261466c711144419e428abeaa49781, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3731679032756308474}
+    - target: {fileID: 5494738897021537251, guid: ee261466c711144419e428abeaa49781, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradeHealPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494738897021537251, guid: ee261466c711144419e428abeaa49781, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: _GAME._Scripts.UI.InventoryPanel, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5494738897021537260, guid: ee261466c711144419e428abeaa49781, type: 3}
       propertyPath: m_Sprite

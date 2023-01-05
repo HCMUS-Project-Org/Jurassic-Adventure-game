@@ -10,7 +10,7 @@ public class PlayerEXP : MonoBehaviour
 
     private static readonly int[] EXPLevels    = { 0, 3, 7, 12, 20 };
     private                 int   currentEXP   = 0;
-    private                 int   currentLevel = 1;
+    public                  int   currentLevel { get; private set; } = 1;
 
     public        int         upgradePoint;
     public static Action<int> GainedEXP;

@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject projectilePrefab;
 
-
     private void Start()
     {
         _rigidbody2d   = transform.GetComponent<Rigidbody2D>();

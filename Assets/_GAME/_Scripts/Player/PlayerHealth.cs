@@ -16,11 +16,12 @@ public class PlayerHealth : MonoBehaviour
 
     private float _timerDisplay;
 
-    public int maxHealth = 100;
-    public int currentHealth;
+    public static int maxHealth = 2;
+    public static int currentHealth;
     public int maxMana = 10;
     public int currentMana;
 
+    public static int defense = 0;
 
     void Start()
     {
@@ -39,6 +40,9 @@ public class PlayerHealth : MonoBehaviour
     {
         if (amount < 0)
         {
+            amount += defense;
+            amount =  Mathf.Min(amount, 0);
+            
             // case die
             if (currentHealth <= 1) 
             {

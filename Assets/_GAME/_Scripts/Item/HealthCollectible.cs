@@ -8,7 +8,7 @@ public class HealthCollectible : MonoBehaviour {
         PlayerController controller = collision.GetComponent<PlayerController>();
         
         if (controller != null) {
-            if (controller.health.currentHealth < controller.health.maxHealth){
+            if (PlayerHealth.currentHealth < PlayerHealth.maxHealth){
                 controller.health.ChangeHealth(1);
 
                 Destroy(gameObject);

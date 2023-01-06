@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 2985844051346761098}
   m_Layer: 5
   m_Name: Avatar
-  m_TagString: Untagged
+  m_TagString: Avatar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -781,7 +781,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &967394916359949236
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6138,7 +6138,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1.8838959}
+  m_AnchoredPosition: {x: 0, y: 1.8838806}
   m_SizeDelta: {x: 11, y: 3.7678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3475395815667248529
@@ -10052,7 +10052,7 @@ GameObject:
   - component: {fileID: 563186207105590181}
   m_Layer: 5
   m_Name: NameTxt
-  m_TagString: Untagged
+  m_TagString: Name
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

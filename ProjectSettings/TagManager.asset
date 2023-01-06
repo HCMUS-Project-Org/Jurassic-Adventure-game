@@ -10,6 +10,8 @@ TagManager:
   - Life
   - Avatar
   - Name
+  - OneWayPlatform
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

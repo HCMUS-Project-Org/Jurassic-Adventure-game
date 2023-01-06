@@ -28,6 +28,8 @@ public class GameController : MonoBehaviour {
 
     private float _timeRemaining;
 
+    public static bool _isPlayerRevival = false;
+
     void Start() {
         _inventoryManager = FindObjectOfType(typeof(InventoryManager)) as InventoryManager;
         _equipmentManager = FindObjectOfType(typeof(EquipmentManager)) as EquipmentManager;
@@ -143,6 +145,7 @@ public class GameController : MonoBehaviour {
         // enable player animator
         Animator _playerAnimator = _player.GetComponent<Animator>();
         _playerAnimator.SetTrigger("Revival");
+        _isPlayerRevival = true;
 
         
     }

@@ -142,6 +142,10 @@ public class GameController : MonoBehaviour {
         PlayerMovement playerMovement = _player.GetComponent<PlayerMovement>();
         playerMovement.enabled = true;
 
+        // enable player simulated
+        Rigidbody2D playerRigidbody2d = _player.GetComponent<Rigidbody2D>();
+        playerRigidbody2d.simulated = true;
+
         // enable player animator
         Animator _playerAnimator = _player.GetComponent<Animator>();
         _playerAnimator.SetTrigger("Revival");

@@ -116,13 +116,5 @@ public class Item : MonoBehaviour
 
         // remove used item
         InventoryManager.instance.RemoveItem(this);
-
-        // List<Item> listItem = InventoryManager.instance.GetItemList();
-
-        // print("-------------------------------");
-        // foreach(Item item in listItem)
-        // {
-        //     Debug.Log(item.itemType + " - " + item.amount);
-        // }
     }
 }

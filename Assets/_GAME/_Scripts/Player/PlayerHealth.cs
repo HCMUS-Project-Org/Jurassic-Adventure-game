@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     private                  PlayerMovement        _playerMovement;
     private                  TMPro.TextMeshProUGUI _healthShow;
     private                  GameController        _gameController;
+    private                  Rigidbody2D           _rigidbody2d;
 
     public Instruction manaAnnounce;
 
@@ -28,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
     {
         _animator = GetComponent<PlayerController>().animator;
         _playerMovement = GetComponent<PlayerMovement>();
+        _rigidbody2d = GetComponent<Rigidbody2D>();
         _gameController = FindObjectOfType(typeof(GameController)) as GameController;
 
         currentHealth = maxHealth;
@@ -59,6 +61,7 @@ public class PlayerHealth : MonoBehaviour
 
                 // Die animate
                 _playerMovement.enabled = false;
+                _rigidbody2d.simulated = false;
                 _animator.SetBool("IsRun", false);
                 _animator.SetTrigger("Die");
 

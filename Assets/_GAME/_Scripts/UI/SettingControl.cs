@@ -49,7 +49,6 @@ public class SettingControl : MonoBehaviour
                     if (AudioControl.instance.GetVol() != 0)
                     {
                         _volumnSettingButton.GetComponent<Image>().sprite = _soundOnSpriteDefault;
-                        _isMute = !_isMute;
                     }
                 }
                 break;
@@ -61,8 +60,6 @@ public class SettingControl : MonoBehaviour
                     if (AudioControl.instance.GetBGM()  != 0)
                     {
                         _musicSettingButton.GetComponent<Image>().sprite = _soundOnSpriteDefault;
-                        _isBGMMute = !_isBGMMute;
-                        AudioControl.instance.ToggleMusic();
 
                     }
                 }
@@ -75,8 +72,6 @@ public class SettingControl : MonoBehaviour
                     if (AudioControl.instance.GetSFX() != 0)
                     {
                         _musicSettingButton.GetComponent<Image>().sprite = _soundOnSpriteDefault;
-                        _isSFXMute = !_isBGMMute;
-                        AudioControl.instance.ToggleEffects();
                     }
                 }
                 break;
@@ -99,7 +94,6 @@ public class SettingControl : MonoBehaviour
                     else
                     {
                         _volumnSettingButton.GetComponent<Image>().sprite = _soundOnSpriteDefault;
-                        _isMute = !_isMute;
                     }
                 }
                 break;
@@ -114,8 +108,7 @@ public class SettingControl : MonoBehaviour
                     else
                     {
                         _musicSettingButton.GetComponent<Image>().sprite = _soundOnSpriteDefault;
-                        _isBGMMute = !_isBGMMute;
-                        AudioControl.instance.ToggleMusic();
+
                     }
                 }
                 break;
@@ -129,8 +122,6 @@ public class SettingControl : MonoBehaviour
                     else
                     {
                         _musicSettingButton.GetComponent<Image>().sprite = _soundOnSpriteDefault;
-                        _isSFXMute = !_isBGMMute;
-                        AudioControl.instance.ToggleEffects();
                     }
                 }
                 break;

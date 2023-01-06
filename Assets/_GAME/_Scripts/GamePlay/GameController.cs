@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour {
     [SerializeField] private GameObject[]     _enemies;
     [SerializeField] private GameObject       _player;
     [SerializeField] private GameObject       _levelCompleteUI, _levelFailedUI;
-    [SerializeField] private GameObject       _pauseMenuUI, _shopUI, _inventoryUI, _mapUI, _confirmExitUI, _dieCountDowndUI;
+    [SerializeField] private GameObject       _pauseMenuUI, _shopUI, _inventoryUI, _mapUI, _confirmExitUI, _dieCountDowndUI, _settingUI;
     [SerializeField] private GameObject       _pauseBtn;
     [SerializeField] private GameObject       _zoomCameraController;
     [SerializeField] private Sprite           _pauseBtnImg, _resumeBtnImg;
@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour {
 
     private bool _isGamePaused    = false;
     private bool _isOpenShop      = false;
+    private bool _isOpenSetting = false;
     private bool _isOpenInventory = false;
     private bool _isOpenMap = false;
     private bool _isConfirmExit   = false;
@@ -183,6 +184,17 @@ public class GameController : MonoBehaviour {
         _shopUI.SetActive(true);
 
         _isOpenShop = true;
+    }
+
+    public void OpenSetting()
+    {
+        ResumeGame();
+        PauseGame();
+
+        _pauseMenuUI.SetActive(false);
+        _settingUI.SetActive(true);
+
+        _isOpenSetting = true;
     }
 
     public void OpenMap()

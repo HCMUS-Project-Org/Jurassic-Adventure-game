@@ -13,12 +13,6 @@ public class LevelLoader : MonoBehaviour {
         StartCoroutine(LoadAsynchronously(sceneIndex));
     }
 
-    public void LoadMusic(AudioClip Music)
-    {
-        AudioControl.instance.PlayMusic(Music);
-    }
-
-
     IEnumerator LoadAsynchronously(int sceneIndex) {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 

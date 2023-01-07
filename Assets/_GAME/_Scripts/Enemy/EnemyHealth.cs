@@ -14,24 +14,24 @@ public class EnemyHealth : MonoBehaviour
 
     public int maxHealth => _enemyController.enemy switch
     {
-        Enemy.Bunny => 5,
-        Enemy.Ghost => 3,
+        Enemy.Bunny     => 5,
+        Enemy.Ghost     => 3,
         Enemy.AngryBird => 3,
-        Enemy.Bat => 3,
-        Enemy.Chamelon => 3,
-        Enemy.Chicken => 3,
-        Enemy.Mushroom => 3,
-        Enemy.Radish => 3,
-        Enemy.Rino => 3,
-        Enemy.Rock => 3,
-
+        Enemy.Bat       => 3,
+        Enemy.Chamelon  => 3,
+        Enemy.Chicken   => 3,
+        Enemy.Mushroom  => 3,
+        Enemy.Radish    => 3,
+        Enemy.Rino      => 3,
+        Enemy.Rock      => 3,
+        Enemy.SlimeKing => 20
     };
-    
-    private                  int currentHealth;
+
+    private                 int currentHealth;
     private static readonly int Hit = Animator.StringToHash("Hit");
-    
+
     void Start()
-    {  
+    {
         currentHealth = maxHealth;
 
         healthBar.Show(false);
@@ -47,14 +47,15 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth == 0)
         {
-            _enemyController.Died();
+            if (_enemyController != null)
+                _enemyController.Died();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         var colliderGameObject = col.gameObject;
-        
+
         if (colliderGameObject.CompareTag("DealDamage"))
         {
             GetDamage(1);
@@ -64,7 +65,6 @@ public class EnemyHealth : MonoBehaviour
             }
             else if (colliderGameObject.name.StartsWith("Sword"))
             {
-                
             }
         }
     }

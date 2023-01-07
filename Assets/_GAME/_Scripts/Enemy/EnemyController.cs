@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Enemy
 {
@@ -11,7 +13,8 @@ public enum Enemy
     Mushroom,
     Radish,
     Rino,
-    Rock
+    Rock,
+    SlimeKing
 }
 
 public enum EnemyState
@@ -42,44 +45,47 @@ public class EnemyController : MonoBehaviour
 
     private float GetEnemyIdleSpeed() => enemy switch
     {
-        Enemy.Bunny => 0f,
-        Enemy.Ghost => 1.2f,
+        Enemy.Bunny     => 0f,
+        Enemy.Ghost     => 1.2f,
         Enemy.AngryBird => 0f,
-        Enemy.Bat => 0f,
-        Enemy.Chamelon => 0f,
-        Enemy.Chicken => 0f,
-        Enemy.Mushroom => 0f,
-        Enemy.Radish => 0f,
-        Enemy.Rino  => 0f,
-        Enemy.Rock  => 0f,
+        Enemy.Bat       => 0f,
+        Enemy.Chamelon  => 0f,
+        Enemy.Chicken   => 0f,
+        Enemy.Mushroom  => 0f,
+        Enemy.Radish    => 0f,
+        Enemy.Rino      => 0f,
+        Enemy.Rock      => 0f,
+        Enemy.SlimeKing => float.MaxValue
     };
 
     private float GetEnemySpeed() => enemy switch
     {
-        Enemy.Bunny => 5f,
-        Enemy.Ghost => 10f,
+        Enemy.Bunny     => 5f,
+        Enemy.Ghost     => 10f,
         Enemy.AngryBird => 5f,
-        Enemy.Bat => 5f,
-        Enemy.Chamelon => 5f,
-        Enemy.Chicken => 5f,
-        Enemy.Mushroom => 5f,
-        Enemy.Radish => 5f,
-        Enemy.Rino  => 5f,
-        Enemy.Rock  => 5f,
+        Enemy.Bat       => 5f,
+        Enemy.Chamelon  => 5f,
+        Enemy.Chicken   => 5f,
+        Enemy.Mushroom  => 5f,
+        Enemy.Radish    => 5f,
+        Enemy.Rino      => 5f,
+        Enemy.Rock      => 5f,
+        Enemy.SlimeKing => 0f
     };
 
     private float GetChangeTime() => enemy switch
     {
-        Enemy.Bunny => 3f,
-        Enemy.Ghost => 1.5f,
+        Enemy.Bunny     => 3f,
+        Enemy.Ghost     => 1.5f,
         Enemy.AngryBird => 3f,
-        Enemy.Bat => 3f,
-        Enemy.Chamelon => 3f,
-        Enemy.Chicken => 3f,
-        Enemy.Mushroom => 3f,
-        Enemy.Radish => 3f,
-        Enemy.Rino  => 3f,
-        Enemy.Rock  => 3f,
+        Enemy.Bat       => 3f,
+        Enemy.Chamelon  => 3f,
+        Enemy.Chicken   => 3f,
+        Enemy.Mushroom  => 3f,
+        Enemy.Radish    => 3f,
+        Enemy.Rino      => 3f,
+        Enemy.Rock      => 3f,
+        Enemy.SlimeKing => 0f
     };
 
     void Start()
@@ -98,6 +104,8 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        if (enemy == Enemy.SlimeKing) return;
+
         _timer -= Time.deltaTime;
 
         if (_timer < 0)
@@ -123,6 +131,8 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (enemy == Enemy.SlimeKing) return;
+
         Vector2 position = _rigidbody2D.position;
 
         position.x += Time.deltaTime * _speed * _direction;
@@ -142,7 +152,8 @@ public class EnemyController : MonoBehaviour
             // Kill enemy when it killed player
             if (PlayerHealth.currentHealth <= 0)
             {
-                Died();
+                if (enemy != Enemy.SlimeKing)
+                    Died();
             }
         }
     }

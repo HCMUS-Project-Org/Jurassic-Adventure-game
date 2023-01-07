@@ -286,10 +286,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _img: {fileID: 6570626800220164082}
+  _clickClip: {fileID: 8300000, guid: c7d58f9dae986ed4e8fbf3a7b430dcfb, type: 3}
   _default: {fileID: -1485490739, guid: 5727ada1c27a69a419ffe80141068e46, type: 3}
   _pressed: {fileID: 1868971457, guid: 5727ada1c27a69a419ffe80141068e46, type: 3}
-  _clickClip: {fileID: 8300000, guid: c7d58f9dae986ed4e8fbf3a7b430dcfb, type: 3}
   hasText: 1
+  hasImg: 0
 --- !u!82 &6570626800220164084
 AudioSource:
   m_ObjectHideFlags: 0

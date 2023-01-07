@@ -10,6 +10,7 @@ namespace _GAME._Scripts.Enemy
         public     string height;
         public     string length;
         public     string weight;
+        public     string speed;
         [TextArea(0,10)]
         public     string description;
     }

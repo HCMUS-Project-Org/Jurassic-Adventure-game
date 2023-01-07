@@ -433,7 +433,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1098379623}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 29847711787183957, guid: b5484fd975d0f04428ebb2c06a1404f7, type: 3}
       propertyPath: slider
@@ -545,11 +545,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5484fd975d0f04428ebb2c06a1404f7, type: 3}
---- !u!224 &1067730062 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 29847711787183958, guid: b5484fd975d0f04428ebb2c06a1404f7, type: 3}
-  m_PrefabInstance: {fileID: 1067730061}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1067730064 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 29847711787183957, guid: b5484fd975d0f04428ebb2c06a1404f7, type: 3}
@@ -657,7 +652,6 @@ RectTransform:
   - {fileID: 1422178028}
   - {fileID: 1118845503}
   - {fileID: 26596642}
-  - {fileID: 1067730062}
   - {fileID: 1357540255}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -844,7 +838,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1357540254
 PrefabInstance:
@@ -1225,7 +1219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2736834085010053148, guid: ab24ee1731c807e4fa00a9a26a83abf5, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2736834085010053148, guid: ab24ee1731c807e4fa00a9a26a83abf5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1418,7 +1412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5803666740069112955, guid: 2846726dfe7b5aa4b93924ecc54f920f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2846726dfe7b5aa4b93924ecc54f920f, type: 3}
@@ -1435,7 +1429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5581129397700769699, guid: 357677a205289ff4eb47d73dfc568086, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5581129397700769699, guid: 357677a205289ff4eb47d73dfc568086, type: 3}
       propertyPath: m_LocalPosition.x

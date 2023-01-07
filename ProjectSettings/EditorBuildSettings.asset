@@ -20,4 +20,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_GAME/_Scenes/Maps/Map 1.unity
     guid: 2f02f8d934840134bb1d5d6013bef986
+  - enabled: 1
+    path: Assets/_GAME/_Scenes/Cutscenes/ToLevel2.unity
+    guid: cde5d50c68cf50e479d688a384588f88
+  - enabled: 1
+    path: Assets/_GAME/_Scenes/Maps/Map 2.unity
+    guid: 3656ad41975cc7a4bb68245cb6bb838a
+  - enabled: 1
+    path: Assets/_GAME/_Scenes/Cutscenes/ToLevel3.unity
+    guid: 3af654be30fff8041a262be7a187f76e
+  - enabled: 1
+    path: Assets/_GAME/_Scenes/Maps/Map 3.unity
+    guid: 5130622eca90abf4eae871374f2e6812
   m_configObjects: {}

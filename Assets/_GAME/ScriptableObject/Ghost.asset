@@ -17,6 +17,7 @@ MonoBehaviour:
   height: 0.9 - 1m
   length: 1m
   weight: ???
+  speed: 6m/s
   description: Ghosts are enemies encoutered more in the graveyard. Whenever any
     action is performed on them, they will vanish for a limited time, in which the
     player will be unable to harm them. They usually appear in groups between Bunny

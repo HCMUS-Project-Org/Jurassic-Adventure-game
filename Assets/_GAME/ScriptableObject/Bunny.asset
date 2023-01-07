@@ -17,6 +17,7 @@ MonoBehaviour:
   height: 0.9 - 1m
   length: 0.5m
   weight: 20kg
+  speed: 1m/s
   description: A quick enemy that will chase the player once gotten to its sight.
     It is recommended to kill this enemy quickly as it gives a fair amount of money
     to the player. Larger groups of Bunnies can cause quick, repeating damage that

@@ -3,7 +3,15 @@ using UnityEngine;
 public enum Enemy
 {
     Bunny,
-    Ghost
+    Ghost,
+    AngryBird,
+    Bat,
+    Chamelon,
+    Chicken,
+    Mushroom,
+    Radish,
+    Rino,
+    Rock
 }
 
 public enum EnemyState
@@ -18,8 +26,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] public Enemy      enemy;
     private                 EnemyState enemyState;
 
-    private                  float _speed;
     [SerializeField] private float _changeTime = 3.0f;
+    private                  float _speed;
     private                  float _timer;
 
     // [SerializeField] private int maxHealth  = 1;
@@ -36,18 +44,42 @@ public class EnemyController : MonoBehaviour
     {
         Enemy.Bunny => 0f,
         Enemy.Ghost => 1.2f,
+        Enemy.AngryBird => 0f,
+        Enemy.Bat => 0f,
+        Enemy.Chamelon => 0f,
+        Enemy.Chicken => 0f,
+        Enemy.Mushroom => 0f,
+        Enemy.Radish => 0f,
+        Enemy.Rino  => 0f,
+        Enemy.Rock  => 0f,
     };
 
     private float GetEnemySpeed() => enemy switch
     {
         Enemy.Bunny => 5f,
         Enemy.Ghost => 10f,
+        Enemy.AngryBird => 5f,
+        Enemy.Bat => 5f,
+        Enemy.Chamelon => 5f,
+        Enemy.Chicken => 5f,
+        Enemy.Mushroom => 5f,
+        Enemy.Radish => 5f,
+        Enemy.Rino  => 5f,
+        Enemy.Rock  => 5f,
     };
 
     private float GetChangeTime() => enemy switch
     {
         Enemy.Bunny => 3f,
         Enemy.Ghost => 1.5f,
+        Enemy.AngryBird => 3f,
+        Enemy.Bat => 3f,
+        Enemy.Chamelon => 3f,
+        Enemy.Chicken => 3f,
+        Enemy.Mushroom => 3f,
+        Enemy.Radish => 3f,
+        Enemy.Rino  => 3f,
+        Enemy.Rock  => 3f,
     };
 
     void Start()

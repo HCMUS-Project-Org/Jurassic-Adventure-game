@@ -16,6 +16,15 @@ public class EnemyHealth : MonoBehaviour
     {
         Enemy.Bunny => 5,
         Enemy.Ghost => 3,
+        Enemy.AngryBird => 3,
+        Enemy.Bat => 3,
+        Enemy.Chamelon => 3,
+        Enemy.Chicken => 3,
+        Enemy.Mushroom => 3,
+        Enemy.Radish => 3,
+        Enemy.Rino => 3,
+        Enemy.Rock => 3,
+
     };
     
     private                  int currentHealth;

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8c96a3adab4995a05c8f0751ef359d, type: 3}
+  m_Name: Bunny
+  m_EditorClassIdentifier: 
+  image: {fileID: -2031806460, guid: bee68c2bf1764664aba2021b7c7c07fb, type: 3}
+  name: Bunny
+  height: 0.9 - 1m
+  length: 0.5m
+  weight: 20kg
+  description: A quick enemy that will chase the player once gotten to its sight.
+    It is recommended to kill this enemy quickly as it gives a fair amount of money
+    to the player. Larger groups of Bunnies can cause quick, repeating damage that
+    can cripple larger, slower units.

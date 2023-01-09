@@ -30,6 +30,7 @@ public class GameController : MonoBehaviour {
     private float _timeRemaining;
 
     public static bool _isPlayerRevival = false;
+    public static int currentLevel = 1;
 
     void Start() {
         _inventoryManager = FindObjectOfType(typeof(InventoryManager)) as InventoryManager;
@@ -99,6 +100,10 @@ public class GameController : MonoBehaviour {
             else
                 OpenMap();
         }
+    }
+
+    public void PassLevel() {
+        ShowLevelCompleteUI();
     }
 
     public void ShowLevelCompleteUI() {

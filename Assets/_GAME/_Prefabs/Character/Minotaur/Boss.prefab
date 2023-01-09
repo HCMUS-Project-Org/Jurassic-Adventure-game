@@ -154,8 +154,9 @@ MonoBehaviour:
   rb: {fileID: 6636072116446462928}
   projectilePrefab: {fileID: -7489766307418102833, guid: ad555e24be2261e4a94829036f79603c, type: 3}
   animator: {fileID: 1480314106}
-  runvel: 8
-  runseconds: 1
+  ThinkingTime: 2.5
+  runvel: 10
+  runseconds: 2
   jumpX: 300
   jumpY: 1200
   dashX: 700
@@ -209,7 +210,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.3920822, y: -1.003092}
+  m_Offset: {x: 0.3920822, y: -1.0939469}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -220,7 +221,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4341431, y: 0.9200654}
+  m_Size: {x: 1.4341431, y: 0.73835564}
   m_EdgeRadius: 0
 --- !u!114 &9158580339040657436
 MonoBehaviour:
@@ -337,7 +338,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.2870388, y: 0.5506711}
+  m_Offset: {x: -2.9777164, y: 0.36131525}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -348,7 +349,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.4523582, y: 3.7662344}
+  m_Size: {x: 10.833714, y: 3.7121325}
   m_EdgeRadius: 0
 --- !u!114 &1365274095131096489
 MonoBehaviour:

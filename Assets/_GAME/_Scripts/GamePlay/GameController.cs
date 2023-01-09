@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour {
     private                  InventoryManager _inventoryManager;
     private                  EquipmentManager _equipmentManager;
 
+    [SerializeField] private GameObject _libraryPanel;
 
     [SerializeField] private int _level;
 
@@ -26,6 +27,8 @@ public class GameController : MonoBehaviour {
     private bool _isOpenMap = false;
     private bool _isConfirmExit   = false;
     private bool _timerIsRunning = false;
+
+    private bool _isOpenLibrary = false;
 
     private float _timeRemaining;
 
@@ -100,6 +103,21 @@ public class GameController : MonoBehaviour {
             else
                 OpenMap();
         }
+        
+        // Open Library
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            if (_isOpenLibrary)
+                ResumeGame();
+            else
+                OpenLibrary();
+        }
+    }
+
+    private void OpenLibrary()
+    {
+        _libraryPanel.SetActive(true);
+        _isOpenLibrary = true;
     }
 
     public void PassLevel() {
@@ -272,6 +290,7 @@ public class GameController : MonoBehaviour {
         _mapUI.SetActive(false);
         _confirmExitUI.SetActive(false);
         _zoomCameraController.SetActive(false);
+        _libraryPanel.SetActive(true);
 
         _player.SetActive(true);
 
@@ -280,8 +299,9 @@ public class GameController : MonoBehaviour {
         _isGamePaused    = false;
         _isOpenShop      = false;
         _isOpenInventory = false;
-        _isOpenMap = false;
+        _isOpenMap       = false;
         _isConfirmExit   = false;
+        _isOpenLibrary   = false;
     }
 
 

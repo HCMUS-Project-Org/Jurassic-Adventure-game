@@ -15,16 +15,17 @@ public class MinotaurController : MonoBehaviour
 
     private EnemyController _enemyController;
 
-    private const float ThinkingTime = 3f;
-    private       float dt           = ThinkingTime;
-    public static bool  locked       = true;
-    private       int   Action;
+    [SerializeField] private float ThinkingTime = 3f;
+    private                  float dt;
+    public static            bool  locked = true;
+    private                  int   Action;
 
     private float playerDir => transform.position.x > player.transform.position.x ? -1f : 1f;
 
     private void Awake()
     {
         player = FindObjectOfType<PlayerController>();
+        dt     = ThinkingTime;
     }
 
     private void Update()
@@ -37,7 +38,7 @@ public class MinotaurController : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
-        
+
         if ((dt -= Time.deltaTime) > 0) return;
 
         if (locked) return;

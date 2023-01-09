@@ -24,7 +24,8 @@ public class EnemyHealth : MonoBehaviour
         Enemy.Radish    => 3,
         Enemy.Rino      => 3,
         Enemy.Rock      => 3,
-        Enemy.SlimeKing => 20
+        Enemy.SlimeKing => 20,
+        Enemy.Minotaur  => 30
     };
 
     private                 int currentHealth;

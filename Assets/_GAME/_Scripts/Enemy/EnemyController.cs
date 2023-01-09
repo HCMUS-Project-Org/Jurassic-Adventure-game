@@ -14,7 +14,8 @@ public enum Enemy
     Radish,
     Rino,
     Rock,
-    SlimeKing
+    SlimeKing,
+    Minotaur
 }
 
 public enum EnemyState
@@ -55,7 +56,8 @@ public class EnemyController : MonoBehaviour
         Enemy.Radish    => 0f,
         Enemy.Rino      => 0f,
         Enemy.Rock      => 0f,
-        Enemy.SlimeKing => float.MaxValue
+        Enemy.SlimeKing => float.MaxValue,
+        Enemy.Minotaur  => float.MaxValue
     };
 
     private float GetEnemySpeed() => enemy switch
@@ -70,7 +72,8 @@ public class EnemyController : MonoBehaviour
         Enemy.Radish    => 5f,
         Enemy.Rino      => 5f,
         Enemy.Rock      => 5f,
-        Enemy.SlimeKing => 0f
+        Enemy.SlimeKing => 0f,
+        Enemy.Minotaur  => 0f,
     };
 
     private float GetChangeTime() => enemy switch
@@ -85,7 +88,8 @@ public class EnemyController : MonoBehaviour
         Enemy.Radish    => 3f,
         Enemy.Rino      => 3f,
         Enemy.Rock      => 3f,
-        Enemy.SlimeKing => 0f
+        Enemy.SlimeKing => 0f,
+        Enemy.Minotaur  => 0f,
     };
 
     void Start()
@@ -104,7 +108,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if (enemy == Enemy.SlimeKing) return;
+        if (enemy is Enemy.SlimeKing or Enemy.Minotaur) return;
 
         _timer -= Time.deltaTime;
 
@@ -131,7 +135,7 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (enemy == Enemy.SlimeKing) return;
+        if (enemy is Enemy.SlimeKing or Enemy.Minotaur) return;
 
         Vector2 position = _rigidbody2D.position;
 
@@ -150,11 +154,9 @@ public class EnemyController : MonoBehaviour
             player.health.ChangeHealth(-1);
 
             // Kill enemy when it killed player
-            if (PlayerHealth.currentHealth <= 0)
-            {
-                if (enemy != Enemy.SlimeKing)
-                    Died();
-            }
+            if (PlayerHealth.currentHealth > 0) return;
+            if (enemy is Enemy.SlimeKing or Enemy.Minotaur) return;
+            Died();
         }
     }
 

@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyController: {fileID: 9158580339040657436}
-  _animator: {fileID: 0}
+  _animator: {fileID: 1480314106}
   healthBar: {fileID: 72391327034221189}
 --- !u!114 &2105336844924485971
 MonoBehaviour:
@@ -151,20 +151,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f7597707d54f34b6b41c73dc45e077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  visual: {fileID: 0}
+  rb: {fileID: 6636072116446462928}
+  projectilePrefab: {fileID: -7489766307418102833, guid: ad555e24be2261e4a94829036f79603c, type: 3}
+  animator: {fileID: 1480314106}
+  runvel: 8
+  runseconds: 1
   jumpX: 300
-  jumpY: 2000
-  dashX: 1000
+  jumpY: 1200
+  dashX: 700
   dashY: 200
   jumpShootX: 0
-  jumpShootY: 150
+  jumpShootY: 500
   shootXmin: -1200
   shootXmax: 1200
   shootYmin: 500
   shootYmax: 1500
-  shootTime: 3
+  shootTime: 1
+  slash1delay: 0.4
+  slash2delay: 0.7
+  slash3delay: 0
+  slash2xscale: 1.4
+  slash3xscale: 0.7
+  JumpShootDelay: 1
+  JumpShootRatio: 0.5
+  projectileVel: 8
 --- !u!50 &6636072116446462928
 Rigidbody2D:
   serializedVersion: 4
@@ -224,10 +234,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa7934e37f1e25428abb065a65fdf77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: 10
+  enemy: 11
   _changeTime: 999999
   health: {fileID: 9176979572337478172}
-  animator: {fileID: 0}
+  animator: {fileID: 1480314106}
   DropPrefab: {fileID: 6666342357853280589, guid: c6a3c1db2790e9942a84ad99affe6b5a, type: 3}
 --- !u!212 &2105336844924485968
 SpriteRenderer:
@@ -291,7 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 40403095246131807}
   - component: {fileID: 40403095246131776}
-  - component: {fileID: 40403095246131777}
+  - component: {fileID: 1365274095131096489}
   m_Layer: 0
   m_Name: StartArea
   m_TagString: Untagged
@@ -340,7 +350,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.4523582, y: 3.7662344}
   m_EdgeRadius: 0
---- !u!114 &40403095246131777
+--- !u!114 &1365274095131096489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -349,7 +359,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 40403095246131806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c685b8f58a613f14a8ef27ec0370e452, type: 3}
+  m_Script: {fileID: 11500000, guid: 35fc21e34c9841998a8df76d406215fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2055176340611325256

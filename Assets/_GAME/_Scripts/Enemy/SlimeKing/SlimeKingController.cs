@@ -45,9 +45,6 @@ public class SlimeKingController : MonoBehaviour
             case 2:
                 Shoot();
                 break;
-            default:
-                Debug.Log("3");
-                break;
         }
     }
 
@@ -62,19 +59,16 @@ public class SlimeKingController : MonoBehaviour
 
     private void Jump()
     {
-        Debug.Log("jumped");
         rb.AddForce(new Vector2(playerDir * jumpX, jumpY));
     }
 
     private void Dash()
     {
-        Debug.Log("dashed");
         rb.AddForce(new Vector2(playerDir * dashX, dashY));
     }
 
     private void Shoot()
     {
-        Debug.Log("shot");
         rb.AddForce(new Vector2(playerDir * jumpShootX, jumpShootY));
 
         for (int i = 0; i < 3; i++)

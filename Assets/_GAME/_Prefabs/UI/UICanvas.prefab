@@ -18054,17 +18054,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: DetailInfoCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1693094023640480614, guid: a903bd26214293c478813489e9ff66f5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1693094024103979996, guid: a903bd26214293c478813489e9ff66f5, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1693094024103979996, guid: a903bd26214293c478813489e9ff66f5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 0.80579484
       objectReference: {fileID: 0}
     - target: {fileID: 1693094024103979996, guid: a903bd26214293c478813489e9ff66f5, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.60189205
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a903bd26214293c478813489e9ff66f5, type: 3}

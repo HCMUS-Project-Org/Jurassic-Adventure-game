@@ -16,16 +16,16 @@ public class PlayerMovement : MonoBehaviour
     private                  Animator         _animator;
 
     [SerializeField] private AudioClip _normalAtkSound, _rangeAtkSound, _dashSound, _jumpSound;
-    
-
 
 
     [SerializeField] private float _speed        = 5;
     [SerializeField] private float _jumpVelocity = 1;
     private                  float _movement     = 0f;
 
-    private bool _facingRight  = true;
-    private bool _moveRight    = true;
+    private bool _facingRight = true;
+
+    private bool _moveRight = true;
+
     // private bool _isCrouch     = false;
     private bool _isCrouchDash = false;
 
@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
                 _isCrouchDash = Input.GetKey(KeyCode.LeftShift);
             }
         }
-        
+
         // melee
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
@@ -96,7 +96,10 @@ public class PlayerMovement : MonoBehaviour
     {
         _dashing = true;
         var dashTime = .2f;
-        AudioControl.instance.PlaySound(_dashSound);
+        
+        if (AudioControl.instance != null)
+            AudioControl.instance.PlaySound(_dashSound);
+        
         while ((dashTime -= Time.deltaTime) > 0)
         {
             _rigidbody2d.velocity = new Vector2((transform.localScale.x * forceToAdd * (dashTime / .2f)) * (_facingRight ? 1 : -1), 0);

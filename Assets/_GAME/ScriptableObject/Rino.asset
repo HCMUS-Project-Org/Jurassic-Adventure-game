@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8c96a3adab4995a05c8f0751ef359d, type: 3}
   m_Name: Rino
   m_EditorClassIdentifier: 
-  image: {fileID: -866696882, guid: 7b908ccd1d522c34a878fb3880174d95, type: 3}
+  image: {fileID: -1279805870, guid: 9df6dc84b854c634abb5493804422b28, type: 3}
   name: Rino
-  height: 1 - 1.2m
-  length: 1 - 1.2m
-  weight: 1 kg
-  speed: 1 m/s
+  height: 2 - 3m
+  length: 2 - 3.2m
+  weight: 100 kg
+  speed: 17 m/s
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac
     urna sit amet dui cursus rutrum at nec ipsum. Praesent massa sem, mollis nec
     lectus quis, scelerisque convallis augue. Praesent finibus magna nulla, ut ornare

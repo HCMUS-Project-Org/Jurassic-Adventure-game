@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -13,6 +14,11 @@ public class PlayerMovement : MonoBehaviour
     private                  BoxCollider2D    _boxCollider2d;
     private                  Vector2          _lookDirection = new Vector2(1, 0);
     private                  Animator         _animator;
+
+    [SerializeField] private AudioClip _normalAtkSound, _rangeAtkSound, _dashSound, _jumpSound;
+    
+
+
 
     [SerializeField] private float _speed        = 5;
     [SerializeField] private float _jumpVelocity = 1;
@@ -45,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
                 _rigidbody2d.velocity = Vector2.up * _jumpVelocity;
                 _animator.SetBool("IsJump", true);
                 _animator.SetBool("IsRun", false);
+                AudioControl.instance.PlaySound(_jumpSound);
             }
 
             if (!_dashing)
@@ -61,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             _animator.SetTrigger("Melee");
+            AudioControl.instance.PlaySound(_normalAtkSound);
             StartCoroutine(EnableSwordHitbox());
         }
 
@@ -86,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _dashing = true;
         var dashTime = .2f;
+        AudioControl.instance.PlaySound(_dashSound);
         while ((dashTime -= Time.deltaTime) > 0)
         {
             _rigidbody2d.velocity = new Vector2((transform.localScale.x * forceToAdd * (dashTime / .2f)) * (_facingRight ? 1 : -1), 0);
@@ -195,6 +204,7 @@ public class PlayerMovement : MonoBehaviour
 
         // decrease mana
 
+        AudioControl.instance.PlaySound(_rangeAtkSound);
         _animator.SetTrigger("Launch");
     }
 }

@@ -374,9 +374,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'DinosAuR
+  m_text: 'Jurrasic
 
-    Slayer'
+    Adventure'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ebe0deec89a772488e548ff740d652b, type: 2}
   m_sharedMaterial: {fileID: 4232580838103314726, guid: 8ebe0deec89a772488e548ff740d652b, type: 2}
@@ -11951,19 +11951,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1855220100143446011, guid: 01938fb4193b6c54aa2e679f2d4a506a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1855220100143446011, guid: 01938fb4193b6c54aa2e679f2d4a506a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1855220100143446011, guid: 01938fb4193b6c54aa2e679f2d4a506a, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.79609716
       objectReference: {fileID: 0}
     - target: {fileID: 1855220100615268161, guid: 01938fb4193b6c54aa2e679f2d4a506a, type: 3}
       propertyPath: m_Name
       value: DetailInfoCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1855220100615268161, guid: 01938fb4193b6c54aa2e679f2d4a506a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1855220100615268162, guid: 01938fb4193b6c54aa2e679f2d4a506a, type: 3}
       propertyPath: m_Pivot.x

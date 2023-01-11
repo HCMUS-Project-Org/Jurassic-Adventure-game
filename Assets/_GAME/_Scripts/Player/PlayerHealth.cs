@@ -14,6 +14,8 @@ public class PlayerHealth : MonoBehaviour
     private                  GameController        _gameController;
     private                  Rigidbody2D           _rigidbody2d;
 
+    [SerializeField] private AudioClip _hurtSound;
+
     public Instruction manaAnnounce;
 
     private float _timerDisplay;
@@ -49,14 +51,14 @@ public class PlayerHealth : MonoBehaviour
         {
             amount += defense;
             amount =  Mathf.Min(amount, 0);
-            
+
             // case die
-            if (currentHealth <= 1) 
+            if (currentHealth <= 1)
             {
                 PlayerController.currentLife -= 1;
 
                 // show die count down
-                if (PlayerController.currentLife > 0) 
+                if (PlayerController.currentLife > 0)
                     _gameController.ShowDieCountDown();
 
                 // Die animate
@@ -66,9 +68,12 @@ public class PlayerHealth : MonoBehaviour
                 _animator.SetTrigger("Die");
 
                 amount = -9999;
-            } 
-            else 
-                _animator.SetTrigger("Hurt");
+            }
+            else
+            {
+                AudioControl.instance.PlaySound(_hurtSound);
+                _animator.SetTrigger("Hurt"); 
+            }
         }
 
         // set value

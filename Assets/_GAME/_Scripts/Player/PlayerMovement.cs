@@ -51,7 +51,8 @@ public class PlayerMovement : MonoBehaviour
                 _rigidbody2d.velocity = Vector2.up * _jumpVelocity;
                 _animator.SetBool("IsJump", true);
                 _animator.SetBool("IsRun", false);
-                AudioControl.instance.PlaySound(_jumpSound);
+                if (AudioControl.instance != null)
+                    AudioControl.instance.PlaySound(_jumpSound);
             }
 
             if (!_dashing)
@@ -68,7 +69,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             _animator.SetTrigger("Melee");
-            AudioControl.instance.PlaySound(_normalAtkSound);
+            if (AudioControl.instance != null)
+                AudioControl.instance.PlaySound(_normalAtkSound);
             StartCoroutine(EnableSwordHitbox());
         }
 
@@ -203,8 +205,8 @@ public class PlayerMovement : MonoBehaviour
         projectile.Launch(_lookDirection, 1000);
 
         // decrease mana
-
-        AudioControl.instance.PlaySound(_rangeAtkSound);
+        if (AudioControl.instance != null)
+            AudioControl.instance.PlaySound(_rangeAtkSound);
         _animator.SetTrigger("Launch");
     }
 }

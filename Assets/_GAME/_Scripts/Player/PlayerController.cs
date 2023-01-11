@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour {
     private                  EquipmentManager _equipmentManager;
     private                  Character _character;
 
-    public static int budget = 100;
+    public static int budget = 0;
     public static int maxLife = 3;
     public static int currentLife = maxLife;
     public static int score = 0;

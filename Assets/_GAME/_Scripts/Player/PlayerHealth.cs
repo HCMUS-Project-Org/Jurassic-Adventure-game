@@ -71,7 +71,8 @@ public class PlayerHealth : MonoBehaviour
             }
             else
             {
-                AudioControl.instance.PlaySound(_hurtSound);
+                if(AudioControl.instance != null)
+                    AudioControl.instance.PlaySound(_hurtSound);
                 _animator.SetTrigger("Hurt"); 
             }
         }

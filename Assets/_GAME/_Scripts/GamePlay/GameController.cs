@@ -163,6 +163,7 @@ public class GameController : MonoBehaviour {
 
         _pauseMenuUI.SetActive(false);
         _levelCompleteUI.SetActive(true);
+        enabled = false;
     }
 
 
@@ -288,7 +289,7 @@ public class GameController : MonoBehaviour {
         _confirmExitUI.SetActive(false);
         _zoomCameraController.SetActive(false);
         _libraryPanel.SetActive(false);
-        
+
         _player.SetActive(true);
 
         Time.timeScale = 1f;

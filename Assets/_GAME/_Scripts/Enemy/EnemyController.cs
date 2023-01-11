@@ -92,6 +92,22 @@ public class EnemyController : MonoBehaviour
         Enemy.Minotaur  => 0f,
     };
 
+    private int GetEnemyScore() => enemy switch
+    {
+        Enemy.Bunny     => 10,
+        Enemy.Ghost     => 15,
+        Enemy.AngryBird => 20,
+        Enemy.Bat       => 25,
+        Enemy.Chamelon  => 30,
+        Enemy.Chicken   => 35,
+        Enemy.Mushroom  => 40,
+        Enemy.Radish    => 45,
+        Enemy.Rino      => 50,
+        Enemy.Rock      => 50,
+        Enemy.SlimeKing => 75,
+        Enemy.Minotaur  => 60,
+    };
+
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -163,6 +179,10 @@ public class EnemyController : MonoBehaviour
     public void Died()
     {
         ChangeEnemyState(EnemyState.Death);
+
+        PlayerController.score += GetEnemyScore();
+        
+        print("Enemy Died - Score:" + PlayerController.score);
     }
 
     private void Flip()

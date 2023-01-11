@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour {
     [SerializeField] private Sprite           _pauseBtnImg, _resumeBtnImg;
     [SerializeField] private UIInventory      _inventoryMenu;
     [SerializeField] private TMPro.TextMeshProUGUI _countDownText;
+    [SerializeField] private TMPro.TextMeshProUGUI _scoreText;
     private                  InventoryManager _inventoryManager;
     private                  EquipmentManager _equipmentManager;
 
@@ -33,7 +34,6 @@ public class GameController : MonoBehaviour {
     private float _timeRemaining;
 
     public static bool _isPlayerRevival = false;
-    public static int currentLevel = 1;
 
     void Start() {
         _inventoryManager = FindObjectOfType(typeof(InventoryManager)) as InventoryManager;
@@ -43,6 +43,9 @@ public class GameController : MonoBehaviour {
     }
 
     void Update() {
+        // update score
+        _scoreText.text = PlayerController.score.ToString();
+
         // time count down
         if (_timerIsRunning)
         {
@@ -160,6 +163,20 @@ public class GameController : MonoBehaviour {
     public void ShowLevelCompleteUI() {
         ResumeGame();
         PauseGame();
+
+        // time score
+        if (Timer.time <= 60)
+            PlayerController.score += 200;
+        else if (Timer.time > 60 && Timer.time <= 120)
+            PlayerController.score += 150;
+        else  
+            PlayerController.score += 50;
+
+        // count score
+        PlayerController.score += 200 + PlayerController.currentLife * 50;
+
+        // update score
+        _scoreText.text = PlayerController.score.ToString();
 
         _pauseMenuUI.SetActive(false);
         _levelCompleteUI.SetActive(true);

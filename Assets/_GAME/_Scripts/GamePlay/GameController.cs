@@ -69,7 +69,7 @@ public class GameController : MonoBehaviour {
         // Pause game
         if (Input.GetKeyDown(KeyCode.P))
         {
-            if (_isOpenShop || _isConfirmExit || _isOpenInventory || _isOpenMap)
+            if (_isOpenShop || _isConfirmExit || _isOpenInventory || _isOpenMap || _isOpenLibrary)
                 PauseGame();
             else if (_isGamePaused)
                 ResumeGame();
@@ -114,32 +114,6 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    private void OpenLibrary()
-    {
-        _libraryPanel.SetActive(true);
-        _isOpenLibrary = true;
-    }
-
-    public void PassLevel() {
-        ShowLevelCompleteUI();
-    }
-
-    public void ShowLevelCompleteUI() {
-        ResumeGame();
-        PauseGame();
-
-        _pauseMenuUI.SetActive(false);
-        _levelCompleteUI.SetActive(true);
-    }
-
-    public void ShowLevelFailedUI() {
-        ResumeGame();
-        PauseGame();
-
-        _pauseMenuUI.SetActive(false);
-        _levelFailedUI.SetActive(true);
-    }
-
 
     public void ShowDieCountDown() {
         _dieCountDowndUI.SetActive(true);
@@ -174,8 +148,6 @@ public class GameController : MonoBehaviour {
         Animator _playerAnimator = _player.GetComponent<Animator>();
         _playerAnimator.SetTrigger("Revival");
         _isPlayerRevival = true;
-
-        
     }
 
 
@@ -184,6 +156,23 @@ public class GameController : MonoBehaviour {
         _countDownText.text = seconds.ToString();
     }
 
+
+    public void ShowLevelCompleteUI() {
+        ResumeGame();
+        PauseGame();
+
+        _pauseMenuUI.SetActive(false);
+        _levelCompleteUI.SetActive(true);
+    }
+
+
+    public void ShowLevelFailedUI() {
+        ResumeGame();
+        PauseGame();
+
+        _pauseMenuUI.SetActive(false);
+        _levelFailedUI.SetActive(true);
+    }
 
 
     public void ConfirmExitGame()
@@ -195,6 +184,15 @@ public class GameController : MonoBehaviour {
         _confirmExitUI.SetActive(true);
 
         _isConfirmExit = true;
+    }
+
+
+    public void OpenLibrary() {
+        ResumeGame();
+        PauseGame();
+
+        _libraryPanel.SetActive(true);
+        _isOpenLibrary = true;
     }
 
 
@@ -268,7 +266,6 @@ public class GameController : MonoBehaviour {
         _pauseBtn.GetComponent<Image>().sprite = _resumeBtnImg;
 
         _player.SetActive(false);
-
         _pauseMenuUI.SetActive(true);
 
         Time.timeScale = 0f;
@@ -290,8 +287,8 @@ public class GameController : MonoBehaviour {
         _mapUI.SetActive(false);
         _confirmExitUI.SetActive(false);
         _zoomCameraController.SetActive(false);
-        _libraryPanel.SetActive(true);
-
+        _libraryPanel.SetActive(false);
+        
         _player.SetActive(true);
 
         Time.timeScale = 1f;

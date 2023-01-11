@@ -11949,6 +11949,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1970819785}
     m_Modifications:
+    - target: {fileID: 1855220100143446011, guid: 01938fb4193b6c54aa2e679f2d4a506a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1855220100143446011, guid: 01938fb4193b6c54aa2e679f2d4a506a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1855220100143446011, guid: 01938fb4193b6c54aa2e679f2d4a506a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1855220100615268161, guid: 01938fb4193b6c54aa2e679f2d4a506a, type: 3}
       propertyPath: m_Name
       value: DetailInfoCanvas

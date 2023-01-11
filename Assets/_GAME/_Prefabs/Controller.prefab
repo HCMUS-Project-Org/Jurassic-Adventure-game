@@ -61,6 +61,7 @@ MonoBehaviour:
   _resumeBtnImg: {fileID: 157381419, guid: 680a8ac79f003b74d984831c229b31ca, type: 3}
   _inventoryMenu: {fileID: 0}
   _countDownText: {fileID: 0}
+  _libraryPanel: {fileID: 0}
   _level: 0
 --- !u!1 &708543619814795097
 GameObject:

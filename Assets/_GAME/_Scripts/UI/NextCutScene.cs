@@ -18,8 +18,9 @@ public class NextCutScene : MonoBehaviour, IPointerDownHandler {
 
 
     void Awake() {
-        _sceneText = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();    
-        _fullText =  _sceneText.GetComponent<TypeWriterEffect>().fullText;
+        _sceneText = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();
+        _fullText = _sceneText.GetComponent<TypeWriterEffect>().fullText;
+            
     }
 
     private void NextScene() {
@@ -37,17 +38,19 @@ public class NextCutScene : MonoBehaviour, IPointerDownHandler {
             // stop TypeWriterEffect script
             _sceneText.GetComponent<TypeWriterEffect>().StopTypeWriterCorountine();
 
-            if (_fullText.Equals(_sceneText.text)) {
+            if (_fullText.Equals(_sceneText.text))
+            {
                 NextScene();
             }
-            else {
+            else
+            {
                 _sceneText.text = _fullText;
-                
+
                 // stop sound
                 GameObject.Find("Voice").GetComponent<AudioSource>().enabled = false;
             }
-            
-        } 
+
+        }
         else {
             NextScene();
         }

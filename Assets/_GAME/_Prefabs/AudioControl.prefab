@@ -176,7 +176,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 419d50a51f7f0244ba7e1124582e9665, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1
@@ -323,12 +323,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musicSource: {fileID: 7444851260251685315}
   _effectSource: {fileID: 7444851259321014433}
-  _zero: {fileID: 21300000, guid: a7b88b9dc1dbf7f4f8d9cead66a482e1, type: 3}
-  _twenty: {fileID: 21300000, guid: dbc8300a070d9df4d8c5b0ac03f9c3e7, type: 3}
-  _fourty: {fileID: 21300000, guid: 04128c7500e38b64faf74643913b9b64, type: 3}
-  _sixty: {fileID: 21300000, guid: 01730da08dc504144adca0222fade5a1, type: 3}
-  _eighty: {fileID: 21300000, guid: 4b0c2dc1e0bedfb4ab85d06b9d08a316, type: 3}
-  _hunderd: {fileID: 21300000, guid: 65d6ffb17c9f68141bc342bf9d7c7c9e, type: 3}
 --- !u!114 &7444851260305400010
 MonoBehaviour:
   m_ObjectHideFlags: 0

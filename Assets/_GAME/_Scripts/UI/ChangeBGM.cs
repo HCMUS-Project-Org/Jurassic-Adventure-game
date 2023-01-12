@@ -6,7 +6,7 @@ public class ChangeBGM : MonoBehaviour
 {
     [SerializeField] private AudioClip Music;
 
-    private void Awake()
+    private void Start()
     {
         LoadMusic();
     }

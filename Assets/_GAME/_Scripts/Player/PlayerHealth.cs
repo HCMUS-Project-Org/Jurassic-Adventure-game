@@ -40,10 +40,10 @@ public class PlayerHealth : MonoBehaviour
         _healthShow.text = "Health: " + currentHealth;
     }
 
-    // private void Update()
-    // {
-    //     _healthShow.text = "Health: " + currentHealth;
-    // }
+    private void Update()
+    {
+        _healthShow.text = "Health: " + currentHealth;
+    }
 
     public void ChangeHealth(int amount)
     {

@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour {
     [SerializeField] private Sprite           _pauseBtnImg, _resumeBtnImg;
     [SerializeField] private UIInventory      _inventoryMenu;
     [SerializeField] private TMPro.TextMeshProUGUI _countDownText;
-    [SerializeField] private TMPro.TextMeshProUGUI _scoreText;
+    [SerializeField] private TMPro.TextMeshProUGUI _scoreText, _exitScoreText;
     private                  InventoryManager _inventoryManager;
     private                  EquipmentManager _equipmentManager;
 
@@ -177,6 +177,7 @@ public class GameController : MonoBehaviour {
 
         // update score
         _scoreText.text = PlayerController.score.ToString();
+        _exitScoreText.text = PlayerController.score.ToString();
 
         _pauseMenuUI.SetActive(false);
         _levelCompleteUI.SetActive(true);

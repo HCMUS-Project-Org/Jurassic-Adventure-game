@@ -13225,6 +13225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onKey: 49
+  _useItemSound: {fileID: 8300000, guid: 1e5f200bba1300f44b0b04b857602a12, type: 3}
 --- !u!224 &9120642511153362149 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8679585241486528591, guid: 8b694ceb6baa3f44e8a92c5348d87181, type: 3}
@@ -13678,6 +13679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onKey: 50
+  _useItemSound: {fileID: 8300000, guid: 1e5f200bba1300f44b0b04b857602a12, type: 3}
 --- !u!224 &8437762489451932082 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8679585241486528591, guid: 8b694ceb6baa3f44e8a92c5348d87181, type: 3}
@@ -17842,6 +17844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onKey: 51
+  _useItemSound: {fileID: 8300000, guid: 1e5f200bba1300f44b0b04b857602a12, type: 3}
 --- !u!224 &8437762488180839932 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8679585241486528591, guid: 8b694ceb6baa3f44e8a92c5348d87181, type: 3}

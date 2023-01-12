@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
 
     private float _timerDisplay;
 
-    public static int maxHealth = 10;
+    public static int maxHealth = 2;
     public static int currentHealth;
     public int maxMana = 10;
     public int currentMana;
@@ -40,10 +40,10 @@ public class PlayerHealth : MonoBehaviour
         _healthShow.text = "Health: " + currentHealth;
     }
 
-    // private void Update()
-    // {
-    //     _healthShow.text = "Health: " + currentHealth;
-    // }
+    private void Update()
+    {
+        _healthShow.text = "Health: " + currentHealth;
+    }
 
     public void ChangeHealth(int amount)
     {

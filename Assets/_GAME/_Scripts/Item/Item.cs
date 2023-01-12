@@ -108,6 +108,7 @@ public class Item : MonoBehaviour
                 PlayerHealth.RegenMana();
                 break;
             case Type.Experience:
+                PlayerEXP.GainedEXP?.Invoke(10);
                 break;
             case Type.Life:
                 PlayerHealth.RegenLife();

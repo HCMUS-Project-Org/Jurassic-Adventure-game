@@ -13941,7 +13941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1855220100143446011, guid: 01938fb4193b6c54aa2e679f2d4a506a, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.79609716
+      value: 0.7960972
       objectReference: {fileID: 0}
     - target: {fileID: 1855220100615268161, guid: 01938fb4193b6c54aa2e679f2d4a506a, type: 3}
       propertyPath: m_Name
@@ -14035,10 +14035,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2432975712772753830, guid: 01938fb4193b6c54aa2e679f2d4a506a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695612420357327018, guid: 01938fb4193b6c54aa2e679f2d4a506a, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2818659025295231280, guid: 01938fb4193b6c54aa2e679f2d4a506a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1827990498}
+    - target: {fileID: 4548183906437240801, guid: 01938fb4193b6c54aa2e679f2d4a506a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01938fb4193b6c54aa2e679f2d4a506a, type: 3}
 --- !u!1001 &2072973005402839322

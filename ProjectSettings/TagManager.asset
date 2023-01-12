@@ -12,6 +12,7 @@ TagManager:
   - Name
   - OneWayPlatform
   - CheckPoint
+  - LevelCompleteUI
   layers:
   - Default
   - TransparentFX

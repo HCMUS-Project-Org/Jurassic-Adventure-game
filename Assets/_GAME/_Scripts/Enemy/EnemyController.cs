@@ -38,6 +38,7 @@ public class EnemyController : MonoBehaviour
     private int _direction = 1;
 
     private Rigidbody2D _rigidbody2D;
+    private GameController _gameController;
 
     public                   EnemyHealth health;
     [SerializeField] private Animator    animator;
@@ -113,6 +114,7 @@ public class EnemyController : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _speed       = GetEnemySpeed();
         _changeTime  = GetChangeTime();
+        _gameController = FindObjectOfType(typeof(GameController)) as GameController; 
 
         _timer = _changeTime;
         animator.SetTrigger(enemy.ToString());
@@ -181,6 +183,9 @@ public class EnemyController : MonoBehaviour
         ChangeEnemyState(EnemyState.Death);
 
         PlayerController.score += GetEnemyScore();
+
+        if (enemy is Enemy.SlimeKing or Enemy.Minotaur) 
+            _gameController.ShowLevelCompleteUI();
         
         print("Enemy Died - Score:" + PlayerController.score);
     }

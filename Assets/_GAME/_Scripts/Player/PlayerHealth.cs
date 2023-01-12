@@ -14,13 +14,13 @@ public class PlayerHealth : MonoBehaviour
     private                  GameController        _gameController;
     private                  Rigidbody2D           _rigidbody2d;
 
-    [SerializeField] private AudioClip _hurtSound;
+    [SerializeField] private AudioClip _hurtSound, _lackManaSound;
 
     public Instruction manaAnnounce;
 
     private float _timerDisplay;
 
-    public static int maxHealth = 2;
+    public static int maxHealth = 100;
     public static int currentHealth;
     public int maxMana = 10;
     public int currentMana;
@@ -93,6 +93,8 @@ public class PlayerHealth : MonoBehaviour
         if (amount < 0 && currentMana <= 0)
         {
             Debug.Log("Out mana");
+            if (AudioControl.instance != null)
+                AudioControl.instance.PlaySound(_lackManaSound);
             manaAnnounce.DisplayDialog();
             return;
         }

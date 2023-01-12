@@ -8,10 +8,14 @@ public class UseItem : MonoBehaviour
     [SerializeField] private KeyCode onKey;
     // [SerializeField] private ItemSlot item;
 
+    [SerializeField] private AudioClip _useItemSound;
+
     private void Update()
     {
         if (Input.GetKeyDown(onKey))
         {
+            if (AudioControl.instance != null)
+                AudioControl.instance.PlaySound(_useItemSound);
             Use();
         }
     }

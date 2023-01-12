@@ -336,6 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 0}
   _hurtSound: {fileID: 8300000, guid: e21b3a110a63d0241acf49450c983500, type: 3}
+  _lackManaSound: {fileID: 8300000, guid: 42e6ea4870fe96c43aa5602093e32165, type: 3}
   manaAnnounce: {fileID: 0}
   maxMana: 10
   currentMana: 10

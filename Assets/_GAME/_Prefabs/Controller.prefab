@@ -62,6 +62,7 @@ MonoBehaviour:
   _inventoryMenu: {fileID: 0}
   _countDownText: {fileID: 0}
   _scoreText: {fileID: 0}
+  _exitScoreText: {fileID: 0}
   _libraryPanel: {fileID: 0}
   _level: 0
 --- !u!1 &708543619814795097
@@ -671,7 +672,7 @@ PrefabInstance:
     - target: {fileID: 5581129397700769698, guid: 357677a205289ff4eb47d73dfc568086, type: 3}
       propertyPath: Music
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 5909deb50a220394bb98d7bfc228b5fa, type: 3}
     - target: {fileID: 5581129397700769699, guid: 357677a205289ff4eb47d73dfc568086, type: 3}
       propertyPath: m_RootOrder
       value: 8

@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_GAME/_Scenes/Maps/Map 3.unity
     guid: 5130622eca90abf4eae871374f2e6812
+  - enabled: 1
+    path: Assets/_GAME/_Scenes/Cutscenes/Ending.unity
+    guid: 5114e3319b58bdf439bcd1899414a8f1
   m_configObjects: {}

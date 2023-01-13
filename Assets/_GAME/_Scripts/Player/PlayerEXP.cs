@@ -8,7 +8,7 @@ public class PlayerEXP : MonoBehaviour
     private Slider   EXPSlider;
     private TMP_Text LevelText;
 
-    private static readonly int[] EXPLevels    = { 0, 3, 7, 12, 20 };
+    private static readonly int[] EXPLevels    = { 0, 3, 7, 12, 20, 30, 50, 70, 90, 150, 300, 500, 1000};
     private                 int   currentEXP   = 0;
     public                  int   currentLevel { get; private set; } = 1;
 

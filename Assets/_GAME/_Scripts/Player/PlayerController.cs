@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private GameObject _uiInventory;
     private                  InventoryManager _inventoryManager;
     private                  EquipmentManager _equipmentManager;
+    private                  GameController _gameController;
     private                  Character _character;
 
     public static int budget = 0;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour {
 
     void Start() {
         _character = FindObjectOfType(typeof(Character)) as Character; 
+        _gameController = FindObjectOfType(typeof(GameController)) as GameController;
 
         _uiInventory.SetActive(true);
         _inventoryManager = new InventoryManager();
@@ -38,6 +40,7 @@ public class PlayerController : MonoBehaviour {
 
         SetCharacter(ChooseCharacter.characterType);
 
+        _gameController.ResumeGame();
     }
 
 

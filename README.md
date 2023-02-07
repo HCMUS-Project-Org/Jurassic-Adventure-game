@@ -1,15 +1,11 @@
 # Jurassic adventure
 
 ## Title Page
-
----
-
 -  **Game name**: Jurassic adventure
 -  **Game proposal**: [Game_proposal](https://docs.google.com/document/d/1p_IGeP_Mr3taNFq2qc1ICmGa0skT0_38TgM1tK2BNxc/edit?usp=sharing)
 -  **Tag line**: `Side scroll shooting`
 
 ## Game overview
-
 -  **Game concept**: Jurassic Adventure is a side scroll shooting game which is travel
    in the Prehistoric age.
 -  **Description**: Players take the role of character, travel through space to prehistoric
@@ -20,19 +16,16 @@
 -  **Platform**: `PC`
 
 ## Technology
-
 -  **Unity Version**: `2021.3.6f1`
 
 ## About us
 
 ### Project
-
 -  **Subject**: Game Development
 -  **Class**: 19KTPM1
 -  **University**: VNU - HCMc University of Science
 
 ### Members
-
 | Student code | Name                  | Email                            |
 | ------------ | --------------------- | -------------------------------- |
 | 19127505     | Trieu Nguyen Phat     | nguyenphatr1@gmail.com           |
